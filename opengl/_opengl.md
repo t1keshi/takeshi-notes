@@ -3,5 +3,6 @@
 Table of Contents
 
 [Introduction](intro.md)  
-[Rendering pipeline](pipeline.md)  
+[Rendering Pipeline](pipeline.md)  
+[Viewing Model](viewing.md)
 [OpenGL History](history.md)  
