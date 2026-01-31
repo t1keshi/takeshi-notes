@@ -23,23 +23,41 @@ Além de transformar as coordenadas de um sistema de coordenadas para outro, as 
 
 # Transformações Lineares
 
-O maior benefício do uso de transformações lineares para resolver o nosso problema é a sua simplicidade na aplicação. Todas as operações envolve apenas multiplicação de matrizes 4x4. Apesar da simplicidade, estas transformações permitem:
+O maior benefício do uso de transformações lineares para resolver o nosso problema é a sua simplicidade na aplicação. Todas as operações envolve apenas multiplicação de matrizes. Apesar dessa simplicidade, estas transformações permitem:
 
-- Posicionar, rotacionar e alterar o tamanho dos modelos em uma cena através da multiplicação de matrizes   
-- Orientar a cena na frente do visualizador através da multiplicação de matrizes  
-- Aplicar efeitos de perspectivas através da multiplicação de matrizes  
-- Múltiplas multiplicações de matrizes podem ser compostas em apenas uma única matriz  
-- Transformar as coordenadas para NDC através da divisão de perspectiva  
+- Posicionar, rotacionar e alterar o tamanho dos modelos em uma cena através da multiplicação de matrizes 
+- Orientar a cena na frente do visualizador através da multiplicação de matrizes
+- Aplicar efeitos de perspectiva através da multiplicação de matrizes
+- Compor múltiplas multiplicações de matrizes em apenas uma única matriz
+- Transformar as coordenadas para NDC através da divisão de perspectiva
 
 Um modelo geométrico tridimensional é descrito através de um conjunto de vértices (x, y, z) definidos em um espaço conhecido como **local-space**.
 
 Para posicionar modelos geométricos em uma cena devemos transformar seus vértices (x, y, z) de **local-space** para **world-space** (_model transform_) multiplicando as coordenadas dos vértices pelas matrizes transformação linear: translação, rotação e escala.
 
-Para posicionar e orientar a cena em frente ao visualizador (camera) transformamos os vértices que estão em **world-space** para **eye-space** (_view transform_) também multiplicando as coordenadas dos vértices pelas matrizes de transformação linear. É possível utilizar também uma matriz que encapsula todas as operações chamada de **LookAt**.
+```
+   vec4 vertexPosition = vec4(x, y, z, 1);
+   mat4 transformMatrix;
+   ...
+   vPosition = transformMatrix * vertexPosition;
+```
 
-> **Nota**: As duas transformações acima transformam as coordenadas da mesma forma mas em direções opostas. Elas podem ser encapsuladas em uma única transformação chamada **model-view transform**. Entretanto, deixar estas trasnformações separadas permitem aplicar algoritimos de iluminação e sombreamento.
+Para aplicar a transformação linear nas coordenadas (x, y, z), é necessário que as matrizes sejam 4x4 para encapsular a operação de translação através da multiplicação de matrizes. Consequentemente, para que seja possível a=esta multiplicação, é necessário incluir uma **nova coordenada (w)** para as coordenadas formando um vetor 1x4:
 
-Para aplicar efeito de perspectiva e definir o tamanho do frustrum, transformamos os vértices que estão em **eye-space** para **clip-coordinates space** (_projection transform_) multiplicando os vértices que estão em eye-space pelas matrizes de projeção.
+```
+ [a b c d] . (x)    (ax + by + cz + dw)
+ [e f g h] . (y) -> (ex + fy + gz + hw)
+ [i j k l] . (z)    (ix + jy + kz + lw)
+ [m n p q] . (w)    (mx + ny + pz + qw)
+```
+
+Uma coordenada com 4 componentes (x, y, z, w) é chamado de **coordenada homogênea**. Para transformar uma coordenada cartesiana (x, y, z) basta acrescentar o **componente w** com o valor 1. Além de permitir a multiplicação pela matriz 4x4, o componente w será essencial para a **divisão de perspectiva**. OpenGL utilizará este valor para transformar a coordenada homogênea de volta para coordenada cartesiana (NDC) através da divisão ```(x/w, y/w, z/w)```. O valor de w será transformado após a multiplicação pela matriz de projeção.
+
+Para posicionar e orientar a cena em frente ao observador (camera) transformamos os vértices que estão em **world-space** para **eye-space** (_view transform_) multiplicando as coordenadas dos vértices pelas matrizes de transformação linear: translação, rotação e escala. É possível utilizar também uma matriz que encapsula todas as operações chamada de **LookAt**.
+
+> **Nota**: As duas transformações acima transformam as coordenadas da mesma forma mas em direções opostas. Elas podem ser encapsuladas em uma única transformação chamada **model-view transform**. Entretanto, deixar estas trasnformações separadas permite aplicar cálculos de iluminação e sombreamento.
+
+Para aplicar efeito de perspectiva e definir o tamanho do frustrum, transformamos os vértices que estão em **eye-space** para **clip-coordinates space** (_projection transform_) multiplicando os vértices que estão em eye-space pelas matrizes de projeção. Novamente, é nesta transformação que produzirá o novo valor para a coordenada w que permitirá a divisão de perspectiva.
 
 ```
    vPostion = projectionMatrix * viewMatrix * modelMatrix * vertexPosition;
