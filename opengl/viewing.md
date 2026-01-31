@@ -25,11 +25,11 @@ Além de transformar as coordenadas de um sistema de coordenadas para outro, as 
 
 O maior benefício do uso de transformações lineares para resolver o nosso problema é a sua simplicidade na aplicação. Todas as operações envolve apenas multiplicação de matrizes 4x4. Apesar da simplicidade, estas transformações permitem:
 
-- Posicionar, rotacionar e alterar o tamanho dos modelos em uma cena através da multiplicação de matrizes 
-- Orientar a cena na frente do visualizador através da multiplicação de matrizes
-- Aplicar efeitos de perspectivas através da multiplicação de matrizes
-- Encapsular todas as operações de matrizes em apenas uma única matriz
-- Transformar as coordenadas para NDC através da divisão de perspectiva
+- Posicionar, rotacionar e alterar o tamanho dos modelos em uma cena através da multiplicação de matrizes   
+- Orientar a cena na frente do visualizador através da multiplicação de matrizes  
+- Aplicar efeitos de perspectivas através da multiplicação de matrizes  
+- Múltiplas multiplicações de matrizes podem ser compostas em apenas uma única matriz  
+- Transformar as coordenadas para NDC através da divisão de perspectiva  
 
 Um modelo geométrico tridimensional é descrito através de um conjunto de vértices (x, y, z) definidos em um espaço conhecido como **local-space**.
 
