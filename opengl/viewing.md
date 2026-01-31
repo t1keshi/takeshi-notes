@@ -52,6 +52,14 @@ Antes de iniciar a rasterização, OpenGL realiza implicitamente a **divisão de
 
 # Projeção Perspectiva
 
+**Projection transform** tem como objetivo definir o **volume de visualização** - um cone retangular conhecido como **frustum** - onde os objetos que estiverem dentro dele poderão ser exibidos na imagem final e, obviamente, os objetos que estiverem fora, serão descartados (processo também conhecido como **culling**). Dependendo do tipo de projeção, os objetos que estiverem mais próximos do visualizador (camera) serão maiores do que objetos que estiverem mais distantes, criando o efeito de perspectiva.
+
+Esta etapa também irá produzir o valor de W (a quarta coordenada homogênea) necessária para que OpenGL possa transformar (_implicitamente_) as coordenadas homogêneas de volta para as coordenadas cartesianas em NDC chamada de **divisão de perspectiva**.
+
+O frustum possui dois planos adicionais (**near plane** e **far plane**) que intersectam o frustum para eliminar objetos que estão muito próximo da ponta do cone (mais especificamente na frente de near plane) e que estão muito longe (mais especificamente atrás de far plane). Isto resolve vários problemas onde objetos ficam infinitamente grandes, precisão de profundidade (depth precision) e também em questão de desempenho.
+
+A projeção ortográfica é um tipo de projeção onde o tamanho dos objetos não é alterado de acordo com a distância do observador. Em geral, é possível conseguir este efeito apenas ignorando um dos eixos x, y ou z utilizando transformações lineares. Entretanto, ainda precisamos do valor de W e do frustum para que OpenGL consiga realizar a divisão de perspectiva e clipping.
+
 
 # Referências
 
