@@ -76,17 +76,17 @@ Estas transformações devem ser realizadas pela aplicação, normalmente nos sh
 
 A matriz de projeção encapsula as seguintes operações:
 
-- criação a área de visuaização (cone retangular dividido em 6 planos conehcido como **frustrum**) - possibilita culling e clipping
+- criação do volume de visualização (cone retangular dividido em 6 planos conhecido como **frustum**) - possibilita culling e clipping
 - transformação de _eye-space_ para _clip-space_
 - geração do valor da coordenada w para divisão de perspectiva
 
-Conceitualmente, **projection trasnform** cria um cone retangular conhecido como **frustum** - onde os objetos que estiverem dentro dele são exibidos na imagem final e, obviamente, os objetos que estiverem fora, serão descartados (processo também conhecido como **culling**). Dependendo do tipo de projeção, os objetos que estiverem mais próximos do observador (camera) serão maiores do que objetos que estiverem mais distantes, criando o efeito de perspectiva. O frustum define as variáves (near, t, b, l, r) necessárias para o processo de clipping pelo OpenGL.
+Conceitualmente, **projection trasnform** cria um cone retangular conhecido como **frustum** - onde os objetos que estiverem dentro dele são exibidos na imagem final e, obviamente, os objetos que estiverem fora, serão descartados (processo também conhecido como **culling**). Dependendo do tipo de projeção, após a divisão de perspectiva, os objetos que estiverem mais próximos do observador serão maiores do que objetos que estiverem mais distantes, criando o efeito de perspectiva. O frustum define as variáves (near, t, b, l, r) necessárias para o processo de clipping pelo OpenGL.
+
+O frustum possui dois planos adicionais (**near plane** e **far plane**) que intersectam o frustum para eliminar objetos que estão muito próximo da ponta do cone (mais especificamente na frente de near plane) e que estão muito longe (mais especificamente atrás de far plane). Isto resolve vários problemas onde objetos ficam infinitamente grandes, precisão de profundidade (depth precision) e também questões de desempenho.
 
 O observador (viewpoint) está sempre em (0, 0, 0) olhando para a direção positiva do eixo z.
 
 Esta etapa também irá produzir o valor de **w** (a quarta coordenada homogênea) necessária para que OpenGL possa transformar (_implicitamente_) as coordenadas homogêneas de volta para as coordenadas cartesianas em NDC chamada de **divisão de perspectiva**.
-
-O frustum possui dois planos adicionais (**near plane** e **far plane**) que intersectam o frustum para eliminar objetos que estão muito próximo da ponta do cone (mais especificamente na frente de near plane) e que estão muito longe (mais especificamente atrás de far plane). Isto resolve vários problemas onde objetos ficam infinitamente grandes, precisão de profundidade (depth precision) e também questões de desempenho.
 
 A **projeção ortográfica** é um tipo de projeção onde o tamanho dos objetos não é alterado de acordo com a distância do observador. Em geral, é possível conseguir este efeito apenas ignorando um dos eixos x, y ou z utilizando transformações lineares. Entretanto, ainda precisamos do valor de W e do frustum para que OpenGL consiga realizar a divisão de perspectiva e clipping.
 
