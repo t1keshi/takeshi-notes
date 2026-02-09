@@ -32,7 +32,7 @@ Segue a lista de versões da especificação de C++:
 - ISO/IEC 14882:2020 (C++20 ou C++2a)
 - ISO/IEC 14882:2024(E)
 
-> **Nota:**  A linguagem **C++03** é essencialmente a mesmo que **C++98**. Ela contém apenas "bug fixes".
+> **Nota:**  A linguagem **C++03** é essencialmente a mesma que **C++98**. Ela contém apenas "bug fixes".
 
 Outro recurso online muito útil para referência pode ser encontrado em [https://en.cppreference.com/w/cpp](https://en.cppreference.com/w/cpp).
 
