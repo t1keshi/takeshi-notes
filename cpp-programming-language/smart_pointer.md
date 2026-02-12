@@ -1,6 +1,6 @@
 [Home](_cpp.md)  
 
-# Smart Pointer
+# Smart Pointer [under construction]
 
 # ```std::unique_ptr<TYPE>```
 
