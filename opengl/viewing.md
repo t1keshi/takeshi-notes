@@ -2,49 +2,54 @@
 
 # Método de Visualização 3D
 
-O objetivo principal do **método de visualização** é projetar modelos geométricos de um espaço tridimensional para um plano bidimensional (_screen coordinates_) da tela.
+O objetivo principal do **método de visualização** é projetar modelos geométricos tridimensionais em um plano bidimensional.
 
-O algoritmo de **rasterização** de OpenGL é responsável por gerar os pixels correspondentes aos modelos geométricos que serão exibidos na tela. Entretanto, este algoritmo precisa que todos os pontos (x, y, z) estejam no sistema de coordenadas bidimensional chamado de **NDC (Normalized Device Coordinates)**, onde o intervalo de valores para os eixos é de [-1, 1].
+O algoritmo de **rasterização** de OpenGL é responsável por gerar os pixels correspondentes aos modelos geométricos que serão exibidos na tela. Entretanto, este algoritmo precisa que todos os vértices (x, y, z) dos modelos estejam no sistema de coordenadas bidimensional chamado de **Normalized Device Coordinates (NDC)**, onde o intervalo de valores para os eixos é de [-1, 1].
 
-> **Nota:** Na verdade, existem duas conveções para definir o intervalo de valores para o sistema de coordenadas NDC. Por exemplo, OpenGL e Direct3D utilizam o intervalo de [-1, 1] e RenderMan utiliza o intervalo de [0, 1].
+> **Nota:** Existem duas conveções para definir o intervalo de valores para o sistema de coordenadas NDC. Por exemplo, OpenGL e Direct3D utilizam o intervalo de [-1, 1] e RenderMan utiliza o intervalo de [0, 1].
 
 Quando estamos trabalhando com modelos geométricos em uma cena, precisamos de uma maior flexibilidade para especificar os vértices no espaço. Isto é, precisamos de um sistema de coordenadas que abranja um intervalo de valores diferentes de [-1, 1].
 
-Portanto, antes da etapa de rasterização, precisamos de um meio para transformar os pontos que estão no sistema de coordenadas do usuário para o sistema de coordenadas NDC.
+Portanto, antes da etapa de rasterização, precisamos de um meio para transformar os vértices que estão no sistema de coordenadas do usuário para o sistema de coordenadas NDC.
 
-A solução para este problema é a aplicação de **transformações lineares** e da **transformação projetiva** através de multiplicação de matrizes.
+A solução para este problema é a aplicação de **transformações lineares** e da **transformação projetiva** através de multiplicação de matrizes e da **divisão de perspectiva**.
 
-Além de transformar as coordenadas de um sistema de coordenadas para outro, estas transformações permitem:
+Além de transformar os vértices de um espaço para outro, estas transformações permitem:
 
- - organizar os modelos geométricos em um espaço tridimensional (translação, rotação e escala) de um espaço para outro  
- - visualizar a cena a partir de uma determinada localização, direção e orientação  
- - aplicar efeitos de perspectiva e permitir a divisão de perspectiva
- - permitir culling e clipping
+ - organizar os modelos geométricos em uma cena através de translação, rotação e escala,  
+ - visualizar a cena a partir de uma determinada localização, direção e orientação (_lookat_),  
+ - aplicar efeitos de perspectiva,  
+ - permitir operações de **culling** e **clipping**
+ - permitir a divisão de perspectiva
+
+Em OpenGL, as operações de **clipping** e a **divisão de perspectiva** é realizada pelo próprio OpenGL.
 
 
 # Transformações Lineares e Transformação Projetiva
 
-O maior benefício do uso de transformações lineares e transformação projetiva para resolver o nosso problema é a sua simplicidade na aplicação. Todas as operações envolve apenas multiplicação de matrizes. Apesar dessa simplicidade, estas transformações permitem:
+O maior benefício do uso de transformações lineares e transformação projetiva para resolver o nosso problema é a sua simplicidade na aplicação. Estas transformações envolvem apenas multiplicação de matrizes. Apesar de sua simplicidade, estas transformações permitem:
 
-- Posicionar, rotacionar e alterar o tamanho dos modelos em uma cena através da multiplicação de matrizes  
-- Orientar a cena na frente do visualizador através da multiplicação de matrizes  
-- Aplicar efeitos de perspectiva através da multiplicação de matrizes  
-- Compor diversas matrizes em apenas uma única matriz  
-- Transformar as coordenadas para NDC através da divisão de perspectiva
-- Culling
+- posicionar, rotacionar e alterar o tamanho dos modelos em uma cena (_model transform_)  
+- posicionar o observador e orientar a cena na frente do observador (_view transform_)  
+- aplicar efeitos de perspectiva (_projection transform_)  
+- compor diversas matrizes em apenas uma única matriz  
+- organizar as transformações em forma de hierarquia para permitir animação (_skeletal animation_)  
+- reverter as transformações para a sua posição original  
+- permitir culling e operação de clipping  
+- permitir a divisão de perspectiva e transformar as coordenadas para NDC  
 
 Um modelo geométrico tridimensional é descrito através de um conjunto de vértices (x, y, z) definidos em um espaço conhecido como **local-space**, isto é, sem aplicação de nenhuma transformação.
 
-Para posicionar modelos geométricos em uma cena devemos transformar seus vértices (x, y, z) de **local-space** para **world-space** (_model transform_) multiplicando as coordenadas dos vértices pelas matrizes transformação linear: translação, rotação e escala.
+Para posicionar modelos geométricos em uma cena devemos transformar seus vértices (x, y, z) de **local-space** para **world-space** (_model transform_) multiplicando os vértices pelas matrizes de transformação linear: translação, rotação e escala.
 
 ```
    vec4 vertexPosition = vec4(x, y, z, 1);
-   mat4 transformMatrix;
-   ...
-   vPosition = transformMatrix * vertexPosition;
+   uniform mat4 modelMatrix;
+
+   vPosition = modelMatrix * vertexPosition;
 ```
 
-Quando pensamos em transformação linear, devemos pensar nas coordenadas x, y, z de um vértice como um vetor de 3 elementos. Dessa forma, conseguimos multiplicá-lo por uma matriz. Entretanto, para aplicar a transformação linear de fato, é necessário que as matrizes sejam 4x4 para encapsular a operação de translação através da multiplicação de matrizes. Consequentemente, para que seja possível a multiplicação da matriz 4x4 por um vetor, é necessário incluir um novo componente **w** para o ponto tridimesional para transformar em um vetor de tamanho 4:
+Quando pensamos em transformação linear, devemos pensar nas coordenadas x, y, z de um vértice como um vetor de 3 elementos. Dessa forma, conseguimos multiplicá-lo por uma matriz. Entretanto, para realizar a operação de translação através da multiplicação de matrizes, precisamos encapsular esta operação em uma matriz 4x4. Isso significa que precisamosincluir um novo componente **w** com valor 1 para o vértice para transformá-lo em um vetor de tamanho 4:
 
 ```
     [a b c d] . (x)    (ax + by + cz + dw)
@@ -53,66 +58,94 @@ Quando pensamos em transformação linear, devemos pensar nas coordenadas x, y, 
     [m n p q] . (w)    (mx + ny + pz + qw)
 ```
 
-Um ponto com 4 coordenadas (x, y, z, w) é chamado de **coordenada homogênea**. OpenGL utilizará o componente w para transformar a coordenada homogênea de volta para a coordenada cartesiana (NDC) através da divisão de perspectiva: ```(x/w, y/w, z/w)```. O valor de w será diferente de 1 após a **transformação projetiva**. Portanto, transformar o ponto de coordenada cartesiana para coordenada homogênea é essencial para aplicar transformações lineares e a transformação projetiva.
+Um ponto com 4 coordenadas (x, y, z, w) é chamado de **coordenada homogênea**. OpenGL utiliza o componente w para transformar a coordenada homogênea de volta para a coordenada cartesiana (NDC) através da **divisão de perspectiva**: ```(x/w, y/w, z/w)```.
 
-Para posicionar e orientar a cena em frente ao observador (camera) transformamos os vértices que estão em **world-space** para **eye-space** (_view transform_) multiplicando as coordenadas dos vértices pelas matrizes de transformação linear: translação, rotação e escala. É possível utilizar também uma matriz que encapsula todas as operações chamada de **LookAt**.
-
-> **Nota**: As duas transformações acima transformam as coordenadas da mesma forma mas em direções opostas. Elas podem ser encapsuladas em uma única transformação chamada **model-view transform**. Entretanto, deixar estas trasnformações separadas permite aplicar cálculos de iluminação e sombreamento.
-
-Para aplicar efeito de perspectiva e definir o tamanho do frustrum (discutido na seção projeção perspectiva), transformamos os vértices que estão em **eye-space** para **clip space** (_projection transform_) multiplicando os vértices que estão em eye-space pela **matriz de projeção**. Novamente, é nesta transformação que produzirá o novo valor para a coordenada w que permitirá a divisão de perspectiva.
+Para posicionar o observador e orientar a cena na sua frente, transformamos os vértices que estão em **world-space** para **eye-space** ou **camera-space** (_view transform_) multiplicando os vértices pelas matrizes de transformação linear: translação, rotação e escala. É possível utilizar também uma matriz que encapsula estas operações chamada de **LookAt**.
 
 ```
+   vec4 vertexPosition = vec4(x, y, z, 1);
+   uniform mat4 modelMatrix;
+   uniform mat4 viewMatrix;
+
+   vPosition = viewMatrix * modelMatrix * vertexPosition;
+```
+
+> **Nota**: As duas transformações acima (_view transform_ e _model transform_) transformam os vértices da mesma forma mas em direções opostas. Elas podem ser encapsuladas em uma única transformação chamada **model-view transform**. Entretanto, deixar estas trasnformações separadas permite aplicar cálculos de iluminação e sombreamento.
+
+Para aplicar efeito de perspectiva, transformamos os vértices que estão em **eye-space** para **clip space** (_projection transform_) multiplicando os vértices pela **matriz de projeção**. É nesta transformação que produzirá o novo valor para a coordenada w que permitirá a divisão de perspectiva.
+
+```
+   vec4 vertexPosition = vec4(x, y, z, 1);
+   uniform mat4 modelMatrix;
+   uniform mat4 viewMatrix;
+   uniform mat4 projectionTransform;
+
    vPostion = projectionMatrix * viewMatrix * modelMatrix * vertexPosition;
 ```
 
-Estas transformações devem ser realizadas pela aplicação, normalmente nos shaders para aproveitar o desempemnho da GPU e permitir cálculos de iluminação e sombreamento.  Após estas transformações, as coordenadas dos vértices dos modelos geométricos estarão prontos para a etapa de rasterização de OpenGL.
+Estas transformações devem ser realizadas pela aplicação, normalmente nos shaders para aproveitar o desempenho da GPU e permitir cálculos de iluminação e sombreamento. Após estas transformações, as coordenadas dos vértices dos modelos geométricos estarão prontos para a etapa de rasterização de OpenGL.
 
-> **Nota:** Antes de iniciar a rasterização, OpenGL realiza implicitamente a **divisão de perspectiva**, **clipping** e **viewport/depth-range transform** que serão discutidos em mais detalhes em breve.
+> **Nota:** Antes de iniciar a rasterização, OpenGL realiza implicitamente a operação de **clipping**, **divisão de perspectiva** e **viewport/depth-range transform** que serão discutidos em mais detalhes em breve.
 
 
 # Projeção Perspectiva
 
-**Projection transform** tem como objetivo projetar pontos tridimensionais que está em _eye-space_ em um plano bidimensional (canvas) que está em NDC através da multipicação de uma **matriz de projeção**.
+A **transformação projetiva** é responsável por transformar os pontos tridimensionais que estão em _eye-space_ para _homogeneous clip-space_ através da multipicação do vértice pela **matriz de projeção**. OpenGL utilizará estes pontos transformados para realizar o processo de **clipping**, **divisão de perspectiva** e **rasterização**. 
 
-A matriz de projeção encapsula as seguintes operações:
+Conceitualmente, a **transformação projetiva** cria um volume de visualização - um cone retangular dividido em seis planos conhecido como **frustum** - onde os objetos que estiverem dentro dele são exibidos na imagem final e os objetos que estiverem fora serão descartados - processo também conhecido como **culling**. A definição dos planos de frustum é importante também para o processo que será realizado depois chamado **clipping** (discutido em breve).
 
-- criação do volume de visualização (cone retangular dividido em 6 planos conhecido como **frustum**) - possibilita culling e clipping
-- transformação de _eye-space_ para _clip-space_
-- geração do valor da coordenada w para divisão de perspectiva
+[imagem do frustum]
 
-Conceitualmente, **projection trasnform** cria um cone retangular conhecido como **frustum** - onde os objetos que estiverem dentro dele são exibidos na imagem final e, obviamente, os objetos que estiverem fora, serão descartados (processo também conhecido como **culling**). Dependendo do tipo de projeção, após a divisão de perspectiva, os objetos que estiverem mais próximos do observador serão maiores do que objetos que estiverem mais distantes, criando o efeito de perspectiva. O frustum define as variáves (near, t, b, l, r) necessárias para o processo de clipping pelo OpenGL.
+O plano **near plane** é o plano de projeção bidimensional onde os pontos 3D serão projetados. Este plano intersercta o frustum e é paralelo aos eixos x e y do observador. Considerando que o observador (_viewpoint_) está sempre na origem (0, 0, 0) e "olhando" para a direção negativa do eixo z (regra da mão direita), conseguimos definir o tamanho do frustum e a distância entre o observador através das seguintes variáveis:
 
-O frustum possui dois planos adicionais (**near plane** e **far plane**) que intersectam o frustum para eliminar objetos que estão muito próximo da ponta do cone (mais especificamente na frente de near plane) e que estão muito longe (mais especificamente atrás de far plane). Isto resolve vários problemas onde objetos ficam infinitamente grandes, precisão de profundidade (depth precision) e também questões de desempenho.
+- **left** (valor de x do lado esquerdo de near plane)
+- **right** (valor de x do lado direito de near plane)  
+- **top** (valor de y do lado de cima de near plane)  
+- **bottom** (valor de y do lado baixo de near plane)
+- **near** (distância do observador até o plano de projeção no eixo z )
+- **far** (distância do observador até o plano far no eixo z)  
 
-O observador (viewpoint) está sempre em (0, 0, 0) olhando para a direção positiva do eixo z.
+> **Nota:** Os planos **near plane** e **far plane** eliminam objetos que estão muito próximo da ponta do cone (mais especificamente na frente de near plane) e que estão muito longe (mais especificamente atrás de far plane). Isto resolve vários problemas onde objetos ficam infinitamente grandes, precisão de profundidade (depth precision) e também questões de desempenho.
 
-Esta etapa também irá produzir o valor de **w** (a quarta coordenada homogênea) necessária para que OpenGL possa transformar (_implicitamente_) as coordenadas homogêneas de volta para as coordenadas cartesianas em NDC chamada de **divisão de perspectiva**.
+> **Nota:** Os valores de x e y dos parâmetros ```left```, ```right```, ```bottom``` e ```top``` podem ser calculados através do ângulo **field of view** e **razão de aspecto**.
 
-A **projeção ortográfica** é um tipo de projeção onde o tamanho dos objetos não é alterado de acordo com a distância do observador. Em geral, é possível conseguir este efeito apenas ignorando um dos eixos x, y ou z utilizando transformações lineares. Entretanto, ainda precisamos do valor de W e do frustum para que OpenGL consiga realizar a divisão de perspectiva e clipping.
+Dependendo do tipo de projeção, os objetos que estiverem mais próximos do observador serão maiores do que objetos que estiverem mais distantes, criando o **efeito de perspectiva**. Este efeito é obtido através da **divisão de perspectiva**, onde as coordenadas ```x```, ```y``` e ```z``` são divididos pela coordenada ```w```.
+
+Outra operação importante que a transformação de projeção deve realizar é o remapeamento dos valores das coordenadas x, y e z para o intervalo de valores [-1, 1] de NDC.
+
+Como é o OpenGL que faz essa divisão de perspectiva, a matriz de projeção deve gerar o valor de ```w``` para que, após a divisão, crie este efeito de perspectiva e transforme as coordenadas para NDC. Todas as equações serão discutidos no tópico _"Construindo Matriz de Projeção"_.
+
+A **projeção ortográfica** é um tipo de projeção onde o tamanho dos objetos não é alterado de acordo com a distância do observador. Em geral, é possível conseguir este efeito apenas ignorando um dos eixos x, y ou z utilizando transformações lineares. Entretanto, ainda precisamos do valor de w e do frustum para que OpenGL consiga realizar a divisão de perspectiva e clipping.
 
 
 # Clipping
 
-Se parte do objeto estiver fora do volume de visulização, é necessário realizar o processo de **clipping**, isto é, calcular a intersecção do modelo geométrico com o plano e gerar uma nova geometria que está dentro do frustum.
+Se parte do objeto estiver fora do volume de visulização, OpenGL realiza o processo de **clipping**, isto é, gerar uma nova geometria a partir do cálculo de intersecção do objeto com os planos do frustum.
+
+Quando os vértices são transformados para _clip-space_ onde o intervalo de valores é [-1, 1], facilita a operação de clipping.
+
+"The remapping of P's x- and y-coordinates, as well as its z-coordinate to the ranges [-1,1] and [0,1] (or [-1,1]), signifies that the projection matrix transformation alters the viewing frustum's volume into a 2x2x1 (or 2x2x2) dimensional cube, commonly known as the unit cube or canonical view volume. This transformation can be viewed as normalizing the viewing frustum. This operation simplifies further operations on points by converting the viewing frustum, defined by the near and far clipping planes and screen dimensions, into a much more manageable geometric shape."
 
 
 # Construindo as matrizes de transformações lineares
 
+Todas as matrizes abaixo estão em colum-major order que é o padrão em OpenGL. Isto significa que quando multiplicamos uma matriz pelo vetor, o vetor deve estar sempre a direita.
+
 Translação
 
 ```
-  [ 1.0 ][ 0.0 ][ 0.0 ][ Tx  ]
-  [ 0.0 ][ 1.0 ][ 0.0 ][ Ty  ]
-  [ 0.0 ][ 0.0 ][ 1.0 ][ Tz  ]
-  [ 0.0 ][ 0.0 ][ 0.0 ][ 1.0 ]
+  [ 1.0 ][ 0.0 ][ 0.0 ][ 0.0 ]
+  [ 0.0 ][ 1.0 ][ 0.0 ][ 0.0 ]
+  [ 0.0 ][ 0.0 ][ 1.0 ][ 0.0 ]
+  [ Tx  ][ Ty  ][ Tz  ][ 1.0 ]
 ```
 
 Escala
 
 ```
-  [  x  ][ 0.0 ][ 0.0 ][ 0.0 ]
-  [ 0.0 ][  y  ][ 0.0 ][ 0.0 ]
-  [ 0.0 ][ 0.0 ][  z  ][ 0.0 ]
+  [ Sx  ][ 0.0 ][ 0.0 ][ 0.0 ]
+  [ 0.0 ][ Sy  ][ 0.0 ][ 0.0 ]
+  [ 0.0 ][ 0.0 ][ Sz  ][ 0.0 ]
   [ 0.0 ][ 0.0 ][ 0.0 ][ 1.0 ]
 ```
 
