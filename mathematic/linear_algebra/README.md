@@ -1,5 +1,11 @@
-# Algebra Linear
+# Álgebra Linear
 
-- Multiplicação de Matrizes  
-- Transformações Lineares  
-- Coordenadas homogêneas  
+A **álgebra linear** é a área que estuda:
+
+- [Vetores](vector.md)  
+- [Espaços vetoriais]()  
+- [Matrizes]()  
+- [Sistemas lineares]()  
+- [Transformações lineares]()  
+- [Produto escalar]()  
+- [Coordenadas homogêneas]()  
