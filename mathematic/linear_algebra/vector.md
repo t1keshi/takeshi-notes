@@ -60,11 +60,15 @@ Encontrar a distância mínima de um ponto P (x, y, z) até o plano S (a, b, c, 
 
 # Produto Vetorial (a x b)
 
+O produto vetorial produz um vetor normal perpencidular ao plano formado por vetores a e b não colineares.
+
 ```
             a.y * b.z - a.z * b.y
     a x b = a.z * b.x - a.x * b.z
             a.x * b.y - a.y * b.x
 ```
+
+Alterar a ordem dos vetores produz um vetor normal que aponta para a direção oposta.
 
 # References
 
