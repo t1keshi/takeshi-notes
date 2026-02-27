@@ -2,9 +2,45 @@
 
 # Vetores
 
-Um vetor é um elemento de um conjunto chamado **espaço vetorial** - uma estrutura que possui certas propriedades matemáticas relacionadas à adição e à multiplicação por escalar.
+Um vetor é um elemento de um conjunto chamado **espaço vetorial** - uma estrutura que possui certas propriedades matemáticas para adição e multiplicação.
 
-O **espaço vetorial euclidiano** lida com espaços bidimensionais e tridimensionais, utilizados para representar posição, velocidade, direção, etc por meio de vetores.
+O **espaço vetorial euclidiano** lida com espaços bidimensionais e tridimensionais, onde os vetores são utilizados para representar posição, velocidade, direção, etc.
+
+# Magnitude (comprimento ou norma)
+
+Magnitude de um vetor é a distância da origem até a ponta do vetor.
+
+```
+    vec3 length() {
+        return std::sqrt(x * x + y * y + z * z);
+    }
+```
+
+# Normalização
+
+A normalização de um vetor é o processo de transformar um vetor qualquer em um **vetor unitário**, isto é, que possui a magnitude igual a 1 mantendo a mesma direção.
+
+```
+	void normalize() {
+		float magnitude = length();
+
+		if (magnitude > 0) {
+			x /= magnitude;
+			y /= magnitude;
+			z /= magnitude;
+		}
+	}
+```
+
+# Adição
+
+```
+```
+
+# Subtração
+
+```
+```
 
 # Produto Escalar (a . b)
 

@@ -4,7 +4,7 @@
 
 A **álgebra linear** é a área que estuda:
 
-- [Vetores](vector.md)  
+- [Vector](vector.md)  
 - [Espaços vetoriais]()  
 - [Matrizes]()  
 - [Sistemas lineares]()  
