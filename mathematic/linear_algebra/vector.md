@@ -6,9 +6,9 @@ Um vetor é um elemento de um conjunto chamado **espaço vetorial** - uma estrut
 
 O **espaço vetorial euclidiano** lida com espaços bidimensionais e tridimensionais, onde os vetores são utilizados para representar posição, velocidade, direção, etc.
 
-# Magnitude (comprimento ou norma)
+# Magnitude (comprimento ou norma) - _|a|_
 
-Magnitude de um vetor é a distância da origem até a ponta do vetor.
+Magnitude de um vetor é a distância da origem até a ponta do vetor. Magnitude de um vetor _a_ é representado por |_a_|.
 
 ```
     vec3 length() {
@@ -16,9 +16,9 @@ Magnitude de um vetor é a distância da origem até a ponta do vetor.
     }
 ```
 
-# Normalização
+# Normalização - _â_
 
-A normalização de um vetor é o processo de transformar um vetor qualquer em um **vetor unitário**, isto é, que possui a magnitude igual a 1 mantendo a mesma direção.
+A normalização de um vetor é o processo de transformar um vetor qualquer em um **vetor unitário**, isto é, um vetor que possui a magnitude igual a 1. O vetor unitário de um vetor _a_ é representado por _â_.
 
 ```
 	void normalize() {
@@ -42,7 +42,7 @@ A normalização de um vetor é o processo de transformar um vetor qualquer em u
 ```
 ```
 
-# Produto Escalar (a . b)
+# Produto Escalar (_dot product_) - ```a . b```
 
 Cálculo do produto escalar:
 
@@ -50,10 +50,10 @@ Cálculo do produto escalar:
     a . b = a.x * b.x + a.y * b.y + a.z * b.z
 ```
 
-Produto escalar permite encontrar o ângulo entre dois vetores normalizados.
+Se os dois vetores forem unitários, o produto escalar é igual ao cosseno do ângulo formado por eles.
 
 ```
-    cos(x) = a . b
+    a . b = |a||b|cos(angle)
 ```
 
 Se dois vetores são perpendiculares.
@@ -94,7 +94,9 @@ Encontrar a distância mínima de um ponto P (x, y, z) até o plano S (a, b, c, 
     distância mínima entre P e S = (n . P) + D
 ```
 
-# Produto Vetorial (a x b)
+O produto escalar é comutativo: ```a . b = b . a```.
+
+# Produto Vetorial (_cross product_) - ```a x b```
 
 O produto vetorial produz um vetor normal perpencidular ao plano formado por vetores a e b não colineares.
 
@@ -104,7 +106,7 @@ O produto vetorial produz um vetor normal perpencidular ao plano formado por vet
             a.x * b.y - a.y * b.x
 ```
 
-Alterar a ordem dos vetores produz um vetor normal que aponta para a direção oposta.
+O produto vetorial não é comutativo: ```a x b != b x a```. Entretanto, ```a x b = -b x a```.
 
 # References
 
