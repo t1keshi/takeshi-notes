@@ -2,9 +2,9 @@
 
 # Método de Visualização 3D
 
-O objetivo principal do **método de visualização** é projetar modelos geométricos tridimensionais em um plano bidimensional.
+O objetivo principal do **método de visualização** é projetar objetos tridimensionais em um plano bidimensional.
 
-O algoritmo de **rasterização** de OpenGL é responsável por gerar os pixels correspondentes aos modelos geométricos que serão exibidos na tela. Entretanto, este algoritmo precisa que todos os vértices (x, y, z) dos modelos estejam no sistema de coordenadas bidimensional chamado de **Normalized Device Coordinates (NDC)**, onde o intervalo de valores para os eixos é de [-1, 1].
+O algoritmo de **rasterização** de OpenGL é responsável por gerar os pixels correspondentes aos objetos que serão exibidos na tela. Entretanto, este algoritmo necessita que todos os vértices (x, y, z) dos objetos estejam no sistema de coordenadas bidimensional chamado de **Normalized Device Coordinates (NDC)**, onde o intervalo de valores dos eixos é de [-1, 1].
 
 > **Nota:** Existem duas conveções para definir o intervalo de valores para o sistema de coordenadas NDC. Por exemplo, OpenGL e Direct3D utilizam o intervalo de [-1, 1] e RenderMan utiliza o intervalo de [0, 1].
 
@@ -14,29 +14,18 @@ Portanto, antes da etapa de rasterização, precisamos de um meio para transform
 
 A solução para este problema é a aplicação de **transformações lineares** e da **transformação projetiva** através de multiplicação de matrizes e da **divisão de perspectiva**.
 
-Além de transformar os vértices de um espaço para outro, estas transformações permitem:
-
- - organizar os modelos geométricos em uma cena através de translação, rotação e escala,  
- - visualizar a cena a partir de uma determinada localização, direção e orientação (_lookat_),  
- - aplicar efeitos de perspectiva,  
- - permitir operações de **culling** e **clipping**
- - permitir a divisão de perspectiva
-
-Em OpenGL, as operações de **clipping** e a **divisão de perspectiva** é realizada pelo próprio OpenGL.
-
 
 # Transformações Lineares e Transformação Projetiva
 
-O maior benefício do uso de transformações lineares e transformação projetiva para resolver o nosso problema é a sua simplicidade na aplicação. Estas transformações envolvem apenas multiplicação de matrizes. Apesar de sua simplicidade, estas transformações permitem:
+O maior benefício do uso de transformações lineares e transformação projetiva é a sua simplicidade na aplicação. Estas transformações envolvem apenas multiplicação de matrizes. Apesar de sua simplicidade, estas transformações permitem:
 
-- posicionar, rotacionar e alterar o tamanho dos modelos em uma cena (_model transform_)  
-- posicionar o observador e orientar a cena na frente do observador (_view transform_)  
-- aplicar efeitos de perspectiva (_projection transform_)  
-- compor diversas matrizes em apenas uma única matriz  
+- posicionar, rotacionar e alterar o tamanho dos objetos em uma cena (**model transform**)  
+- posicionar o observador (_viewpoint_) e orientar a cena na frente do observador (**view transform**)  
+- aplicar efeitos de perspectiva (**projection transform**)  
+- compor diversas matrizes em apenas uma única matriz (propriedade associativa das matrizes)  
 - organizar as transformações em forma de hierarquia para permitir animação (_skeletal animation_)  
-- reverter as transformações para a sua posição original  
-- permitir culling e operação de clipping  
-- permitir a divisão de perspectiva e transformar as coordenadas para NDC  
+- permitir operações de **culling** e **clipping**  
+- permitir a **divisão de perspectiva** e transformar as coordenadas para NDC  
 
 Um modelo geométrico tridimensional é descrito através de um conjunto de vértices (x, y, z) definidos em um espaço conhecido como **local-space**, isto é, sem aplicação de nenhuma transformação.
 
