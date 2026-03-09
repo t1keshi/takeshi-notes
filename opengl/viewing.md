@@ -77,6 +77,17 @@ Estas transformações devem ser realizadas pela aplicação, normalmente nos sh
 > **Nota:** Antes de iniciar a rasterização, OpenGL realiza implicitamente a **divisão de perspectiva** para transformar as coordenadas de clip-space para NDC. Com os vértices transformados, OpenGL realiza o **clipping** e **viewport/depth-range transform** que serão discutidos em mais detalhes em breve.
 
 
+# Regra da mão direita vs regra da mão esquerda
+
+Na Computação Gráfica, existem duas formas de orientar os eixos x, y e z: **regra da mão direita** e **regra da mão esquerda**:
+
+Na regra da mão direita, o eixo x aponta para a direita, o eixo y aponta para cima e o eixo z aponta para o observador.
+
+Na regra da mão esquerda, o eixo x aponta para a direita, o eixo y aponta para cima e o eixo z aponta para a mesma direção onde observador está olhando.
+
+Escolher a orientação correta influencia nos cálculos de transformações lineares. OpenGL utiliza a regra da mão direita e DirectX utiliza a regra da mão esquerda.
+
+
 # Projeção Perspectiva
 
 A **transformação projetiva** é responsável por transformar os pontos tridimensionais que estão em _eye-space_ para _homogeneous clip-space_ através da multipicação do vértice pela **matriz de projeção**. OpenGL utilizará estes pontos transformados para realizar a **divisão de perspectiva**, **clipping** e **rasterização**. 
