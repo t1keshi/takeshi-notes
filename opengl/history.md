@@ -42,6 +42,7 @@ A versão 3.1 foi lançada em 24 de março de 2009.
 A versão 4.0 foi lançada em 11 de março de 2010.
 
 - Introdução do estágio **tesselation** na pipeline de renderização.  
+- Introdução de **Transform Feedback Objects**
 
 
 # Referências
