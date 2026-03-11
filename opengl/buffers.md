@@ -5,10 +5,10 @@
 
 **Buffer object** é um objeto que representa uma área da memória no hardware gráfico e é gerenciado pelo OpenGL. Existem vários tipos de buffer objects para armazenar diferentes tipos de dados.
 
-Quando um buffer object é criado, é necessário vincular (_bound_) ao contexto que OpenGL possa utilizá-lo.
+Quando um buffer object é criado, é necessário vinculá-lo ao contexto para que OpenGL possa utilizá-lo.
 
-    1. Criar um buffer object
-    2. Vincular (_binding_) ao contexto OpenGL
+1. Criar buffer object  
+2. Vincular (_binding_) ao contexto OpenGL  
 
 
 # Criando buffer object
@@ -24,12 +24,30 @@ Os nomes retornados por ```glGenBuffers``` só vão estar associados de fato a u
     glBindBuffer(GL_ARRAY_BUFFER, buffer);
 ```
 
-A partir da versão 4.5, foi criado o conceito de **Direct State Access (DSA)**, onde não é mais necessário vincular o buffer object ao contexto para poder inicializá-lo. Foram criados comandos novos para obter nomes de buffer object já inicializados como se estivessem vinculados a um **target point** não especificado - ou seja, é possível iniciar este buffer object com dados sem a necessidade de realizar o _binding_.
+A partir da versão 4.5, foi criado o conceito de **Direct State Access (DSA)**, onde não é mais necessário vincular o buffer object ao contexto para poder inicializá-lo. Foram criados comandos novos para obter nomes de buffer object já inicializados como se estivessem vinculados a um **target point** não especificado - ou seja, não é necessário realizar o _binding_ para inicializar este buffer object com dados.
 
 ```
     GLuint buffer;
     glCreateBuffers(1, &buffer);
 ```
+
+Para verificar se um buffer object é válido ou deletar buffers objects, utilizar estes comandos:
+
+```
+    GLboolean glIsBuffer(GLuint buffer);
+    void glDeleteBuffers(GLsizei n, const GLuint* buffers);
+```
+
+
+# Buffer binding targets
+
+Existem diferentes tipos de **binding targets** onde os buffer objects podem ser vinculados. OpenGL utiliza cada um destes targets para própositos diferentes. Por exemplo, ao executar o comando ```glVertexAttribPinter```, OpenGL utiliza o buffer object que estiver vinculado ao target ```GL_ARRAY_BUFFER```.
+
+```
+    void glBindBuffer(GLenum target, GLuint buffer);
+```
+
+Quando um buffer object é vinculado, o buffer object que estava vinculado anteriormente é desvinculado.
 
 
 # Alocando espaço para o buffer object
