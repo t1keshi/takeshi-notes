@@ -1,5 +1,6 @@
 [OpenGL](_opengl.md)
 
+
 # Drawing in OpenGL
 
 The fundamental unit of rendering in OpenGL is known as the **primitive**.
@@ -69,6 +70,29 @@ Quando dois triângulos compartilham a mesma aresta, OpenGL utiliza as seguintes
 
 - Nenhum pixel da aresta compartilha entre os dois triângulos devem ser deixados de renderizado.  
 - Nenhum pixel da aresta compartilhada entre os dois triângulos devem ser renderizados mais de uma vez. 
+
+
+# Rendering Polygons
+
+Um polígono possui dois lados (_front_ e _back_) e eles podem ser renderizados diferentemente dependendo do lado que estiver de frente para o observador (_viewpoint_). Por padrão, as faces front e back são renderizadas da mesma forma.
+
+Por convenção, polígonos cujo vértices são ordenados no sentido anti-horário são chamados de **front-facing**. Esta orientação é conhecida como **winding**. O comando ```glFrontFace``` permite alterar a orientação de anti-horário para horário e vice-versa.
+
+```
+    void glFrontFace(GLenum mode);
+```
+
+O comando ```glCullFace``` permite descartar a face frontal ou traseira (ou ambas).
+
+```
+    void glCullFace(GLenum mode);
+```
+
+O comando abaixo pode ser utilizado para especificar como o polígono deve ser renderizado: preenchido, somente linhas ou somente pontos.
+
+```
+    void glPolygonMode(GLenum face, GLenum mode);
+```
 
 
 # References
