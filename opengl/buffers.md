@@ -50,12 +50,29 @@ Existem diferentes tipos de **binding targets** onde os buffer objects podem ser
 Quando um buffer object é vinculado, o buffer object que estava vinculado anteriormente é desvinculado.
 
 
-# Alocando espaço para o buffer object
+# Populando dados em buffer objects
 
+O comando ```glBufferData``` (disponível desde a versão 2.0) cria um novo armazenamento para o buffer object (qualquer pré-armazenamento criado anteriormente será deletado). OpenGL irá utilizar o buffer object que estiver vinculado ao _binding target_. Se o parâmetro ```data``` for ```NULL```, o espaço para armazenamento ainda é criado mas o seu conteúdo não será inicializado (_undefined_).
 
 ```
-    glNamedBufferStorage()
+    void glBufferData(GLenum target, GLsizeiptr size, const void* data, GLenum usage);
 ```
+
+Na versão 4.5, foi disponibilizado o comando ```glNamedBufferData``` que também cria um novo armazenamento mas para o buffer object especificado no parâmetro ```bufferName``` e não o buffer object que estiver vinculado ao _binding target_. Este comando está de acordo com o conceito de **Direct State Access (DSA)**.
+
+```
+    void glNamedBufferData(GLuint bufferName, GLsizeiptr size, const void* data, GLenum usage);
+```
+
+Na versão 4.4, também foi introduzido o conceito de **immutable data store** com o comando ```glBufferStorage```. Neste tipo de armazenamento não é possível alterar o tamanho do espaço criado. No caso de ```glBufferData```, é possível chamar novamente este comando com um tamanho diferente. Criar armazenamento imutável é eficiente em hardwares gráficos modernos melhorando o desempenho da aplicação OpenGL. Existem também a versão DSA de ```glBufferStorage``` a partir da versão 4.5: ```glNamedBufferStorage```.
+
+```
+    void glBufferStorage(GLenum target, GLsizeiptr size, const void* data, GLbitfield flags);
+    void glNamedBufferStorage(GLuint buffer, GLsizeiptr size, const void* data, GLbitfield flags)
+```
+
+> **Nota:** Em todos os casos acima, escolher o valor correto para os parâmetros ```usage``` e ```flags``` é importante para otimizar o desempenho e obter o comportamento correto.
+
 
 # Referências
 
