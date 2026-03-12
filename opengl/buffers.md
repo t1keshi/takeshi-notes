@@ -5,10 +5,7 @@
 
 **Buffer object** é um objeto que representa uma área da memória no hardware gráfico e é gerenciado pelo OpenGL. Existem vários tipos de buffer objects para armazenar diferentes tipos de dados.
 
-Quando um buffer object é criado, é necessário vinculá-lo ao contexto para que OpenGL possa utilizá-lo.
-
-1. Criar buffer object  
-2. Vincular (_binding_) ao contexto OpenGL  
+Quando um buffer object é criado, é necessário vinculá-lo (_binding_) ao contexto para que OpenGL possa utilizá-lo.
 
 
 # Criando buffer object
@@ -24,14 +21,14 @@ Os nomes retornados por ```glGenBuffers``` só vão estar associados de fato a u
     glBindBuffer(GL_ARRAY_BUFFER, buffer);
 ```
 
-A partir da versão 4.5, foi criado o conceito de **Direct State Access (DSA)**, onde não é mais necessário vincular o buffer object ao contexto para poder inicializá-lo. Foram criados comandos novos para obter nomes de buffer object já inicializados como se estivessem vinculados a um **target point** não especificado - ou seja, não é necessário realizar o _binding_ para inicializar este buffer object com dados.
+A partir da versão 4.5, foi criado o conceito de **Direct State Access (DSA)**, onde não é mais necessário vincular o buffer object ao contexto para poder inicializá-lo. Foram criados comandos novos para obter nomes de buffer object que são inicializados como se estivessem vinculados a um **target point** não especificado - ou seja, não é necessário realizar o _binding_ para inicializar este buffer object com dados.
 
 ```
     GLuint buffer;
     glCreateBuffers(1, &buffer);
 ```
 
-Para verificar se um buffer object é válido ou deletar buffers objects, utilizar estes comandos:
+Para verificar se um buffer object é válido ou deletar buffers objects, basta utilizar estes comandos:
 
 ```
     GLboolean glIsBuffer(GLuint buffer);
@@ -41,11 +38,7 @@ Para verificar se um buffer object é válido ou deletar buffers objects, utiliz
 
 # Buffer binding targets
 
-Existem diferentes tipos de **binding targets** onde os buffer objects podem ser vinculados. OpenGL utiliza cada um destes targets para própositos diferentes. Por exemplo, ao executar o comando ```glVertexAttribPinter```, OpenGL utiliza o buffer object que estiver vinculado ao target ```GL_ARRAY_BUFFER```.
-
-```
-    void glBindBuffer(GLenum target, GLuint buffer);
-```
+Existem diferentes tipos de **binding targets** onde os buffer objects podem ser vinculados ao contexto. OpenGL utiliza cada um destes targets para própositos diferentes. Por exemplo, ao executar o comando ```glVertexAttribPinter```, OpenGL utiliza o buffer object que estiver vinculado ao target ```GL_ARRAY_BUFFER```.
 
 Quando um buffer object é vinculado, o buffer object que estava vinculado anteriormente é desvinculado.
 
@@ -64,7 +57,7 @@ Na versão 4.5, foi disponibilizado o comando ```glNamedBufferData``` que també
     void glNamedBufferData(GLuint bufferName, GLsizeiptr size, const void* data, GLenum usage);
 ```
 
-Na versão 4.4, também foi introduzido o conceito de **immutable data store** com o comando ```glBufferStorage```. Neste tipo de armazenamento não é possível alterar o tamanho do espaço criado. No caso de ```glBufferData```, é possível chamar novamente este comando com um tamanho diferente. Criar armazenamento imutável é eficiente em hardwares gráficos modernos melhorando o desempenho da aplicação OpenGL. Existem também a versão DSA de ```glBufferStorage``` a partir da versão 4.5: ```glNamedBufferStorage```.
+Na versão 4.4, também foi introduzido o conceito de **immutable data store** com o comando ```glBufferStorage```. Neste tipo de armazenamento não é possível alterar o tamanho do espaço criado. No caso do ```glBufferData```, é possível chamar novamente este comando para criar um novo espaço com um tamanho diferente. Criar armazenamento imutável é eficiente em hardwares gráficos modernos melhorando o desempenho da aplicação OpenGL. Existem também a versão DSA de ```glBufferStorage``` a partir da versão 4.5: ```glNamedBufferStorage```.
 
 ```
     void glBufferStorage(GLenum target, GLsizeiptr size, const void* data, GLbitfield flags);
@@ -72,6 +65,57 @@ Na versão 4.4, também foi introduzido o conceito de **immutable data store** c
 ```
 
 > **Nota:** Em todos os casos acima, escolher o valor correto para os parâmetros ```usage``` e ```flags``` é importante para otimizar o desempenho e obter o comportamento correto.
+
+
+# Populando apenas uma parte do buffer object
+
+Os comandos ```glBufferSubData``` (disponível a partir de 2.0) e ```glNamedBufferSubData``` (disponível a partir de 4.5) permitem redefinir uma parte (ou inteiramente) o conteúdo de um buffer object com espaço de armazenamento alocado anteriormente.
+
+```
+void glBufferSubData(GLenum target, GLintptr offset, GLsizeiptr size, const void * data);
+void glNamedBufferSubData(	GLuint buffer, GLintptr offset,  GLsizeiptr size, const void *data);
+```
+
+
+# Preenchendo o conteúdo de buffer object com dados da aplicação
+
+Os comandos ```glClearBufferData``` (disponível a partir de 4.3) e ```glClearNamedBufferData``` (disponível a partir de 4.5) preenchem todo conteúdo de um buffer object com um valor conhecido.
+
+```
+    void glClearBufferData(GLenum target, GLenum internalFormat, GLenum format, GLenum type, const void* data);
+    void glClearNamedBufferData(GLuint buffer, GLenum internalFormat, GLenum format, GLenum type, const void* data);
+```
+
+Existem também os comandos ```glClearBufferSubData``` (disponível a partir de 4.3) e ```glClearNamedBufferSubData``` (disponível a partir de 4.5) para preencher partes de um buffer object.
+
+```
+void glClearBufferSubData(GLenum target, GLenum internalformat, GLintptr offset, GLsizeiptr size, GLenum format, GLenum type, const void * data);
+ 
+void glClearNamedBufferSubData(	GLuint buffer, GLenum internalformat, GLintptr offset, GLsizeiptr size, GLenum format, GLenum type, const void *data);
+```
+
+Utilizar estes comandos permite preencher os dados (_data store_) de um buffer object de forma otimizada sem a necessidade de reservar e limpar a região de memória.
+
+Uma alternativa seria utilizar ```glMapBuffer``` e preencher os dados manualmente, mas isso concerteza é mais lento do que utilizar os comandos acima.
+
+
+# Copiando dados de um buffer object para outro
+
+Para copiar parte dos dados de um buffer object em outro buffer object, existem os comandos ```glCopyBufferSubData``` (disponível a partir de 3.1) e ```glCopyNamedBufferSubData``` (disponível a partir de 4.5).
+
+```
+void glCopyBufferSubData(GLenum readTarget, GLenum writeTarget, GLintptr readOffset, GLintptr writeOffset, GLsizeiptr size);
+
+void glCopyNamedBufferSubData(GLuint readBuffer, GLuint writeBuffer, GLintptr readOffset, GLintptr writeOffset, GLsizeiptr size);
+```
+
+No caso de ```glCopyBufferSubData```, é necessário utilizar ```GL_COPY_READ_BUFFER``` e ```GL_COPY_WRITE_BUFFER``` binding targets para copiar dados sem afetar outras operações de OpenGL.
+
+
+# Lendo os dados de um buffer object
+
+Para obter os dados de um buffer object, existem dois comandos: ```glGetBufferSubData``` (disponível a partir de 2.0) e ```glGetNamedBufferSubData``` (disponível a partir de 4.5).
+
 
 
 # Referências
