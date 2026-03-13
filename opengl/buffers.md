@@ -10,9 +10,9 @@ Quando um buffer object é criado, é necessário vinculá-lo (_binding_) ao con
 
 # Criando buffer object
 
-O comando ```glGenBuffers``` (disponível desde a versão 2.0) é utilizado para obter um "nome" disponível para que a aplicação possa referenciar o buffer object que está na memória do hardware gráfico.
+O comando ```glGenBuffers``` (disponível desde a versão 2.0) é utilizado para obter "nomes" disponíveis para que a aplicação possa referenciar o buffer object na memória do hardware gráfico.
 
-Os nomes retornados por ```glGenBuffers``` só vão estar associados de fato a um buffer object após vincular o objeto ao contexto com ```glBindBuffer```.
+Os nomes retornados por ```glGenBuffers``` só vão estar associados de fato a um buffer object após vincular o objeto ao contexto OpenGL com ```glBindBuffer```.
 
 ```
     GLuint buffer;
@@ -21,7 +21,7 @@ Os nomes retornados por ```glGenBuffers``` só vão estar associados de fato a u
     glBindBuffer(GL_ARRAY_BUFFER, buffer);
 ```
 
-A partir da versão 4.5, foi criado o conceito de **Direct State Access (DSA)**, onde não é mais necessário vincular o buffer object ao contexto para poder inicializá-lo. Foram criados comandos novos para obter nomes de buffer object que são inicializados como se estivessem vinculados a um **target point** não especificado - ou seja, não é necessário realizar o _binding_ para inicializar este buffer object com dados.
+A partir da versão 4.5, foi criado o conceito de **Direct State Access (DSA)**, onde não é mais necessário vincular o buffer object ao contexto para poder inicializá-lo. Foram criados comandos novos para obter nomes de buffer object que são inicializados como se estivessem vinculados a um **target point** não especificado - ou seja, não é mais necessário realizar o _binding_ para inicializar o buffer object com dados.
 
 ```
     GLuint buffer;
@@ -57,7 +57,7 @@ Na versão 4.5, foi disponibilizado o comando ```glNamedBufferData``` que també
     void glNamedBufferData(GLuint bufferName, GLsizeiptr size, const void* data, GLenum usage);
 ```
 
-Na versão 4.4, também foi introduzido o conceito de **immutable data store** com o comando ```glBufferStorage```. Neste tipo de armazenamento não é possível alterar o tamanho do espaço criado. No caso do ```glBufferData```, é possível chamar novamente este comando para criar um novo espaço com um tamanho diferente. Criar armazenamento imutável é eficiente em hardwares gráficos modernos melhorando o desempenho da aplicação OpenGL. Existem também a versão DSA de ```glBufferStorage``` a partir da versão 4.5: ```glNamedBufferStorage```.
+Na versão 4.4, também foi introduzido o conceito de **immutable data store** com o comando ```glBufferStorage```. Neste tipo de armazenamento não é possível alterar o tamanho do espaço criado. No caso do comando ```glBufferData```, é possível chamar novamente este comando para criar um novo espaço com um tamanho diferente. Criar armazenamento imutável é eficiente em hardwares gráficos modernos melhorando o desempenho da aplicação OpenGL. Existem também a versão DSA de ```glBufferStorage``` a partir da versão 4.5: ```glNamedBufferStorage```.
 
 ```
     void glBufferStorage(GLenum target, GLsizeiptr size, const void* data, GLbitfield flags);
@@ -96,8 +96,6 @@ void glClearNamedBufferSubData(	GLuint buffer, GLenum internalformat, GLintptr o
 
 Utilizar estes comandos permite preencher os dados (_data store_) de um buffer object de forma otimizada sem a necessidade de reservar e limpar a região de memória.
 
-Uma alternativa seria utilizar ```glMapBuffer``` e preencher os dados manualmente, mas isso concerteza é mais lento do que utilizar os comandos acima.
-
 
 # Copiando dados de um buffer object para outro
 
@@ -116,6 +114,45 @@ No caso de ```glCopyBufferSubData```, é necessário utilizar ```GL_COPY_READ_BU
 
 Para obter os dados de um buffer object, existem dois comandos: ```glGetBufferSubData``` (disponível a partir de 2.0) e ```glGetNamedBufferSubData``` (disponível a partir de 4.5).
 
+
+# Acessando o conteúdo com ```glMapBuffer```
+
+Todos os comandos acima envolvem cópias de dados, seja da memória da aplicação para buffer object, de um buffer object para outro buffer object ou de um buffer object para memória da aplicação.
+
+Dependendo da configuração de hardware, é possível utilizar os comandos ```glMapBuffer```(disponível a partir da versão 2.0) e ```glMapNamedBuffer``` (disponível a partir da versão 4.5) para obter acesso a memória alocada pelo OpenGL através de um ponteiro.
+
+```
+    void* glMapBuffer(GLenum target, GLenum access);
+    void* glMapNamedBuffer(GLuint buffer, GLenum access);
+```
+
+O comando ```glMapBuffer``` retorna um ponteiro para a memória que "representa" o armazenamento de dados do buffer object vinculado ao target. Isso significa que esta memória pode não ser a memória que será utilizada pela GPU.
+
+Após a utilização da memória, a aplicação abdica do ponteiro através do comando ```glUnmapBuffer``` (disponível a partir da versão 2.0) e ```glUnmapNamedBuffer``` (disponível a partir da versão 4.5).
+
+```
+    GLboolean glUnmapBuffer(GLenum target);
+    GLboolean glUnmapNamedBuffer(GLuint buffer);
+```
+
+> **Nota:** Se os dados do buffer object estiver inacessível para a aplicação na chamada de ```glMapBuffer```, OpenGL poderá mover estes dados para tornar acessível. Da mesma forma, após a aplicação utilizar a memória, OpenGL poderá mover os dados para uma área acessível para a GPU. Este processo tem um custo de desempenho alto.
+
+Exemplo de uso:
+
+```
+    GLuint buffer;
+    glGenBuffers(1, &buffer);
+    glBindBuffer(GL_COPY_WRITE_BUFFER, buffer);
+    glBufferData(GL_COPY_WRITE_BUFFER, size, NULL, GL_STATIC_DRAW);
+
+    void* dataFromGPU = glMapBuffer(GL_COPY_WRITE_BUFFER, GL_WRITE_ONLY);
+
+    copy(data, dataFromGPU);
+
+    glUnmapBuffer(GL_COPY_WRITE_BUFFER);
+```
+
+O exemplo acima mostra que, uma vez mapeado, não há cópia da aplicação para a GPU e nem cópia da GPU para a aplicação.
 
 
 # Referências
