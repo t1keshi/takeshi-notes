@@ -154,6 +154,19 @@ Exemplo de uso:
 
 O exemplo acima mostra que, uma vez mapeado, não há cópia da aplicação para a GPU e nem cópia da GPU para a aplicação.
 
+Existem algumas observações interessantes sobre as opções do parâmetro ```access```.
+
+- ```GL_MAP_INVALIDATE_RANGE_BIT``` (invalida parte dos dados do buffer)  
+- ```GL_MAP_INVALIDATE_BUFFER_BIT``` (invalida dados do buffer inteiro)  
+
+Indica a OpenGL que os dados do buffer podem ser descartados para que a aplicação possa escrever. Se estas flags não for especificada e dados estiver em uso, a GPU poderá esperar para copiar/mover os dados gerando **stall** na pipeline.
+
+Quando os dados são invalidados, a GPU cria um buffer novo se estiver em uso para que a aplicação possa utilizá-la imediatamente.
+
+Estas flags só podem ser especificadas junto com ```GL_MAP_WRITE_BIT```.
+
+> **Nota:** Cuidado ao atualizar o buffer object em diversas chamadas com ```glMapBuferRange```. Se em alguma chamada posterior especificar ```GL_MAP_INVALIDATE_BUFFER_BIT```, as partes anteriores serão descartadas.
+
 
 # Referências
 
