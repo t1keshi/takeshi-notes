@@ -3,16 +3,14 @@
 
 # OpenGL Buffers
 
-**Buffer object** é um objeto que representa uma área da memória no hardware gráfico e é gerenciado pelo OpenGL. Existem vários tipos de buffer objects para armazenar diferentes tipos de dados.
+**Buffer object** é um objeto que representa uma área de armazenamento de dados (_data store_) do hardware gráfico e é gerenciado pelo OpenGL. Existem vários tipos de buffer objects para armazenar diferentes tipos de dados.
 
 Quando um buffer object é criado, é necessário vinculá-lo (_binding_) ao contexto para que OpenGL possa utilizá-lo.
 
 
 # Criando buffer object
 
-O comando ```glGenBuffers``` (disponível desde a versão 2.0) é utilizado para obter "nomes" disponíveis para que a aplicação possa referenciar o buffer object na memória do hardware gráfico.
-
-Os nomes retornados por ```glGenBuffers``` só vão estar associados de fato a um buffer object após vincular o objeto ao contexto OpenGL com ```glBindBuffer```.
+O comando ```glGenBuffers``` (disponível desde a versão 2.0) é utilizado para obter "nomes" disponíveis para que a aplicação possa referenciar os buffer objects do hardware gráfico. Entretanto, os nomes retornados por ```glGenBuffers``` só vão estar associados de fato a um buffer object após vincular o buffer object a algum **binding target point** do contexto OpenGL com ```glBindBuffer```.
 
 ```
     GLuint buffer;
@@ -20,6 +18,8 @@ Os nomes retornados por ```glGenBuffers``` só vão estar associados de fato a u
 
     glBindBuffer(GL_ARRAY_BUFFER, buffer);
 ```
+
+Existem diversos binding target points para diferentes tipos de buffer objects como ```GL_ARRAY_BUFFER```,```GL_ELEMENT_ARRAY_BUFFER```, etc. 
 
 A partir da versão 4.5, foi criado o conceito de **Direct State Access (DSA)**, onde não é mais necessário vincular o buffer object ao contexto para poder inicializá-lo. Foram criados comandos novos para obter nomes de buffer object que são inicializados como se estivessem vinculados a um **target point** não especificado - ou seja, não é mais necessário realizar o _binding_ para inicializar o buffer object com dados.
 
@@ -57,14 +57,14 @@ Na versão 4.5, foi disponibilizado o comando ```glNamedBufferData``` que també
     void glNamedBufferData(GLuint bufferName, GLsizeiptr size, const void* data, GLenum usage);
 ```
 
-Na versão 4.4, também foi introduzido o conceito de **immutable data store** com o comando ```glBufferStorage```. Neste tipo de armazenamento não é possível alterar o tamanho do espaço criado. No caso do comando ```glBufferData```, é possível chamar novamente este comando para criar um novo espaço com um tamanho diferente. Criar armazenamento imutável é eficiente em hardwares gráficos modernos melhorando o desempenho da aplicação OpenGL. Existem também a versão DSA de ```glBufferStorage``` a partir da versão 4.5: ```glNamedBufferStorage```.
+Na versão 4.4, também foi introduzido o conceito de **immutable data store** com o comando ```glBufferStorage```. Neste tipo de armazenamento não é possível alterar o tamanho do espaço criado. No caso do comando ```glBufferData```, é possível chamar novamente este comando para criar um novo espaço com um tamanho diferente. Criar armazenamento imutável é eficiente em hardwares gráficos modernos melhorando o desempenho da aplicação OpenGL. A versão DSA de ```glBufferStorage``` a partir da versão 4.5 é ```glNamedBufferStorage```.
 
 ```
     void glBufferStorage(GLenum target, GLsizeiptr size, const void* data, GLbitfield flags);
     void glNamedBufferStorage(GLuint buffer, GLsizeiptr size, const void* data, GLbitfield flags)
 ```
 
-> **Nota:** Em todos os casos acima, escolher o valor correto para os parâmetros ```usage``` e ```flags``` é importante para otimizar o desempenho e obter o comportamento correto.
+> **Nota:** Em todos os casos acima, escolher o valor correto para os parâmetros ```usage``` e ```flags``` é importante para otimização e obter o comportamento correto.
 
 
 # Populando apenas uma parte do buffer object
@@ -126,7 +126,7 @@ Dependendo da configuração de hardware, é possível utilizar os comandos ```g
     void* glMapNamedBuffer(GLuint buffer, GLenum access);
 ```
 
-O comando ```glMapBuffer``` retorna um ponteiro para a memória que "representa" o armazenamento de dados do buffer object vinculado ao target. Isso significa que esta memória pode não ser a memória que será utilizada pela GPU.
+Na realidade, os comandos ```glMapBuffer``` e ```glMapNamedBuffer``` retornam um ponteiro para a memória que "representa" o armazenamento de dados do buffer object vinculado ao target e isso significa que esta memória pode não ser a memória que será utilizada pela GPU. A GPU pode mover os dados de um buffer object quando está em uso.
 
 Após a utilização da memória, a aplicação abdica do ponteiro através do comando ```glUnmapBuffer``` (disponível a partir da versão 2.0) e ```glUnmapNamedBuffer``` (disponível a partir da versão 4.5).
 
@@ -159,7 +159,7 @@ Existem algumas observações interessantes sobre as opções do parâmetro ```a
 - ```GL_MAP_INVALIDATE_RANGE_BIT``` (invalida parte dos dados do buffer)  
 - ```GL_MAP_INVALIDATE_BUFFER_BIT``` (invalida dados do buffer inteiro)  
 
-Indica a OpenGL que os dados do buffer podem ser descartados para que a aplicação possa escrever. Se estas flags não for especificada e dados estiver em uso, a GPU poderá esperar para copiar/mover os dados gerando **stall** na pipeline.
+Indica a OpenGL que os dados do buffer podem ser descartados para que a aplicação possa escrever. Se estas flags não for especificada e o buffer object estiver em uso, a GPU poderá esperar para copiar/mover os dados gerando **stall** na pipeline.
 
 Quando os dados são invalidados, a GPU cria um buffer novo se estiver em uso para que a aplicação possa utilizá-la imediatamente.
 
@@ -167,6 +167,19 @@ Estas flags só podem ser especificadas junto com ```GL_MAP_WRITE_BIT```.
 
 > **Nota:** Cuidado ao atualizar o buffer object em diversas chamadas com ```glMapBuferRange```. Se em alguma chamada posterior especificar ```GL_MAP_INVALIDATE_BUFFER_BIT```, as partes anteriores serão descartadas.
 
+
+A flag ```GL_MAP_UNSYNCHRONIZED_BIT``` não espera a GPU transferir os dados que estiverem em uso para a região de memória acessível para aplicação. A aplicação deve garantir que a GPU não está utilizando o buffer object. Existem duas maneiras de garantir isso: ```glFnish()``` e **sync objects**.
+
+Esta flag é interessa onde a GPU está utilizando uma parte do buffer object e você quer atualizar outras partes sem ocasionar stall da pipeline.
+
+A flag ```GL_MAP_FLUSH_EXPLICIT_BIT``` indica que a aplicação irá indicar quais partes do buffer object foram realmente alteradas. Sem esta flag, a GPU irá mover toda a parte mapeada mesmo se aplicação atualizou uma pequena parte deste buffer. Esta flag evita o tráfego desnecessário e possível perda de desempenho. Para a aplicação informar exatamente quais partes foram alteradas, existem os comandos ```glFlushMappedBufferRange``` (disponível a partir da versão 3.0) e ```glFlushMappedNamedBufferRange``` (disponível a partir da versão 4.5).
+
+Estes comandos precisam ser chamados antes de realizar o "unmap" do buffer object. Assim que o comando é chamado, a GPU inicia o tratamento destes dados de forma paralela antes mesmo da aplicação realizar o "unmap".
+
+
+# Descartando dados do buffer object
+
+Existem dois comandos ```glInvalidadeBufferData``` (disponível a partir da versão 4.3) e ```glInvalidadeBufferSubData``` (disponível a partir da versão 4.3) para "informar" a GPU que os dados de um buffer object pode ser invalidados e serem liberados para outro uso reduzindo stall da pipeline e fragmentação de memória.
 
 # Referências
 
