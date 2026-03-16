@@ -4,10 +4,11 @@
 
 Table of Contents
 
-[Introduction](intro.md)  
-[Rendering Pipeline](pipeline.md)  
-[Viewing Model](viewing.md)  
-[OpenGL Buffers](buffers.md)  
-[Drawing in OpenGL](drawing.md)    
-[OpenGL History](history.md)  
-[Transform Feedback](transform_feedback.md)  
+- [Introduction](intro.md)  
+- [The OpenGL Rendering Pipeline](pipeline.md)  
+- [Shader Plumbing](shader_plumbing.md)  
+- [Viewing Model](viewing.md)  
+- [OpenGL Buffers](buffers.md)  
+- [Drawing in OpenGL](drawing.md)    
+- [OpenGL History](history.md)  
+- [Transform Feedback](transform_feedback.md)  
