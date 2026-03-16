@@ -51,13 +51,37 @@ No caso de um **Vertex Shader**, as variáveis de entrada são inicializadas com
 
 # Vertex Array Object (VAO)
 
-**Vertex Array Object (VAO)** é o objeto responsável por especificar o formado de dados do atributo de vértice e, de forma implícita, o vbo que contém o atributo de vértice para que quando for inicializado a pipeline de renderização, as variáveis de entrada de Vertex Shader possam ser inicializadas corretamente.
+**Vertex Array Object (VAO)** é o objeto que contém os estados de que especificam o formato de dados do atributo de vértice e o vbo que contém o atributo de vértice. Quando um comando de desenho é executado, OpenGL utiliza o vao ativo para obter estas informações e passar os dados para o vertex shader.
 
 ```
 	GLuint vao;
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
 ```
+
+O comando para ativar o atributo de vértice é ```glEnableVertexAttribArray```. O valor do argumento deve ser um inteiro entre ```0``` e ```GL_MAX_VERTEX_ATTRIBS - 1```. ```GL_MAX_VERTEX_ATTRIBS``` define a quantidade máxima de atributos por vértice.
+
+```
+	glEnableVertexAttribArray(0); // habilitando vertex array de índice 0 (location=0 no vertex shader)
+	glEnableVertexAttribArray(1); // habilitando vertex array de índice 1 (location=1 no vertex shader)
+```
+
+O comando ```glVertexAttribPointer``` é responsável por especificar o formado de dados do atributo de vértice armazenado no vbo.
+
+```
+	glBindBuffer(GL_ARRAY_BUFFER, vbo[0]);
+	GLint location0 = 0;
+	glVertexAttribPointer(location0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
+
+	glBindBuffer(GL_ARRAY_BUFFER, vbo[1]);
+	GLint location1 = 1;
+	glVertexAttribPointer(location1, 3, GL_FLOAT, GL_FALSE, 0, NULL);
+```
+
+Primeiro, precisamos utililizar ```glBindBuffer``` para tornar o vbo que contém o atributo de vértice ativo. Quando chamamos ```glVertexAttribPointer``` estamos especificando o índice do atributo de vértice, o formato dos dados e, armazenando uma referência para o vbo ativo em ```GL_ARRAY_BUFFER``` no estado de VAO ativo. Quando um novo vbo fica ativo através de ```glBindBuffer```, o VAO mantém a referência do vbo para o atributo de vértice configurado anteriormente.
+
+Como VAO mantém todas as informações relacionadas aos atributos de vértice e vbo, é prático trocar de um vao pelo outro.
+
 
 # Referências
 
