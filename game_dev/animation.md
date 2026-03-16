@@ -21,6 +21,12 @@ Sabendo que os intervalos de valores das funções seno e cosseno são [-1, 1] e
     }
 ```
 
+```CurrentTime``` é um exemplo de um valor que pode ser utilizado como valores de ```sin``` e ```cos```. Estas funções trigonométricas aceitam valores que "crescem"/"decrescem" continuamente mas o resultado será sempre um valor entre [-1, 1] e que variam de acordo a função a matemática e se repetem após competar um período.
+
+Podemos utilizar um valor constante para ajustar o valor que passamos para ```sin``` e ```cos```.
+
+O valor que é multiplicado após o cálculo do seno e cosseno aumenta o intervalo de valores de [-1, 1] para o valor multiplicado. Neste caso, aumentamos o intervalo para [-2, 2].
+
 
 # Referências
 
