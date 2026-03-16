@@ -11,14 +11,16 @@ Os estágios da _pipeline_ de renderização de OpenGL são:
 - **Vertex Shader** (obrigatório)
 - **Tessellation Shader** (opcional)
 - **Geometry Shader** (opcional)
-- Clipping and Rasterization  (executado implicitamente pelo OpenGL)
+- Perspective Division, Clipping, Primitive Assembly and Rasterization (executado implicitamente pelo OpenGL)
 - **Fragment Shader** (obrigatório)
 - Per-fragment operations (executado implicitamente pelo OpenGL)
 - **Compute Shader** (opcional)
 
-O mesmo shader pode ser executado múltiplas vezes em diferentes dados de forma paralela. Por exemplo, para renderizar um cubo que possui oito vértices, **vertex shader** é executado oito vezes de forma paralela - uma execução para cada vértice. Outro exemplo é o **fragment shader** que é executado de forma paralela múltiplas vezes - uma execução para cada **fragmento** que é um _candidato_ a se tornar um pixel no framebuffer.
+O mesmo shader pode ser executado múltiplas vezes em diferentes dados de forma paralela. Por exemplo, para renderizar um cubo que possui oito vértices, **vertex shader** é executado oito vezes de forma paralela - uma execução para cada vértice. Outro exemplo é o **fragment shader** que é executado de forma paralela múltiplas vezes - uma execução para cada **fragmento** - um _candidato_ a se tornar um pixel no framebuffer.
 
-O conjunto de shaders é chamado de **GLSL shader program**. Uma aplicação OpenGL pode conter diversos programas de shader mas apenas um programa pode estar ativo por vez.
+**GLSL shader program** é um programa de shader que contém um shader de cada estágio. De fato, como apenas vertex shader e fragment shader são obrigatórios, um programa de shader mínimo é composto apenas por esses dois shaders.
+
+Uma aplicação OpenGL pode conter diversos programas de shader mas apenas um programa pode estar ativo por vez.
 
 > **Nota:** Nas versões anteriores a OpenGL 2.0, a pipeline de renderização não era programável - conhecido como _Fixed-Function Pipeline_. A partir da versão 3.2, a utilização de shaders se tornou obrigatória. O advento da pipeline de renderização programável foi um marco na área da Computação Gráfica porque tornou a renderização mais flexível, eficiente e aumentou significativamente o desempenho da renderização.
 
@@ -27,9 +29,9 @@ A imagem final gerada pelo processo de renderização consiste em **pixels** (me
 
 # Transferência de dados de vértice para a pipeline de renderização
 
-Os comandos de desenho de OpenGL ```glDraw*``` iniciam a execução da pipeline de renderização e os dados de vértices armazenados em **vertex buffer objects (vbo)** são transferidos para as variáveis declaradas com qualificador ```in``` em **Vertex Shader** - o primeiro estágio da pipeline de renderização. 
+Os comandos de desenho (_draw call_) de OpenGL ```glDraw*``` iniciam a execução da pipeline de renderização e os dados de vértices armazenados em **vertex buffer objects (vbo)** são transferidos para as variáveis declaradas com qualificador ```in``` em **Vertex Shader** - o primeiro estágio da pipeline de renderização. 
 
-Em OpenGL, este processo de transferência dos dados de vértices para vertex shader é conhecido como [**shader pumbling**](shader_pumbling.md). OpenGL sabe em qual vbo está armazenado os dados de vértice e o seu formato de dados através de outro objeto chamado **vertex array object (vao)**.
+Em OpenGL, este processo de transferência dos dados de vértices para vertex shader é conhecido como [**shader plumbing**](shader_plumbing.md). OpenGL sabe em qual vbo está armazenado os dados de vértice e o seu formato de dados através de outro objeto chamado **vertex array object (vao)**.
 
 Uma outra maneira de passar dados da aplicação para shaders é utilizar **variáveis uniformes**.
 
