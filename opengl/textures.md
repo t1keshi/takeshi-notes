@@ -71,8 +71,12 @@ Em modelos mais complexos que contém curvas ou muitos triângulos, as coordenad
 
 # Unfirom Sampler variable
 
-Existe uma variável uniforme especial em shaders chamada **sampler** que permite acessar a textura.
+Existe uma variável uniforme especial em shaders chamada **sampler** que utiliza texture unit para extrair texel ou "sample" do objeto de textura carregado.
 
+```
+    // fragment shader
+    uniform sampler2D myTexture;
+```
 
 # Referências
 
