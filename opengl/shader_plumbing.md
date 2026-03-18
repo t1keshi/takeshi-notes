@@ -51,7 +51,7 @@ No caso de um **Vertex Shader**, as variáveis de entrada são inicializadas com
 
 # Vertex Array Object (VAO)
 
-**Vertex Array Object (VAO)** é o objeto que contém os estados de que especificam o formato de dados do atributo de vértice e o vbo que contém o atributo de vértice. Quando um comando de desenho é executado, OpenGL utiliza o vao ativo para obter estas informações e passar os dados para o vertex shader.
+**Vertex Array Object (VAO)** é o objeto que contém os estados de que especificam o formato de dados do atributo de vértice e o vbo que contém o atributo de vértice. Quando um comando de desenho é executado, OpenGL utiliza o vao ativo para obter estas informações e passar os dados para o vertex shader corretamente.
 
 ```
 	GLuint vao;

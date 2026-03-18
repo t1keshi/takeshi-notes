@@ -9,6 +9,7 @@ Table of Contents
 - [Shader Plumbing](shader_plumbing.md)  
 - [Viewing Model](viewing.md)  
 - [OpenGL Buffers](buffers.md)  
-- [Drawing in OpenGL](drawing.md)    
+- [Drawing in OpenGL](drawing.md)  
+- [Textures](textures.md)  
 - [OpenGL History](history.md)  
 - [Transform Feedback](transform_feedback.md)  
