@@ -176,10 +176,32 @@ A flag ```GL_MAP_FLUSH_EXPLICIT_BIT``` indica que a aplicação irá indicar qua
 
 Estes comandos precisam ser chamados antes de realizar o "unmap" do buffer object. Assim que o comando é chamado, a GPU inicia o tratamento destes dados de forma paralela antes mesmo da aplicação realizar o "unmap".
 
+??
+Mapeando o buffer object de forma assincrona:
+
+A função glFlushMappedNamedBufferRange é usada para garantir que uma parte de um buffer mapeado na memória seja enviada para a GPU de forma assíncrona e eficiente. Ela é especialmente útil quando você está usando buffer mapeado para escrita dinâmica, como ao atualizar vértices, uniformes ou dados de computação.
+
+O comando glFlushMappedNamedBufferRange pode ser chamado para garantir que apenas a região modificada seja enviada para a GPU. Assim, a GPU pode acessar os dados antes mesmo da chamada de glUnmapNamedBuffer, reduzindo a latência.
+
+Este comando ajuda a manter a execução paralela entre CPU e GPU, evitando stalls desnecessários.
+
+Precisa do flag GL_MAP_FLUSH_EXPLICIT_BIT ao mapear o buffer, caso contrário, glFlushMappedNamedBufferRange não terá efeito.
+
 
 # Descartando dados do buffer object
 
 Existem dois comandos ```glInvalidadeBufferData``` (disponível a partir da versão 4.3) e ```glInvalidadeBufferSubData``` (disponível a partir da versão 4.3) para "informar" a GPU que os dados de um buffer object pode ser invalidados e serem liberados para outro uso reduzindo stall da pipeline e fragmentação de memória.
+
+O comando glInvalidateBufferData serve para invalidar os dados armazenados em um buffer da GPU, informando que seu conteúdo anterior não é mais necessário. Isso pode melhorar a performance ao evitar cópias desnecessárias de dados antigos na memória da GPU.
+
+Quando um buffer já contém dados antigos que não serão reutilizados, a GPU pode tentar preservar esse conteúdo ao alocar espaço para novos dados. Isso pode causar cópias desnecessárias e impacto no desempenho.
+
+??
+Isso pode:
+
+Evitar cópias desnecessárias, reduzindo overhead na GPU.
+Melhorar o desempenho ao permitir que a GPU reutilize a memória do buffer imediatamente.
+Ser mais eficiente do que glBufferData(NULL), pois não força a GPU a desalocar e realocar a memória do buffer.
 
 # Referências
 

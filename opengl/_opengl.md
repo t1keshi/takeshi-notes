@@ -11,3 +11,4 @@ Table of Contents
 [Drawing in OpenGL](drawing.md)    
 [OpenGL History](history.md)  
 [Transform Feedback](transform_feedback.md)  
+[Instancing Rendering](instancing.md)  
