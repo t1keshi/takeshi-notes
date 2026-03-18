@@ -75,7 +75,22 @@ Existe uma variável uniforme especial em shaders chamada **sampler** que utiliz
 
 ```
     // fragment shader
-    uniform sampler2D myTexture;
+    layout(binding=0) uniform sampler2D myTexture;
+```
+
+O qualificador ```layout binding``` especifica qual texture unit a variável sampler deve utilizar para extrair o texel.
+
+Um texture object é associado ao texture unit pela aplicação da seguinte maneira:
+
+```
+    glActiveTexture(GL_TEXTURE0); // ativa o texture unit desejado
+    glBindTexture(GL_TEXTURE_2D, tex);
+```
+
+Para extrair o texel em fragment shader, basta passar as coordenadas de texturas interpolada para o sampler:
+
+```
+    color = texture(myTexture, textureCoordinates);
 ```
 
 # Referências
