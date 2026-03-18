@@ -61,6 +61,13 @@ O intervalo de valores para as coordenadas de textura nos dois eixos são [0, 1]
 
 > **Nota:** As imagens armazenadas em arquivos como PNG, JPEG, etc possuem a origem (0, 0) no canto superior esquerdo. Ao ler estas imagens de arquivos para memória, é necessário inverter verticalmente.
 
+Exemplo de como mapear os vértices de um quad em uma textura.
+
+```
+```
+
+Em modelos mais complexos que contém curvas ou muitos triângulos, as coordenadas de textuas precisam ser geradas matematicamente ou com algum algoritmo especializado. Alguns softares como Blender3D oferecem um recurso chamado "UV Mapping".
+
 
 # Unfirom Sampler variable
 
@@ -70,5 +77,5 @@ Existe uma variável uniforme especial em shaders chamada **sampler** que permit
 # Referências
 
 - KESSENICH, J. et al. OpenGL Programming Guide: the official guide to learning OpenGL, versions 4.5. 9th ed. Boston: Pearson Education, 2017.  
-- WOLFF, D. OpenGL 4 Shading Language Cookbook. 3rd ed. Birmingham: Packt Publishing, 2018.
+- WOLFF, D. OpenGL 4 Shading Language Cookbook. 3rd ed. Birmingham: Packt Publishing, 2018.  
 - GORDON, V. S. CLEVENGER, J. Computer Graphics Programming in OpenGL with C++, 3rd ed. Mercury Learning and Information, 2024.  
