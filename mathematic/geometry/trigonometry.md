@@ -2,6 +2,11 @@
 
 # Trigonometria
 
+- 2pi representa uma volta completa em um círculo
+
+
+# Funções triogonométricas
+
 As funções trigonométricas (funções circulares) estão relacionadas com as voltas no ciclo trigonométrico.
 
 - Função seno
