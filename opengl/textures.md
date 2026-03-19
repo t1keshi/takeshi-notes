@@ -147,6 +147,50 @@ Para criar manualmente os mipmaps, basta chamar repetidamente o comando ```glTex
 > **Nota:** É possível utilizar ```GL_NEAREST``` ou ```GL_LINEAR``` para desativar o mipmapping.
 
 
+# Wrapping and Tiling
+
+Além de mipmapping, é possível especificar comportamentos para coordenadas de texturas com valores diferentes de [0, 1] utilizando os parâmetros ```GL_TEXTURE_WRAP_S``` e ```GL_TEXTURE_WRAP_T```.
+
+```
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+```
+
+- ```GL_REPEAT```  
+- ```GL_MIRRORED_REPEAT```  
+- ```GL_CLAMP_TO_EDGE```  
+- ```GL_CLAMP_TO_BORDER```  
+
+Para que ```GL_CLAMP_TO_BORDER``` funcione, é necessário especificar também a cor da borda limite:
+
+```
+    float redColor[4] = { 1.0f, 0.0f, 0.0f, 1.0f };
+    glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, redColor);
+```
+
+
+# Anisotropic filtering (AF)
+
+Para verificar se o filtro **anistropic** está disponível no hardware gráfico:
+
+```
+    GLint numExtensions;
+    glGetIntegerv(GL_NUM_EXTENSIONS, &numExtensions);
+
+    for (GLint i = 0; i < numExtensions; i++) {
+        extension = glGetStringi(GL_EXTENSIONS, static_cast<GLuint>(i));
+
+        if(extension == "GL_EXT_texture_filter_anisotropic") {
+            // this hardware has anisotropic filtering
+        }
+    }
+
+    // setting anisotropic filtering
+    GLfloat	anisoSetting = 0.0f;
+    glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &anisoSetting);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, anisoSetting);
+```
+
 # Referências
 
 - KESSENICH, J. et al. OpenGL Programming Guide: the official guide to learning OpenGL, versions 4.5. 9th ed. Boston: Pearson Education, 2017.  
