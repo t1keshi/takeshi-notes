@@ -3,8 +3,20 @@ Previous: [OpenGL](_opengl.md)
 
 # Textures
 
-**Mapeamento de texturas** é uma técnica que permite aplicar uma imagem em uma superfície de um modelo rasterizado. Ele é muito importante para adicionar realismo em cenas renderizadas.
+**Mapeamento de texturas** é uma técnica que permite aplicar uma imagem de textura em uma superfície de um modelo rasterizado. Ele é muito importante para adicionar realismo em cenas renderizadas.
 
+**Textura** é uma image 
+
+
+This technique allows you to look up values, like colors, from a shader in a special type of table. While access to texture maps is a ailable in all of OpenGL’s shading stages, we’ll first discuss it in the context of processing fragments, because that’s where it’s used most often.
+
+Often, a texture map (or just "texture" for short) is an image captured by a camera or painted by an artist, but there’s no requirement that be the case — it’s possible that the image is procedurally generated (see Chapter 8, “Procedural Texturing”) or e en rendered by OpenGL targeting a texture instead of the display device.
+
+Textures of this nature would be two dimensional, but OpenGL supports many other types of textures as well: one-, and three-dimensional textures, cube-map textures, and buffer textures. Array textures are also supported, which are treated as a set of slices of similar dimension and format wrapped up in a single texture object.
+
+Textures are composed of texels, which will often contain color values. However, there’s a lot of utility in merely considering a texture as a table of alues that you can query in a shader and use for any purpose you desire.
+
+??
 Existem componentes de hardware gráfico específicos para ajudar no mapeamento de textura (sampling de textura, aplicação de filtros, LOD, mipmaps, etc). **Texture Units** é a interface para acessar esses componentes de hardware.
 
 Para verificar a quantidade disponível de texture units em seu hardware verifique ```GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS```. Por exemplo, se estiver disponível 16 texture units, o seu shader será capaz de utilizar 16 texturas simultaneamente.
@@ -15,7 +27,6 @@ Para verificar a quantidade disponível de texture units em seu hardware verifiq
 Em OpenGL, **texture object** é utilizado para armazenar uma imagem de textura.
 
 ```
-
     GLuint texture;
     glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);
@@ -25,11 +36,7 @@ Em OpenGL, **texture object** é utilizado para armazenar uma imagem de textura.
     glTexParameter
 ```
 
-Nas versões de OpenGL anteriores a 4.5, quando um **texture object** é criado, é necessário vinculá-lo a um **texture target** utilizando ```glBindTexture```. Com a introdução do conceito **Direct State Access (DSA)** na versão 4.5, foi criado um novo comando ```glCreateTextures``` que permite criar um texture object e manipulá-lo como se já estivesse vinculado à um target não especificado.
-
-Nas versões anteriores a 4.5, só era possível manipular um texture object por vez (o que estivesse ativo no context OpenGL através de ```glBindTexture```). Com DSA, é possível manipular diversos texture object sem afetar o estado do contexto OpenGL.
-
-Carregando dados em texture object:
+Nas versões de OpenGL anteriores a 4.5, quando um **texture object** é criado, é necessário vinculá-lo a um **texture target** utilizando ```glBindTexture```. Com a introdução do conceito **Direct State Access (DSA)** na versão 4.5, foi criado um novo comando ```glCreateTextures``` que permite criar um texture object e manipulá-lo como se já estivesse vinculado à um target não especificado sem afetar o estado do contexto OpenGL.
 
 ```
     glTexImage2D
@@ -52,7 +59,7 @@ As **coordenadas de textura** são as coordenadas do eixo S (horizontal) e T (ve
     }
 ```
 
-Quando passamos estas coordenadas de vertex shader para fragment shader, elas são interpoladas pelo rasterizador da mesma forma que as posições do vértice. Com isso, conseguimos obter o pixel da textura (**texel**) para o determinado fragmento da primitiva que está sendo renderizada.
+Quando passamos coordenadas de textura de vertex shader para fragment shader, elas são interpoladas pelo rasterizador da mesma forma que as posições do vértice. Com isso, conseguimos obter o pixel da textura (**texel**) para o determinado fragmento da primitiva.
 
 ```
     // fragment shader
