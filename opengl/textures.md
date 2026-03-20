@@ -7,7 +7,7 @@ Previous: [OpenGL](_opengl.md)
 
 Existem componentes de hardware gráfico específicos para ajudar no mapeamento de textura (sampling de textura, aplicação de filtros, LOD, mipmaps, etc). **Texture Units** é a interface para acessar esses componentes de hardware.
 
-Para verificar a quantidade disponível de texture units em seu hardware verifique ```GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS```. Por exemplo, se estiver disponível 16 texture units, o seu shader será capaz de utilizar 16 texturas simultaneamente.
+Para verificar a quantidade disponível de texture units em seu hardware verifique ```GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS```. Por exemplo, se estiver disponível 16 texture units, o seu shader será capaz de utilizar 16 texture objects simultaneamente.
 
 
 # Texture Objects
