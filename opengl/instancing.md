@@ -1,5 +1,6 @@
 [OpenGL](_opengl.md)  
 
+
 # Instancing Rendering
 
 **Instancing Rendering** em OpenGL é um método bastante eficiente de realizar múltiplas chamadas de _draw calls_ utilizando uma única chamada.
@@ -16,9 +17,7 @@ Cada chamada de draw call em instancing rendering é chamada de **instância**.
 Existem dois mecanismos para diferenciar as chamadas de desenho a partir do shader:
 
 1. Permitir que atributos de vértice sejam passados por instância em vez de por vérice.  
-2. Disponibilidade do índice (```gl_InstanceID```) da instância atual no shader.  
-
-Quando é utilizado este tipo de _draw call_, vertex shader tem acesso a uma variável chamada ```gl_InstanceID``` que indica a instância que está sendo renderizada.
+2. Disponibilidade do índice atual (```gl_InstanceID```) da instância sendo executada no shader.  
 
 
 # ```glVertexAttribDivisor```
