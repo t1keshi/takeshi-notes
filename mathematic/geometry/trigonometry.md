@@ -2,9 +2,6 @@
 
 # Trigonometria
 
-- 2pi representa uma volta completa em um círculo
-
-
 # Funções triogonométricas
 
 As funções trigonométricas (funções circulares) estão relacionadas com as voltas no ciclo trigonométrico.
@@ -27,6 +24,9 @@ As funções seno e cosseno oscilam continuamente entre -1 e 1 pois são funçõ
 
 
 # Relação de seno e cosseno com círculo trigonométrico
+
+Uma volta completa em um círculo é igual a 2pi.
+Quando utilizamos valores de 0 a 2pi em funções seno e cosseno, podemos obter as coordenadas x e y dos pontos do círculo.
 
 ![image](img/c.png)
 
