@@ -13,4 +13,11 @@
 - chama o delete explicitamente com o método ```reset```
 - std::unique_ptr não deve ser utilizado caso não quer que o ponteiro seja destruído
 
+# std::unique_ptr para substituir arrays []
+
+```
+    std::unique_ptr<float[]> myArray;
+    myArray = std::make_unique<float[]>(1000);
+```
+
 # Referências
