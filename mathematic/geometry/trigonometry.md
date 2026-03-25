@@ -35,6 +35,12 @@ Quando utilizamos valores de 0 a 2pi em funções seno e cosseno, podemos obter 
   y = sin(angle);
 ```
 
+
+# Ângulos de Euler
+
+Leonhard Euler definiu que qualquer rotação em 3D podem ser representados por três valores chamados de **ângulos de Euler**:  **pitch**, **yaw** e **roll**.
+
+
 # Referências
 
 - https://www.todamateria.com.br/funcoes-trigonometricas/
