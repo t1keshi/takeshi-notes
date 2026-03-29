@@ -9,3 +9,5 @@
 - GORDON, V. S. CLEVENGER, J. Computer Graphics Programming in OpenGL with C++, 3rd ed. Mercury Learning and Information, 2024.
 - WIKIPEDIA. Khronos Group. Disponível em [https://en.wikipedia.org/wiki/Khronos_Group](https://en.wikipedia.org/wiki/Khronos_Group).
 - WIKIPEDIA. OpenGL Architecture Review Board. Disponível em [https://en.wikipedia.org/wiki/OpenGL_Architecture_Review_Board](https://en.wikipedia.org/wiki/OpenGL_Architecture_Review_Board).
+- Scratch a Pixel. Available in [https://scratchapixel.com/](https://scratchapixel.com/).  
+- Learn OpenGL. Available in [https://learnopengl.com/](https://learnopengl.com/).  

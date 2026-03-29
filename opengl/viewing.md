@@ -187,3 +187,4 @@ In all cases, the rotation is in the direction of the first axis toward the seco
 - WOLFF, D. OpenGL 4 Shading Language Cookbook. 3rd ed. Birmingham: Packt Publishing, 2018.  
 - GORDON, V. S. CLEVENGER, J. Computer Graphics Programming in OpenGL with C++, 3rd ed. Mercury Learning and Information, 2024.  
 - Scratchapixel. The Perspective and Orthographic Projection Matrix. Disponível em: [link](https://www.scratchapixel.com/lessons/3d-basic-rendering/perspective-and-orthographic-projection-matrix/projection-matrix-introduction.html).  
+- LearnOpenGL - Cmaera. Available in [https://learnopengl.com/Getting-started/Camera](https://learnopengl.com/Getting-started/Camera).  
