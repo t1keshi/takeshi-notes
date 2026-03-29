@@ -7,10 +7,6 @@ Previous: [OpenGL](_opengl.md)
 
 Um vértice pode conter diversas informações como posição, cor, coordenadas de textura, vetor normal, etc e essas informações são conhecidas como **atributos de vértice**. De fato, podemos atribuir qualquer tipo de informação à um vértice.
 
-Os atributos de vértice são organizados em forma de array (_vertex array_) na memória de OpenGL - cada atributo tem o seu array. Assim, cada vertex shader recebe um elemento destes arrays formando os dados do vértice.
-
-Exemplo de um vértice com seus atributos:
-
 ```
 	struct vertex {
 		vec3 position;	// vertex attribute 1
@@ -19,6 +15,8 @@ Exemplo de um vértice com seus atributos:
 		vec3 normal;	// vertex attribute 4
 	};
 ```
+
+Os atributos de vértice são organizados em forma de array (_vertex array_) na memória de OpenGL - cada atributo tem o seu array. Assim, cada vertex shader recebe um elemento destes arrays formando os dados do vértice.
 
 Exemplo de declaração de variáveis de entrada em um Vertex Shader que serão inicializados com os atributos de vértice acima:
 

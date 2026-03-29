@@ -9,7 +9,8 @@ Alguns estágios desta pipeline são programáveis. No caso de OpenGL, utilizamo
 Os estágios da _pipeline_ de renderização de OpenGL são:
 
 - **Vertex Shader** (obrigatório)
-- **Tessellation Shader** (opcional)
+- **Tessellation Control Shader** (opcional)  
+- **Tessellation Evaluation Shader** (opcional)  
 - **Geometry Shader** (opcional)
 - Perspective Division, Clipping, Primitive Assembly and Rasterization (executado implicitamente pelo OpenGL)
 - **Fragment Shader** (obrigatório)
@@ -41,6 +42,6 @@ Uma outra maneira de passar dados da aplicação para shaders é utilizar **vari
 # Referências
 
 - KESSENICH, J. et al. OpenGL Programming Guide: the official guide to learning OpenGL, versions 4.5. 9th ed. Boston: Pearson Education, 2017.
-- WOLFF, D. OpenGL 4 Shading Language Cookbook. 3rd ed. Birmingham: Packt Publishing, 2018.
+- WOLFF, D. OpenGL 4 Shading Language Cookbook. 3rd ed. Birmingham: Packt Publishing, 2018.  
 - GORDON, V. S. CLEVENGER, J. Computer Graphics Programming in OpenGL with C++, 3rd ed. Mercury Learning and Information, 2024.  
 - Fixed Function Pipeline. Disponível em [https://www.khronos.org/opengl/wiki/Fixed_Function_Pipeline](https://www.khronos.org/opengl/wiki/Fixed_Function_Pipeline).
