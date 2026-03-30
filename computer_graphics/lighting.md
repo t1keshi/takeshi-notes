@@ -9,11 +9,11 @@ A **reflexão difusa** ou **reflexão Lambertiana** é um modelo de reflexão qu
 
 O modelo matemático para a reflexão difusa envolve dois vetores: vetor **s** que representa a direção de um ponto da superfície (vértice) até a fonte de luz e o vetor **n** que representa uma direção perpendicular à superfície que receberá a luz incidente também conhecido como **vetor normal**.
 
-A quantidade da luz incidente (**Ld**) que atinge a superfície depende da orientação do vetor **n** em relação ao vetor **s**. Caso o ângulo entre os dois vetores seja 0º, a superfície estará recebendo a quantidade máxima de luz e se o ângulo for 90º ou maior, a superfície não estará recebendo nada de luz. Dessa forma, podemos calcular a intensidade da luz atingida na superfície utilizando o cosseno do ângulo entre os vetores s e n ou o produto escalar entre eles (```s . n```).
+A quantidade da luz incidente que atinge a superfície depende da orientação do vetor **n** em relação ao vetor **s**. Caso o ângulo entre os dois vetores seja 0º, a superfície estará recebendo a quantidade máxima de luz e se o ângulo for 90º ou maior, a superfície não estará recebendo nada de luz. Dessa forma, podemos calcular a quantidade de radiação atingida na superfície multplicando o cosseno do ângulo entre os vetores s e n ou o produto escalar entre eles (```s . n```) pela intensidade da fonte de luz **Ld**.
 
 ```
-    Ld = cos(a)
-    Ld = s . n
+    Ld * cos(a)
+    Ld * (s . n)
 ```
 
 > **Nota:** para utilizar o produto escalar, os vetores n e s precisam estar normalizados.
@@ -47,11 +47,12 @@ Se a matriz **model-view** não contém escala não uniforme podemos utilizar di
 
 > **Nota:** Se a matriz **mode-view** contiver escala uniforme, é necessário normalizar o resultado da transformação.
 
-O próximo passo é encontrar o vetor **s** utilizando a posição do vértice (já transformado para _eye-space_) e a posição da fonte de luz.
+O próximo passo é encontrar o vetor **s** utilizando a posição do vértice (já transformado para _eye-space_) e a posição da fonte de luz que também deve estar em _eye-space_.
 
 ```
+    vec4 lightPos = viewTransform * vec4(lightPosition, 1.0);
     vec4 position = modelViewTransform * vec4(vPosition, 1.0);
-    vec3 s = normalize(vec3(lightPosition - position.xyz));
+    vec3 s = normalize(vec3(lightPos - position.xyz));
 ```
 
 Com os vetores **s** e **n** apropriadamente calculados, podemos realizar o cálculo de intensidade da luz:
