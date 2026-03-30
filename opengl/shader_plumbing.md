@@ -10,7 +10,7 @@ Um vértice pode conter diversas informações como posição, cor, coordenadas 
 ```
 	struct vertex {
 		vec3 position;	// vertex attribute 1
-		vec3 color;		// vertex attribute 2
+		vec4 color;		// vertex attribute 2
 		vec2 texture;	// vertex attribute 3
 		vec3 normal;	// vertex attribute 4
 	};
@@ -23,8 +23,8 @@ Exemplo de declaração de variáveis de entrada em um Vertex Shader que serão 
 ``` 
 	// variáveis de entrada em Vertex Shader
 	layout(location=1) in vec3 position;	// vertex attribute 1
-	layout(location=2) in vec3 color;		// vertex attribute 2
-	layout(location=3) in vec3 texture;		// vertex attribute 3
+	layout(location=2) in vec4 color;		// vertex attribute 2
+	layout(location=3) in vec2 texture;		// vertex attribute 3
 	layout(location=4) in vec3 normal;		// vertex attribute 4
 ```
 
