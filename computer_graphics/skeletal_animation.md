@@ -2,6 +2,8 @@ Previous: [Computer Graphics](_cg.md)
 
 # Skeletal Animation
 
+**Skeletal Animation** é um método de animação para modelos 3D.
+
 - Skin é o modelo geométrico
 - Bones
 
@@ -49,3 +51,6 @@ As poses são interpoladas de uma pose para outra para que a transição entre e
 
 # References
 
+- https://github.khronos.org/glTF-Tutorials/
+- https://learnopengl.com/Guest-Articles/2020/Skeletal-Animation
+- https://lisyarus.github.io/blog/posts/gltf-animation.html
