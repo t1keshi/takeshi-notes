@@ -74,15 +74,13 @@ O modelo de reflexão **Phong**, criado pelo pesquisador _Bui Tuong Phong_, mode
 - **Difusa**
 - **Especular**
 
-The ambient component is intended to model light that has been reflected so many times that it appears to be emanating uniformly from all directions.
-The ambient component represents light that illuminates all surfaces equally and reflects equally in all directions. It is used to help brighten some of the darker areas within a scene. Since it does not depend on the incoming or outgoing directions of the light, it can be modeled simply by multiplying the light source intensity (La) by the surface reflectivity (Ka):
+O componente ambiente modela a luz que é emanado uniformemente a partir de todas as direções - luz que provavelmente foi refletida múltiplas vezes na cena. Este componente ajuda a iluminar superfícies que não recebem luz direta (calculado a partir da fonte de luz e o vetor normal). Sem o componente ambiente, estas superfícies seriam da cor preta.
 
 ```
     Ia = LaKa
 ```
 
-The diffuse component was discussed in the previous recipe, and represents omnidirectional reflection.
-The diffuse component models a rough surface that scatters light in all directions.
+O componente difusa represent a reflexão omnidirecional. Ele foi discutido no tópico anterior.
 
 ```
     Id = LdKd(s . n)
