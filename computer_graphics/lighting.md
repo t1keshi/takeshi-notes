@@ -103,8 +103,7 @@ We would like the reflection to be maximal when the viewer is aligned with the v
     Is = LsKs(r . v)^f
 ```
 
-The larger the power, the faster the value drops toward zero as the angle between v and r increases. Again, similar to the other components, we also introduce a
-specular light intensity term (Ls) and reflectivity term (Ks). It is common to set the Ks term to some grayscale value (for example, (0.8, 0.8, 0.8)), since glossy reflection is not (generally) wavelength dependent.
+The larger the power, the faster the value drops toward zero as the angle between v and r increases. Again, similar to the other components, we also introduce a specular light intensity term (Ls) and reflectivity term (Ks). It is common to set the Ks term to some grayscale value (for example, (0.8, 0.8, 0.8)), since glossy reflection is not (generally) wavelength dependent.
 
 The specular component creates specular highlights (bright spots) that are typical of glossy surfaces. The larger the power of f in the equation, the smaller the specular highlight and the shinier the surface. The value for f is typically chosen to be somewhere between 1 and 200.
 
