@@ -31,8 +31,8 @@ Quando utilizamos valores de 0 a 2pi em funções seno e cosseno, podemos obter 
 ![image](img/c.png)
 
 ```
-  x = cos(angle);
-  y = sin(angle);
+  x = radius * cos(angle);
+  y = radius * sin(angle);
 ```
 
 
