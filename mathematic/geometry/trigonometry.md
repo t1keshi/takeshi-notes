@@ -2,7 +2,7 @@
 
 # Trigonometria
 
-# Funções triogonométricas
+# Funções trigonométricas
 
 As funções trigonométricas (funções circulares) estão relacionadas com as voltas no ciclo trigonométrico.
 
@@ -10,7 +10,7 @@ As funções trigonométricas (funções circulares) estão relacionadas com as 
 - Função cosseno
 - Função tangente
 
-Funções periódicas são funções que possuem um comportamento periódico. Um período corresponde ao menor intervalo de tempo em que acontece a repetição de determinado fenômeno. As funções trigonométricas são exemplos de funções períodicas.
+**Funções periódicas** são funções que possuem um comportamento periódico. Um período corresponde ao menor intervalo de tempo em que acontece a repetição de determinado fenômeno. As funções trigonométricas são exemplos de funções períodicas.
 
 
 # Seno e Cosseno
