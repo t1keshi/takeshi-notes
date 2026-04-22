@@ -19,7 +19,9 @@ Para cada círculo horizontal, subdividimos em ```n``` pontos (vértices).
 
 Estes pontos serão utilizados para criar triângulos que representam a superfície da esfera. Quanto maior o número de circulos horizontais e pontos, maior a suavidade da esfera.
 
-Algoritmo para criar os vértices da esfera de raio 1:
+### Gerando vértices da esfera
+
+Algoritmo para criar os vértices da esfera de raio ```1```:
 
 ```
 	for (size_t i = 0; i <= slices; i++) {
@@ -41,35 +43,61 @@ A equação ```float y = M_PI - (M_PI * i / slices)``` define a altura de cada c
 
 > **Nota:** Observe que ```M_PI - (M_PI * i / slices)``` faz com que iniciemos do círculo horizontal inferior até o círculo horizontal superior. Isto é proposital para calcular os índices dos dois triângulos para cada vértice como verá em seguida.
 
-O raio de cada círculo horizontal é calculado através do seno do ângulo (_theta_) utilizado na equação acima.
+O raio de cada círculo horizontal é calculado através do seno do ângulo (_theta_) utilizado na equação acima ```float r =  M_PI - (M_PI * i / slices)```.
 
-Com o raio obtido, basta calcular os pontos (x, z) de cada círculo horizontal utilizando ```x = cos(phi)``` e ```z = sen(z)```.
+Com o raio obtido, basta calcular os pontos (x, z) de cada círculo horizontal utilizando ```x = r * cos(phi)``` e ```z = r * sin(phi)```.
 
-O vetor normal de cada vértice da esfera é simplesmente um vetor que aponta da origem (centro da esfera) até o vértice. Não é necessário normalizar o vetor normal porque o algoritmo acima cria uma esfera com o raio de tamanho 1.
+### Gerando as coordenadas de textura da esfera
 
-Com os vértices da esfera criados, os triângulos são construídos através de índices para esses vértices.
+```
+	for (size_t i = 0; i <= slices; i++) {
+		for (size_t j = 0; j <= points; j++) {
+            float u = j / points; // horizontal
+			float v = i / slices; // vertical
+		}
+	}
+```
+
+
+### Gerando vetor normal para cada vértice
+
+O vetor normal de cada vértice da esfera é simplesmente um vetor que aponta da origem (centro da esfera) até o vértice. Ou seja, vetor normal é igual ao próprio vértice. Não é necessário normalizar o vetor normal porque o algoritmo acima cria uma esfera com o raio de tamanho 1.
+
+
+### Construindo 2 triângulos a cada vértice
+
+Os triângulos são construídos através de índices para os vértices.
 
 Iniciando com o círculo horizontal inferior, para cada vértice percorrido especificamos os 6 índices dos vértices formando dois triângulos. Os triângulos são construídos de acordo com o padrão CCW (_couter clock winding_) da seguinte forma:
 
-1. vértice atual (```i * (n + 1) + j)```)  
-2. vértice à direta do vértice atual (```i * (n + 1) + j + 1```)  
-3. vértice à cima do vértice atual (```(i + 1) * (n + 1) + j```)  
+Primeiro triângulo:
+
+1. vértice atual (```i * (slices + 1) + j```)  
+2. vértice à direta do vértice atual (```i * (slices + 1) + j + 1```)  
+3. vértice à cima do vértice atual (```(i + 1) * (slices + 1) + j```)  
+
+Segundo triângulo:
+
+1. vérticeà direita do vértice atual (```i * (slices + 1) + j + 1```)  
+2. vértice à direta do vértice acima do vértice atual (```(i + 1) * (slices + 1) + j + 1```)  
+3. vértice à cima do vértice atual (```(i + 1) * (slices + 1) + j```)  
 
 > **Nota:** ```n + 1``` está cosiderando o vértice adicional (coincidente) que fecha o círculo.
 
 ```
-    for (int i = 0; i < slices; i++) {
-        for (int j = 0; j < points; j++) {
-            // first triangle
-            indices[6 * (i * points + j) + 0] = i * (points + 1) + j;
-            indices[6 * (i * points + j) + 1] = i * (points + 1) + j + 1;
-            indices[6 * (i * points + j) + 2] = (i + 1) * (points + 1) + j;
-            // second triangle
-            indices[6 * (i * points + j) + 3] = i * (points + 1) + j + 1;
-            indices[6 * (i * points + j) + 4] = (i + 1) * (points + 1) + j + 1;
-            indices[6 * (i * points + j) + 5] = (i + 1) * (points + 1) + j;
-        }
-    }
+	for (int i = 0; i < slices; i++) {
+		for (int j = 0; j < points; j++) {
+			// first triangle
+			triangle1_vertex1 = i * (slices + 1) + j;
+			triangle1_vertex2 = i * (slices + 1) + j + 1;
+			triangle1_vertex3 = (i + 1) * (slices + 1) + j;
+
+			// second triangle
+			triangle2_vertex1 = i * (slices + 1) + j + 1;
+			triangle2_vertex2 = (i + 1) * (slices + 1) + j + 1;
+			triangle2_vertex3 = (i + 1) * (slices + 1) + j;
+		}
+	}
 ```
 
 # References
