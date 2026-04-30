@@ -9,12 +9,11 @@ A primeira versão de OpenGL 1.0 foi lançada em 30 de junho de 1992 pela **Sili
 - A pipeline de renderização não era programável nesta versão (fixed-function pipeline).  
 - Suporte para especificação de matrizes de transformação (```GL_MODELVIEW``` e ```GL_PROJECTION```).  
 
-
 # Versão 2.0
 
 A versão 2.0 foi lançada em 7 de setembro de 2004.
 
-- Introdução da linguagem de programação de shaders GLSL (OpenGL Shading Language).  
+- Introdução de shaders programáveis e da linguagem de programação de shaders GLSL (OpenGL Shading Language).  
 - OpenGL Architecture Review Board (ARB) foi transferido para Khronos Group (2006).  
 - Each of piece of vertex information had a specific channel in the pipeline (```glVertex```, ```glTexCoord```, and ```glNormal```) or client vertex arrays using ```glVertexPointer```, glTexCoordPointer```, or ```glNormal```.  
 - The shader would then access these value via built-in variables such as ```gl_Vertex``` and ```gl_Normal```.
