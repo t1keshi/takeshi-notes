@@ -9,11 +9,11 @@ A **reflexão difusa** ou **reflexão Lambertiana** é um modelo de reflexão qu
 
 O modelo matemático para a reflexão difusa envolve dois vetores: vetor **s** que representa a direção de um ponto da superfície (vértice) até a fonte de luz e o vetor **n** que representa uma direção perpendicular à superfície que receberá a luz incidente também conhecido como **vetor normal**.
 
-A quantidade da luz incidente que atinge a superfície depende da orientação do vetor **n** em relação ao vetor **s**. Caso o ângulo entre os dois vetores seja 0º, a superfície estará recebendo a quantidade máxima de luz e se o ângulo for 90º ou maior, a superfície não estará recebendo nada de luz. Dessa forma, podemos calcular a quantidade de radiação atingida na superfície multplicando o cosseno do ângulo entre os vetores s e n ou o produto escalar entre eles (```s . n```) pela intensidade da fonte de luz **Ld**.
+A quantidade da luz incidente que atinge a superfície depende da orientação do vetor **n** em relação ao vetor **s**. Caso o ângulo entre os dois vetores seja 0º, a superfície estará recebendo a quantidade máxima de luz e se o ângulo for 90º ou maior, a superfície não estará recebendo nada de luz. Dessa forma, podemos calcular a quantidade de radiação atingida na superfície multplicando o cosseno do ângulo entre os vetores s e n ou o produto escalar entre eles (```s . n```) pela intensidade da fonte de luz ```Ld```.
 
 ```
-    Ld * cos(a)
-    Ld * (s . n)
+    diffuseLight = Ld * cos(a)
+    diffuseLight = Ld * (s . n)
 ```
 
 > **Nota:** para utilizar o produto escalar, os vetores n e s precisam estar normalizados.
