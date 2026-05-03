@@ -28,7 +28,7 @@ Para modelar a absorção da luz incidente na superfície, utilizamos o **coefic
 
 Antes de realizar o cálculo da intensidade de luz, precisamos transformar os vetores **s** e **n** para _eye-space_ multiplicando pela matriz **model-view**.
 
-Para transformar o vetor **n**, precisamos utilizar a inversa transposta da matriz **mode-view**.
+Para transformar o vetor **n**, precisamos utilizar a inversa transposta da matriz **model-view**.
 
 ```
     mat4 modelViewTransform = viewTransform * vModelTransform;
