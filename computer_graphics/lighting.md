@@ -74,13 +74,13 @@ O modelo de reflexão **Phong**, criado pelo pesquisador _Bui Tuong Phong_, mode
 - **Difusa**
 - **Especular**
 
-O componente ambiente modela a luz que é emanado uniformemente a partir de todas as direções - luz que provavelmente foi refletida múltiplas vezes na cena. Este componente ajuda a iluminar superfícies que não recebem luz direta (calculado a partir da fonte de luz e o vetor normal). Sem o componente ambiente, estas superfícies seriam da cor preta.
+O componente ambiente modela a luz que é emanado uniformemente a partir de todas as direções - luz que provavelmente foi refletida múltiplas vezes na cena. Este componente ajuda a iluminar superfícies que não recebem luz direta (calculado a partir da fonte de luz e o vetor normal). Sem o componente ambiente, estas superfícies seriam muito escuras.
 
 ```
     Ia = LaKa
 ```
 
-O componente difusa represent a reflexão omnidirecional. Ele foi discutido no tópico anterior.
+O componente difusa representa a reflexão omnidirecional. Ele foi discutido no tópico anterior.
 
 ```
     Id = LdKd(s . n)
