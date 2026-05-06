@@ -5,6 +5,9 @@
 
 _"Computer graphics is the science and art of communicating visually via a computer's display and its interaction devices."_ (HUGHES, F. J. et al, 2013)
 
+- [Modeling](modeling.md)  
+
+
 As formas como os humanos percebem as imagens produzidas é crucial no design de programas gráficos.
 
 A aplicação gráfica também pode conter interações do usuário final através de dispositivos como controladores, teclado e mouse, dispositivos sensíveis a toque e até mesmo de dados visuais gerados através de algoritmos de **computação visual**.
