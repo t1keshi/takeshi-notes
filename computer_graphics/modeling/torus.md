@@ -53,11 +53,36 @@ Algoritmo para criar o círculo incial no plano XY:
 			float u = float(ring) * 2.0f / float(precision); // considera de 0 a 2.0 (necessário utilizar GL_REPEAT)
 			float v = getTextureCoordinateOfFirstCircle[vert].t;
 
-			r = rotate(0.0f, angle, 0.0f);
-
+            // st tangent
 			vec3 sTangent = r * getsTangentOfFirstCircle(vert);
 			vec3 tTangent = r * gettTangentOfFirstCircle(vert);
+
+            // normal
 			vec3 n = r * getNormalOfFirstCircle();
+		}
+	}
+ ```
+
+ > **Nota:** 
+
+ Algoritmo para gerar indices do torus:
+
+ ```
+    std::vector<GLushort> indices;
+ 	for (int ring = 0; ring < precision; ring++) {
+		for (int vert = 0; vert < precision; vert++) {
+
+			GLushort row = ring * (precision + 1);
+			GLushort next_row = (ring + 1) * (precision + 1);
+
+			// first triangle (CCW visto de fora)
+			indices.push_back(row + vert);
+			indices.push_back(next_row + vert);
+			indices.push_back(row + vert + 1);
+			// second triangle
+			indices.push_back(row + vert + 1);
+			indices.push_back(next_row + vert);
+			indices.push_back(next_row + vert + 1);
 		}
 	}
  ```
