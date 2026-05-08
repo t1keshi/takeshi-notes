@@ -12,13 +12,10 @@ Algoritmo para criar o círculo incial no plano XY:
         float angle = i * 360.0f / (float)precision;
         matrix rotateMatrix = rotate(0.0f, 0.0f, angle);
 
-        vec3 vertexPosition = r * vec3(0.0f, outer, 0.0f);
-        vertexPosition = vertexPosition + vec3(inner, 0.0f, 0.0f);
 
         // vertex position
-        float x = vertexPosition.x;
-        float y = vertexPosition.y;
-        float z = vertexPosition.z;
+        vec3 vertexPosition = rotateMatrix * vec3(0.0f, outer, 0.0f);
+        vertexPosition = vertexPosition + vec3(inner, 0.0f, 0.0f);
 
         // texture coordinates
         float u = 0.0f;
@@ -37,34 +34,31 @@ Algoritmo para criar o círculo incial no plano XY:
  Algoritmo para criar ```n``` círculos adicionais rotacionando o círculo inicial em torno do eixo Y.
 
  ```
- 	for (size_t ring = 1; ring < precision + 1; ring++) {
-		for (size_t vert = 0; vert < precision + 1; vert++) {
-			float angle = (float)ring * 360.0f / (float)precision);
-			matrix r = rotate(0.0f, angle, 0.0f);
+    for (size_t ring = 1; ring < precision + 1; ring++) {
+        for (size_t vert = 0; vert < precision + 1; vert++) {
+            float angle = (float)ring * 360.0f / (float)precision;
+            matrix rotateMatrix = rotate(0.0f, angle, 0.0f);
 
-            vec3 vertexOfFirstCircle = getVertexOfFirstCircle(vert);
-			vec3 newVertex = r * vertexOfFirstCircle;
+            // vertex position
+            vec3 newVertex = rotateMatrix * getVertexOfFirstCircle(vert);
 
-            float x = newVertex.x;
-            float y = newVertex.y;
-            float z = newVertex.z;
-
-            // texture coordiantes
-			float u = float(ring) * 2.0f / float(precision); // considera de 0 a 2.0 (necessário utilizar GL_REPEAT)
-			float v = getTextureCoordinateOfFirstCircle[vert].t;
+            // texture coordinates
+            float u = float(ring) * 2.0f / float(precision);
+            float v = getTextureCoordinateOfFirstCircle[vert].t;
 
             // st tangent
-			vec3 sTangent = r * getsTangentOfFirstCircle(vert);
-			vec3 tTangent = r * gettTangentOfFirstCircle(vert);
+            vec3 sTangent = rotateMatrix * getsTangentOfFirstCircle(vert);
+            vec3 tTangent = rotateMatrix * gettTangentOfFirstCircle(vert);
 
             // normal
-			vec3 n = r * getNormalOfFirstCircle();
-		}
-	}
+            vec3 n = rotateMatrix * getNormalOfFirstCircle();
+        }
+    }
  ```
 
- > **Nota:** 
+Este método mapea a textura até a metade horizontal da esfeta e depois repete para outra a metade. Para fazer isso, geramos as coordenadas para o eixo u de 0.0 á 2.0 porque o mapeamento vai de 0.0 a 1.0. Se estiver utilizando OpenGL, é necessário também configurar o mapeamento para repetir a textura com ```GL_REPEAT```.
 
+ 
  Algoritmo para gerar indices do torus:
 
  ```
