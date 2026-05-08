@@ -3,26 +3,27 @@ Previous: [Lighting](lighting.md)
 
 # Phong Reflection Model
 
-O modelo de reflexão **Phong**, criado pelo pesquisador _Bui Tuong Phong_, modela a interação entre os raios de luz com a superfície com a soma de três componentes:
+O modelo de reflexão **Phong**, criado pelo _Bui Tuong Phong_, modela a interação entre os raios de luz com a superfície com a soma de três componentes:
 
 - **Ambiente**
 - **Difusa**
 - **Especular**
 
-O componente ambiente modela a luz que é emanado uniformemente a partir de todas as direções - luz que provavelmente foi refletida múltiplas vezes na cena. Este componente ajuda a iluminar superfícies que não recebem luz direta (calculado a partir da fonte de luz e o vetor normal). Sem o componente ambiente, estas superfícies seriam da cor preta.
+O componente ambiente modela a luz que é emanado uniformemente a partir de todas as direções - luz que provavelmente foi refletida múltiplas vezes na cena. Este componente ajuda a iluminar superfícies que não recebem luz direta. Sem o componente ambiente, estas superfícies seriam muito escuras ou completamente da cor preta.
 
 ```
     Ia = LaKa
 ```
 
-O componente difusa represent a reflexão omnidirecional. Ele foi discutido no tópico anterior.
+O componente difusa representa a reflexão omnidirecional. Ele foi discutido no tópico [Reflexão Difusa](diffuse.md). 
 
 ```
     Id = LdKd(s . n)
 ```
 
-The specular component models the shininess of the surface and represents glossy reflection around a preferred direction.
-The specular component is used for modeling the shininess of a surface. When a surface has a glossy shine to it, the light is reflected off of the surface, scattered around some preferred direction. We model this so that the reflected light is strongest in the direction of perfect (mirror-like) reflection. The physics of the situation tells us that for perfect reflection, the angle of incidence is the same as the angle of reflection and that the vectors are coplanar with the surface normal.
+O componente especular modela a reflexão do brilho da superfície em torno de uma determinada direção.
+
+We model this so that the reflected light is strongest in the direction of perfect (mirror-like) reflection. The physics of the situation tells us that for perfect reflection, the angle of incidence is the same as the angle of reflection and that the vectors are coplanar with the surface normal.
 
 In the preceding diagram, r represents the direction of pure reflection corresponding to the incoming light vector (-s), and n is the surface normal. We can compute r by using the following equation:
 

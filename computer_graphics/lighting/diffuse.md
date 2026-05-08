@@ -3,7 +3,7 @@ Previous: [Lighting](lighting.md)
 
 # Diffuse Reflection Model  
 
-A **reflexão difusa** ou **reflexão Lambertiana** é um modelo de reflexão que assume que uma superfície puramente difusa irradia a luz incidente igualmente em todas as direções. Há uma interação entre a luz incidente e a superfície antes que ela seja irradiada, fazendo com que os objetos apresentem superfícies totalmente ou parcialmente opacas.
+A **reflexão difusa**, criada por _Johann Heinrich Lambert_, é um modelo de reflexão que assume que uma superfície puramente difusa irradia a luz incidente igualmente em todas as direções. Há uma interação entre a luz incidente e a superfície antes que ela seja irradiada, fazendo com que os objetos apresentem superfícies totalmente ou parcialmente opacas.
 
 O modelo matemático para a reflexão difusa envolve dois vetores: vetor **s** que representa a direção de um ponto da superfície até a fonte de luz e o vetor **n** que representa uma direção perpendicular à superfície que receberá a luz incidente também conhecido como **vetor normal**.
 
