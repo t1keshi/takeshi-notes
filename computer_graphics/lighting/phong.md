@@ -47,6 +47,10 @@ The specular component creates specular highlights (bright spots) that are typic
     I = Ia + Id + Is
 ```
 
+# Nonlocal Viewer
+
+
+
 # References
 
 - WOLFF, D. OpenGL 4 Shading Language Cookbook. 3rd ed. Birmingham: Packt Publishing, 2018.  
