@@ -32,6 +32,20 @@ Para descobrir se a face deve ser considerada como uma face traseira, basta calc
 
 > **Nota:** API como OpenGL fornece outros meios para descobrir se a superfície é front ou back como a variável ``gl_FrontFacing`` disponível em fragment shader.
 
+# Flat Shading
+
+Flat shading é uma tonalização onde cada face do polígono tem uma única cor. Ou seja, não há variação de cor ao longo da face fazendo com que o polígono tenha uma aparência flat diferente de Gouraud shading. Em geral, este método é útil em situações de depuração de modelos geométricos complexos ou para criar outros efeitos flat.
+
+Para criar este tipo de tonalização basta não interpolar as cores na fase de fragment shader. Basta calcular o modelo de reflexão na etapa de vertex shader e utilizar a cor do vértice sem interpolar na etapa de rasterização.
+
+```
+    // vertex shader
+    flat out vec3 outColor;
+
+    // fragment shader
+    flat in vec3 inColor;
+```
+
 
 # References
 

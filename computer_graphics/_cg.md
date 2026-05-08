@@ -6,6 +6,7 @@ _"Computer graphics is the science and art of communicating visually via a compu
 
 - [Modeling](modeling/modeling.md)  
 - [Lighting](lighting/lighting.md)  
+- [Debugging](debugging.md)  
 
 ??  
 As formas como os humanos percebem as imagens produzidas é crucial no design de programas gráficos.
