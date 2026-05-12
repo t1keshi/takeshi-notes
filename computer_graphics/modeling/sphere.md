@@ -1,8 +1,7 @@
-Previous: [Computer Graphics](_cg.md)
+Previous: [Modeling](modeling.md)
 
-# Modeling
 
-# Building Spheres
+# Building Sphere
 
 Podemos obter as coordenadas ```x``` e ```y``` de um ponto no círculo de raio ```R``` através de funções **seno** e **cosseno**:
 
@@ -13,15 +12,13 @@ Podemos obter as coordenadas ```x``` e ```y``` de um ponto no círculo de raio `
 
 > **Nota:** As funções seno e cosseno e a sua relação com o círculo são estudados em [Trigonometria](../mathematic/geometry/trigonometry.md).
 
-Iniciamos a construção da esfera, subdividindo em  ```n``` círculos horizontais (_slices_).
+Este método consiste em subdividir a esfera em ```n``` círculos horizontais (_slices) e obter os vértices (x, y, z) subdividindo cada círculo horizontal em ```n``` pontos.
 
-Para cada círculo horizontal, subdividimos em ```n``` pontos (vértices).
+Estes pontos serão utilizados para criar triângulos que representam a superfície da esfera. Quanto maior o número de círculos horizontais e pontos, maior a suavidade da esfera.
 
-Estes pontos serão utilizados para criar triângulos que representam a superfície da esfera. Quanto maior o número de circulos horizontais e pontos, maior a suavidade da esfera.
+### Algoritmo para obter os vértices
 
-### Gerando vértices da esfera
-
-Algoritmo para criar os vértices da esfera de raio ```1```:
+O algoritmo abaixo obtem os vértices de uma esfera de raio ```1```:
 
 ```
 	for (size_t i = 0; i <= slices; i++) {
@@ -39,13 +36,28 @@ Algoritmo para criar os vértices da esfera de raio ```1```:
 
 A ideia é utilizar o **ângulo vertical** (_theta_) de 0º a 180º para obter a altura de cada círculo horizontal e o **ângulo horizontal** (_phi_) de 0º a 360º ao redor do eixo y para obter os pontos do círculo horizontal.
 
-A equação ```float y = M_PI - (M_PI * i / slices)``` define a altura de cada círculo horizontal. Quando ```i == 0``` (primeiro círculo horizontal), será calculado o cosseno de 180º (M_PI) que resulta em ```y == -1```. Quando ```i == slices```, será calculado o cosseno de 0º, resultado no valor ```y == 1```. Isto explica porque só precisamos percorrer pontos de 0º a 180º para a altura do ```y```.
+As instruções abaixo definem a altura de cada círculo horizontal - isto é, os pontos de um círculo no plano YZ.
 
-> **Nota:** Observe que ```M_PI - (M_PI * i / slices)``` faz com que iniciemos do círculo horizontal inferior até o círculo horizontal superior. Isto é proposital para calcular os índices dos dois triângulos para cada vértice como verá em seguida.
+```
+	float theta = M_PI - (M_PI * i / slices);
+	float y = std::cos(theta);
+```
+
+ Quando ```i == 0``` (primeiro círculo horizontal), será calculado o cosseno de 180º (M_PI) que resulta em ```y == -1```. Quando ```i == slices```, será calculado o cosseno de 0º, resultado no valor ```y == 1```. Isto explica porque só precisamos percorrer pontos de 0º a 180º para a altura do ```y```.
+
+> **Nota:** Observe que ```M_PI - (M_PI * i / slices)``` faz com que iniciemos do círculo horizontal inferior (```y == -1```) até o círculo horizontal superior (```y == 1```). Isto é proposital para calcular os índices dos dois triângulos para cada vértice como verá a seguir.
 
 O raio de cada círculo horizontal é calculado através do seno do ângulo (_theta_) utilizado na equação acima ```float r =  M_PI - (M_PI * i / slices)```.
 
-Com o raio obtido, basta calcular os pontos (x, z) de cada círculo horizontal utilizando ```x = r * cos(phi)``` e ```z = r * sin(phi)```.
+[imagem mostrando relação do seno(theta) e cosseno(theta) em um circulo]
+
+Os pontos de um círculo em um plano XY podem ser obtidos através de ```x = raio * cos (angulo)``` e ```y = raio * seno (angulo)```. Como o círculo horizontal está no plano XZ, basta adequar a equação para:
+
+```
+	float phi = 2 * M_PI * j / points;
+	float x = r * std::cos(phi);
+	float z = r * std::sin(phi);
+```
 
 ### Gerando as coordenadas de textura da esfera
 
@@ -78,11 +90,10 @@ Primeiro triângulo:
 
 Segundo triângulo:
 
-1. vérticeà direita do vértice atual (```i * (slices + 1) + j + 1```)  
+1. vértice à direita do vértice atual (```i * (slices + 1) + j + 1```)  
 2. vértice à direta do vértice acima do vértice atual (```(i + 1) * (slices + 1) + j + 1```)  
 3. vértice à cima do vértice atual (```(i + 1) * (slices + 1) + j```)  
 
-> **Nota:** ```n + 1``` está cosiderando o vértice adicional (coincidente) que fecha o círculo.
 
 ```
 	for (int i = 0; i < slices; i++) {
@@ -99,6 +110,9 @@ Segundo triângulo:
 		}
 	}
 ```
+
+> **Nota:** ```slices + 1``` está cosiderando o vértice adicional (coincidente) que fecha o círculo.
+
 
 # References
 

@@ -1,10 +1,14 @@
 [Home](../README.md)
 
-
 # Computação Gráfica
 
 _"Computer graphics is the science and art of communicating visually via a computer's display and its interaction devices."_ (HUGHES, F. J. et al, 2013)
 
+- [Modeling](modeling/modeling.md)  
+- [Lighting](lighting/lighting.md)  
+- [Debugging](debugging.md)  
+
+??  
 As formas como os humanos percebem as imagens produzidas é crucial no design de programas gráficos.
 
 A aplicação gráfica também pode conter interações do usuário final através de dispositivos como controladores, teclado e mouse, dispositivos sensíveis a toque e até mesmo de dados visuais gerados através de algoritmos de **computação visual**.
@@ -26,8 +30,6 @@ Além disso, estudamos como os modelos geométricos são criados (**modelagem**)
 Tópicos abordados em Computação Gráfica:
 
 - [Renderização](rendering.md)  
-- [Modelagem](modeling.md)  
-
 
 # Human Perception
 
