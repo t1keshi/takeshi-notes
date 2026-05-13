@@ -19,6 +19,8 @@ Para rotação (spherical interpolation ou slerp), é necessário utilizar ```qu
 
 **Bones** são representados através de uma estrutura de dados do tipo **hierarquia de nós** (_node hierarchy_), onde cada bone é representado por um nó.
 
+> **Nota:** Esta hierarquia de nós também é conhecido como **skeletal nodes** ou **joint nodes**.
+
 Um vértice pode ser influenciado por N bones, isto é, sofrer transformações que correspondam a skeletal animation.
 
 Um único bone pode influenciar um conjunto de vértices do mesh e o quanto ele deve influenciar é determinado por **weight**. Portanto, cada bone contém um array de vértices e um array de weights correspondentes.
