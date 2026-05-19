@@ -9,5 +9,6 @@ This repository brings together all my notes made throughout my studies in Compu
 - [Mathematics](mathematic/README.md)  
 - [Game Development](game_dev/game_dev.md)  
 - [GLTF](gltf/gltf.md)  
+- [Linux](linux/linux.md)  
 
 > **Note:** The notes were originally written in Brazilian Portuguese (PT-BR) and will be translated into English over time.
