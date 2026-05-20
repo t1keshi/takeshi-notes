@@ -2,4 +2,4 @@ Previous: [Home](../README.md)
 
 # Linux
 
-- [Embedded Linux]()  
+- [Embedded Linux](embedded_linux.md)  
