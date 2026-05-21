@@ -22,7 +22,6 @@ Characteristics of an embedded system:
 - Often is intended for applications without human intervention.   
 - Frequently, the only user interface is a serial port and some LEDs.
 
-
 # References
 
 - HALLINAN, C. Embedded Linux Primer: a practical, real-world approach. 2nd ed. Boston, MA: Prentice Hall, 2010.  
