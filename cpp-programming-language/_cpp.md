@@ -10,3 +10,7 @@ Table of Contents
 - [Templates](templates.md)  
 - [Function Objects](functor.md)  
 - [Smart Pointer](smart_pointer.md)  
+
+# C++ Books guide
+
+- https://stackoverflow.com/questions/388242/the-definitive-c-book-guide-and-list
