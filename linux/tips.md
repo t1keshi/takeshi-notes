@@ -7,6 +7,8 @@ Previous: [Linux](linux.md)
 ```
     $ lsb_release -a // versão do linux
     $ uname -m // arquitetura do processador
+    $ uname -r // versão do kernel linux
+    $ ldd --version // check glib version
 ```
 
 ##### Adicionando usuário na lista de sudoers
