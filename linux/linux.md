@@ -3,6 +3,7 @@ Previous: [Home](../README.md)
 # Linux
 
 - [Embedded Linux](embedded_linux.md)  
+- [Useful Annotation](tips.md)  
 
 # Linux Foundation
 
@@ -24,3 +25,8 @@ Previous: [Home](../README.md)
 | Advanced Programming in the UNIX Environment | Conceitos Unix/sistemas |
 | Linux Kernel Development | Kernel Linux |
 | How Linux Works | Arquitetura Linux explicada |
+
+# References
+
+- KERRISK, M. The Linux programming interface: a linux and UNIX system programming handbook. San Francisco: no starch press, 2010.
+- HALLINAN, C. Embedded Linux Primer: a practical, real-world approach. 2nd ed. Boston, MA: Prentice Hall, 2010.  
