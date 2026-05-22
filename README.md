@@ -4,6 +4,7 @@ This repository brings together all my notes made throughout my studies in Compu
 
 - [C++ programming language](cpp-programming-language/_cpp.md)  
 - [Computer Organization and Architecture](computer_organization_and_architecture/coa.md)  
+- [Computer Network](computer_network/computer_network.md)  
 - [Win32 programming](win32/win32.md)  
 - [Computer Graphics](computer_graphics/_cg.md)  
 - [OpenGL](opengl/_opengl.md)  
