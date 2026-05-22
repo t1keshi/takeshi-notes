@@ -39,6 +39,17 @@ Here are some of the more important tasks your bootloader performs on power-up:
 - Loads and passes control to the operating system, passing any required startup information. This can include total memory size, clock rates, serial port speeds, and other low-level hardware-specific configuration data.
 
 
+# Typical Anatomy of Embedded System
+
+- processor (e.g. 32-bit RISC)
+- flash memory for non volatile program and data storage
+- main memory (e.g. SDRAM)
+- real time clock module often backed up by battery keeps  the time of the day
+- ethernet and usb interface
+- serial port for console access via RS-232
+- many processors contain integrated peripherals. Sometimes they are referred to as system on chip (SOC). 
+
+
 # References
 
 - HALLINAN, C. Embedded Linux Primer: a practical, real-world approach. 2nd ed. Boston, MA: Prentice Hall, 2010.  
