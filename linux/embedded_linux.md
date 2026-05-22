@@ -1,5 +1,6 @@
 Previous: [Linux](linux.md)  
 
+
 # Embedded Linux
 
 - Linux supports a vast variety of hardware devices, probably more than any other OS
@@ -21,6 +22,22 @@ Characteristics of an embedded system:
 - Ships with all intended application hardware and software preintegrated.  
 - Often is intended for applications without human intervention.   
 - Frequently, the only user interface is a serial port and some LEDs.
+
+
+# BIOS vs Bootloader
+
+The BIOS first gains control of the processor when power is applied. Its primary responsibility is to initialize the hardware, especially the memory subsystem, and load an operating system from the PC's hard drive.
+
+In a typical embedded system (assuming that it is not based on an industry standard x86 PC hardware platform), a bootloader is the software program that performs the equivalent functions. In your own custom embedded system, part of your development plan must include the development of a bootloader specific to your board. Luckily, several good open source bootloaders are available that you can customize for your project.
+
+Here are some of the more important tasks your bootloader performs on power-up:
+
+- Initializes critical hardware components, such as the SDRAM controller, I/O controllers, and graphics controllers.
+- Initializes system memory in preparation for passing control to the operating system.
+- Allocates system resources such as memory and interrupt circuits to peripheral controllers, as necessary.
+- Provides a mechanism for locating and loading your operating system image.
+- Loads and passes control to the operating system, passing any required startup information. This can include total memory size, clock rates, serial port speeds, and other low-level hardware-specific configuration data.
+
 
 # References
 

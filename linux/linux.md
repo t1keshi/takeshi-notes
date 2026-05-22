@@ -14,8 +14,8 @@ Linux é apenas o **kernel**. O pacote com **kernel Linux**, **bash**, **gcc**, 
 
 # Linux Foundation
 
-- The Linux Foundation Carrier Grade Linux workgroup  
-- Mobile Linux Initiative (Moblin)  
+- The Linux Foundation Carrier Grade Linux workgroup   
+- Mobile Linux Initiative workgroup (Moblin)  
 
 
 # Standards
