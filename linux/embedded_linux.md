@@ -86,7 +86,16 @@ This command transfers control to the Linux kernel.
 Note that the bootm command is the death knell for U-Boot. This is an important concept. Unlike the BIOS in a desktop PC, most embedded systems are architected in such a way that when the Linux kernel takes control, the bootloader ceases to exist. The kernel claims any memory and system resources that the bootloader previously used. The only way to pass control back to the bootloader is to reboot the board.
 
 
-# Kernel Initialization: Overview 2.2.4
+# Kernel Initialization
+
+Linux mounts a root file system (contains the application program, system libraries and utilities that make up a Linux system). Linux requires a file system.
+
+A file system consists of a predefined set of system directories and files in a specific layout on a hard drive or other medium that the Linux kernel mounts as its root file system.
+
+Note that Linux can mount a root file system from other devices. The most common, of course, is to mount a partition from a hard drive as the root file system, as is done on your Linux laptop or workstation. Indeed, NFS is pretty useless when you ship your embedded Linux widget out the door and away from your development environment. However, as you progress through this book, you will come to appreciate the power and flexibility of NFS root mounting as a development environment.
+
+Until this point, the kernel itself was executing code, performing the numerous initialization steps in a context known as kernel context. In this operational state, the kernel owns all system memory and operates with full authority over all system resources. The kernel has access to all physical memory and to all I/O subsystems. It executes code in kernel virtual address space, using a stack created and owned by the kernel itself. When the Linux kernel has completed its internal initialization and mounted its root file system, the default behavior is to spawn an application program called init. When the kernel starts init, it is said to be running in user space or user space context. In this operational mode, the user space process has restricted access to the system and must use kernel system calls to request kernel services such as device and file I/O. These user space processes, or programs, operate in a virtual memory space picked at random and managed by the kernel. The kernel, in cooperation with specialized memorymanagement hardware in the processor, performs virtual-to-physical address translation for the user space process. The single biggest benefit of this architecture is that an error in one process can’t trash the memory space of another. This is a common pitfall in legacy embedded OSs that can lead to bugs that are some of the most difficult to
+track down.
 
 
 # References
