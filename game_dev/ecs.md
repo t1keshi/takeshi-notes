@@ -9,3 +9,4 @@ Previous: [Game Development](game_dev.md)
 - https://tsprojectsblog.wordpress.com/portfolio/entity-component-system/
 - https://github.com/skypjack/entt
 - https://github.com/alecthomas/entityx
+- https://www.youtube.com/watch?v=rX0ItVEVjHc
