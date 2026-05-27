@@ -94,6 +94,22 @@ The other reason the move manager is assigned a high priority is because input d
 
 # Networking model in RTS
 
+Example of networking model: _Age of Empires_ (1990)
+
+_Age of Empires_ uses a **deterministic lockstep** networking model.
+
+Neste modelo, cada computador se conecta diretamente com os outros diretamente - topologia de rede **peer-to-peer**. O termo "determinístico" significa que todos os computadores (peers) recebem as mesmas entradas, executam os mesmos passos e chegam no mesmo resultado. O termo "lockstep" significa que os computadores utilizam a comunicação para se manter sincronizados. Este tipo de modelo de rede é utilizado até hoje em jogos do genêro RTS.
+
+Uma vantagem de utilizar o modelo peer-to-peer é que os dados chegam mais rapidamente ao destino em comparação com o modelo client/server.
+
+Os jogos RTS em geral possui a capacidade de jogadores limitada (por exemplo, no máximo oito jogadores na mesma sessão de jogo) mas uma quantidade enorme de unidades que podem ser gerenciadas por cada jogador (por exemplo, cada jogador pode ter o controle de até 200 unidades).
+
+A estratégia adotada neste modelo é sincronizar a lista de comandos executados pelos jogadores em vez de sincronizar as informações de cada unidade relevante. Isto significa que cada instância de jogo precisa executar todos os comandos de todos os jogadores de forma independente e todas as instâncias de jogo precisam estar sincronizadas.
+
+Cada jogador pode executar o jogo com diferentes taxas de quadros e qualidade de conexão. Para que as instâncias de jogo fiquem sincronizadas, os comandos emitidos por cada jogador precisam ser enviados a todos os jogadores antes de serem executados. O mecanismo utilizado para gerenciar estes comandos e não perder a responsividade é chamado de **Turn Timer**.
+
+Neste método, cada turno tem um tempo de duração ```length``` (por exemplo, 200ms). Todos os comandos emitidos dentro desta janela de tempo são armazenados em um buffer. Quando a duração acabar, os comandos armazenados no buffer são enviados para todos os outros jogadores. Outro aspecto de Turn Timer é o delay de execução de turnos (por exemplo, dois turnos). Isso significa que os comandos gerados em um turno serão executados depois de dois turnos, provocando um input lag de 600ms neste exemplo.
+
 
 # References
 
