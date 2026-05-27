@@ -119,3 +119,15 @@ Um benefício interessante que o modelo **deterministc lockstep** tras é a poss
 # References
 
 - GLAZER, J. MADHAV, S. Multiplayer Game Programming: architecting networked games. Addison-Wesley, 2016.  
+
+Bettner, Paul and Mark Terrano. “1500 Archers on a 28.8: Network Programming in Age of
+Empires and Beyond.” Presented at the Game Developer’s Conference, San Francisco, CA, 2001.
+Frohnmayer, Mark and Tim Gift. “The Tribes Engine Networking Model.” Presented at the Game
+Developer’s Conference, San Francisco, CA, 2001.
+Koster, Raph. “Online World Timeline.” Raph Koster’s Website . Last modified February 20, 2002.
+http://www.raphkoster.com/gaming/mudtimeline.shtml .
+Kushner, David. Masters of Doom: How Two Guys Created an Empire and Transformed Pop Culture .
+New York: Random House, 2003.
+Morningstar, Chip and F. Randall Farmer. “The Lessons of Lucasfilm’s Habitat.” In Cyberspace: First
+Steps , edited by Michael Benedikt, 273-301. Cambridge: MIT Press, 1991.
+Wasserman, Ken and Tim Stryker. “Multimachine Games.” Byte Magazine , December 1980, 24-40.
