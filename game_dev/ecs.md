@@ -1,5 +1,6 @@
 Previous: [Game Development](game_dev.md)  
 
+
 # Entity Component System (ECS)
 
 1. Resolve o problema de flexibilidade limitada da herança (programação orientada a objetos) no desenvolvimento de jogos.  
@@ -9,7 +10,18 @@ Na programação de jogos é muito comum iterar por um grupo de objetos de jogo 
 
 O problema do uso indevido de memória cache ocorre quando um objeto de jogo possui todos os dados possíveis contidos em si mesmo - uma classe com todos os dados declarados como membros. Ao iterar por um grupo de objetos desse tipo, muitos membros do objeto que não são necessários para o sistema que está processando no momento serão carregados na memória cache causando uma queda de desempenho. O problema pode ficar pior ainda se o grupo de objetos não estiverem armazenados de forma contígua na memória como, por exemplo, em estruturas do tipo lista vinculada ou árvores.
 
+
 # Component System
+
+Para evitar o mau uso da memória cache, os dados devem ser organizados como plain of data (POD) e armazenados de forma contígua na memória, por exemplo, em arrays.
+
+
+# Entity
+
+Uma entidade é simplemesnte um índice para o array de componentes. Os sistemas, como sistema de física, sistema de renderização, utilizam uma lista de entidades para acessar os elementos do array de componentes. Cada sistema referencia apenas o array de componentes de seu interesse. Dessa forma, tornamos mais eficiente o uso de memória cache.
+
+O maior desafio para implementar um ECS é como os elementos dos arrays de componentes são reorganizados conforme as entidades são criadas/destruídas.
+
 
 # Ferramentas para checar memoria cache
 
