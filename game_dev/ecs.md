@@ -23,6 +23,9 @@ Uma entidade é simplemesnte um índice para o array de componentes. Os sistemas
 O maior desafio para implementar um ECS é como os elementos dos arrays de componentes são reorganizados conforme as entidades são criadas/destruídas.
 
 
+# Signature
+
+
 # Ferramentas para checar memoria cache
 
 - Intel VTune Profiler  
