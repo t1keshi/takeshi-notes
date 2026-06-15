@@ -18,7 +18,7 @@ Para evitar o mau uso da memória cache, os dados devem ser organizados como pla
 
 # Entity
 
-Uma entidade é simplemesnte um índice para o array de componentes. Os sistemas, como sistema de física, sistema de renderização, utilizam uma lista de entidades para acessar os elementos do array de componentes. Cada sistema referencia apenas o array de componentes de seu interesse. Dessa forma, tornamos mais eficiente o uso de memória cache.
+Uma entidade é simplesmente um índice para o array de componentes. Os sistemas, como sistema de física, sistema de renderização, utilizam um conjunto de entidades para acessar os elementos do array de componentes. Cada sistema referencia apenas o array de componentes de seu interesse. Dessa forma, tornamos mais eficiente o uso de memória cache.
 
 O maior desafio para implementar um ECS é como os elementos dos arrays de componentes são reorganizados conforme as entidades são criadas/destruídas.
 
