@@ -4,11 +4,11 @@ Previous: [Game Development](game_dev.md)
 # Entity Component System (ECS)
 
 1. Resolve o problema de flexibilidade limitada da herança (programação orientada a objetos) no desenvolvimento de jogos.  
-2. Resolve o uso indevido de memória cache.  
+2. Resolve o mal uso da memória cache.  
 
-Na programação de jogos é muito comum iterar por um grupo de objetos de jogo a cada frame a fim de atualizar seus estados ou para processá-los de alguma maneira. Por exemplo, o sistema de física poderia iterar por uma parte deste grupo de objetos para atualizar informações como posiçãp, velocidade, etc enquanto que o sistema de renderização pooderia iterar por um grupo de objetos (que não precisa ser necessariamente o mesmo grupo de objetos) para desenhá-los na tela.
+Na programação de jogos é muito comum iterar por um grupo de objetos de jogo a cada frame a fim de atualizar seus estados ou para processá-los de alguma maneira. Por exemplo, o sistema de física poderia iterar por uma parte deste grupo de objetos para atualizar informações como posição, velocidade, etc enquanto que o sistema de renderização pooderia iterar por um grupo de objetos (que não precisaria ser necessariamente o mesmo grupo de objetos) para desenhá-los na tela.
 
-O problema do uso indevido de memória cache ocorre quando um objeto de jogo possui todos os dados possíveis contidos em si mesmo - uma classe com todos os dados declarados como membros. Ao iterar por um grupo de objetos desse tipo, muitos membros do objeto que não são necessários para o sistema que está processando no momento serão carregados na memória cache causando uma queda de desempenho. O problema pode ficar pior ainda se o grupo de objetos não estiverem armazenados de forma contígua na memória como, por exemplo, em estruturas do tipo lista vinculada ou árvores.
+O problema de memória cache ocorre quando um objeto de jogo possui todos os dados possíveis contidos em si mesmo - uma classe com todos os dados declarados como membros. Ao iterar por um grupo de objetos desse tipo, muitos membros do objeto que não são necessários no momento serão carregados na memória cache causando uma queda de desempenho. O problema pode ficar pior ainda se o grupo de objetos não estiverem armazenados de forma contígua na memória como, por exemplo, em estruturas do tipo lista vinculada ou árvores.
 
 
 # Component System
@@ -24,6 +24,8 @@ O maior desafio para implementar um ECS é como os elementos dos arrays de compo
 
 
 # Signature
+
+Uma assinatura é um bitset que especifica quais componentes uma entidade possui. Ela também é utilizada pelo sistema para definir quais componentes será utilizado por ele. Cada bit deste bitset representa um tipo de componente. Dessa forma, o sistema pode utilizar apenas a comparação de bits (_bitwise comparison_) para determinar se a entidade possui os componentes necessários para o sistema.
 
 
 # Ferramentas para checar memoria cache
