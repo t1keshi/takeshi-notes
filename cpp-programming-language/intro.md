@@ -42,4 +42,4 @@ A melhor forma de aprender a linguagem é realizar os seus próprios experimento
 
 # Referências
 
-- STROUSTRUP, B. The C++ programming language, 4th ed. Addison-Wesley, 2013.
+- STROUSTRUP, B. The C++ programming language, 4th ed. Addison-Wesley, 2013.  

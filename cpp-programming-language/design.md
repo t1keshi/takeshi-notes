@@ -17,6 +17,18 @@ Em C++, a classe possui diversos mecanismos que permitem a aplicação de divers
 - programação genérica  
 
 
+# C++ is statically typed language
+
+Um dos pilares fundamental da linguagem C++ é ser uma linguagem estaticamente tipada.
+
+- _compile-time checking_ - permite a checagem de tipos em tempo de compilação, detectando erros antes da execução do programa C++  
+- evita comportamentos indefinidos que podem ocorrer como, por exemplo, em conversões indevidas de tipos durante a execução do programa C++  
+- melhora o desempenho do programa C++ pois evita checagem de tipos em tempo de execução  
+- permite otimizações do compiladores em tipos estáticos  
+- aumenta a confiabilidade e segurança do programa C++  
+- tipos estáticos é base para o uso de templates em C++  
+
+
 # Referências
 
 - STROUSTRUP, B. The C++ programming language, 4th ed. Addison-Wesley, 2013.  
