@@ -25,7 +25,7 @@ Um dos pilares fundamental da linguagem C++ é ser uma linguagem estaticamente t
 - evita comportamentos indefinidos que podem ocorrer como, por exemplo, em conversões indevidas de tipos durante a execução do programa C++  
 - melhora o desempenho do programa C++ pois evita checagem de tipos em tempo de execução  
 - permite otimizações do compiladores em tipos estáticos  
-- aumenta a confiabilidade e segurança do programa C++  
+- aumenta a confiabilidade e segurança (_type-safe interface_) do programa C++  
 - tipos estáticos é base para o uso de templates em C++  
 
 
