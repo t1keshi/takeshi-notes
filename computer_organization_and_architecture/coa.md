@@ -3,9 +3,13 @@ Previous: [Home](../README.md)
 
 # Computer Organization and Architecture
 
-The study of computer organization focuses on this herarchy and the issues involved with how to partition the levels and how each level is implemented. 
+The study of computer organization focuses on this hierarchy and the issues involved with how to partition the levels and how each level is implemented.  
 
-The study of computer architecture focuses on the interface between hardware and software, and emphasizes the structure and behaviour of the system.
+We must become familiar with how various circuits and components fit together to create working computer systems. We do this through the study of computer organization. Computer organization addresses issues such as control signals (how the computer is controlled), signaling methods, and memory types. It encompasses all physical aspects of computer systems. It helps us to answer the question: How does a computer work?  
+
+The study of computer architecture focuses on the interface between hardware and software, and emphasizes the structure and behaviour of the system.  
+
+The study of computer architecture focuses on the structure and behavior of the computer system and refers to the logical and abstract aspects of system implementation as seen by the programmer. Computer architecture includes many elements, such as instruction sets and formats, operation codes, data types, the number and types of registers, addressing modes, main memory access methods, and various I/O mechanisms. The architecture of a system directly affects the logical execution of programs. Studying computer architecture helps us to answer the question: How do I design a computer?  
 
 
 #### Por que estudar Organização e Arquitetura de Computadores?
@@ -33,6 +37,11 @@ A computer organization and architecture class is customarily a prerequisite for
 
 - low-level hardware  
 - higher-level software (assemblers and operating systems)
+
+
+# Instruction Set Architecture (ISA)
+
+The computer architecture for a given machine is the combination of its hardware components plus its instruction set architecture (ISA). The ISA is the agreed-upon interface between all the software that runs on the machine and the hardware that executes it. The ISA allows you to talk to the machine.  
 
 
 # References
