@@ -3,18 +3,30 @@
 
 # C++ Design
 
-A linguagem C++ teve a sua origem em programação de sistemas onde era fundamental lidar eficientemente com memória, mutabilidade, abstração, gerenciamento de recursos, expressão de algoritmos, tratamento de erros e modularidade. Estes fatores eram cruciais para programadores que trabalhavam em ambientes com recursos limitados e alta demanda de desempenho.
+A linguagem C++ teve a sua origem em programação de sistemas onde era fundamental lidar eficientemente com memória, mutabilidade, abstração, gerenciamento de recursos, expressão de algoritmos, tratamento de erros e modularidade. Estes fatores são importantes para programadores que trabalham em ambientes com recursos limitados e alta demanda de desempenho.
 
-Ao mesmo tempo, _Stroustrup_ buscava incorporar conceitos de alto nível como mecanismos de abstração para a criação de **tipos definidos pelo usuário**. A linguagem **SIMULA** serviu de grande inspiração para cumprir este objetivo. Classe é o conceito-chave em C++ que permite ao usuário criar um novo tipo de dados.
+Ao mesmo tempo, _Stroustrup_ buscava incorporar conceitos de alto nível como mecanismos de abstração. A linguagem **SIMULA** serviu de grande inspiração para cumprir este objetivo.
 
-A definição de um novo tipo pelo usuário permite utilizá-lo em expressões da mesma maneira como tipos predefinidos (_built-in types_) de forma eficiente e segura como, por exemplo, aproveitando o benefício de checagens de tipos em tempo de compilação.
+Estes são os conceitos fundamentais da linguagem C++:
 
-Em C++, a classe possui diversos mecanismos que permitem a aplicação de diversas técnicas de programação de forma combinada:
+- ser uma linguagem de programação de propósito geral  
+- mapeamento direto de operações de baixo nível e tipos de dados utilizados pelo hardware  
+- mecanismos de abstração como **tipos definidos pelo usuário** (_user-defined types_) 
+- suporte a diversas técnicas de programação mas com objetivo de serem utilizadas de forma combinada e não isoladamente  
+
+O conceito chave de C++ para alcançar estes objetivos é a **classe**. A classe é um tipo definido pelo usuário (_user-defined type_) que permite a aplicação de diversas técnicas de programação como:
 
 - programação procedural  
 - abstração de dados  
 - programação orientada a objetos  
 - programação genérica  
+
+However, the emphasis is on the support of effective combinations of those. The best (most maintainable, most readable, smallest, fastest, etc.) solution to most nontrivial problems tends to be one that combines aspects of these styles. Each of these styles of design and programming has contributed to the synthesis that is C++.
+
+
+# Tipos definidos pelo usuário
+
+Tipos definidos pelo usuário permite que os objetos destes tipos possam ser utilizados da mesma maneira que os tipos fundamentais (_built-in types_) de forma eficiente e segura como, por exemplo, aproveitando o benefício de verificação de tipos em tempo de compilação.
 
 
 # C++ is statically typed language
