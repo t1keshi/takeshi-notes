@@ -1,7 +1,7 @@
 [Home](_cpp.md)  
 
 
-# Design de C++
+# C++ Design
 
 A linguagem C++ teve a sua origem em programação de sistemas onde era fundamental lidar eficientemente com memória, mutabilidade, abstração, gerenciamento de recursos, expressão de algoritmos, tratamento de erros e modularidade. Estes fatores eram cruciais para programadores que trabalhavam em ambientes com recursos limitados e alta demanda de desempenho.
 
