@@ -23,6 +23,7 @@ O conceito chave de C++ para alcançar estes objetivos é a **classe**. A classe
 
 However, the emphasis is on the support of effective combinations of those. The best (most maintainable, most readable, smallest, fastest, etc.) solution to most nontrivial problems tends to be one that combines aspects of these styles. Each of these styles of design and programming has contributed to the synthesis that is C++.
 
+Just about anything that increases the flexibility or efficiency of classes improves the support of all of those styles. Thus, C++ could be (and has been) called class oriented.
 
 # Tipos definidos pelo usuário
 
