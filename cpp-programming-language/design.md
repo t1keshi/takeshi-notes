@@ -3,15 +3,15 @@
 
 # C++ Design
 
-A linguagem C++ teve a sua origem em programação de sistemas onde era fundamental lidar eficientemente com memória, mutabilidade, abstração, gerenciamento de recursos, expressão de algoritmos, tratamento de erros e modularidade. Estes fatores são importantes para programadores que trabalham em ambientes com recursos limitados e alta demanda de desempenho.
+A linguagem de programação C++ teve a sua origem em programação de sistemas onde era essencial lidar com noções fundamentais como memória, mutabilidade, abstração, gerenciamento de recursos, expressão de algoritmos, tratamento de erros e modularidade. Estes fatores são importantes para programadores que trabalham em ambientes com recursos limitados e alta demanda de desempenho.
 
-Ao mesmo tempo, _Stroustrup_ buscava incorporar conceitos de alto nível como mecanismos de abstração. A linguagem **SIMULA** serviu de grande inspiração para cumprir este objetivo.
+Ao mesmo tempo, _Stroustrup_ buscava incorporar conceitos de alto nível como mecanismos de abstração (_lightweight abstractions_). A linguagem **Simula** serviu de grande inspiração para cumprir este objetivo.
 
 Estes são os conceitos fundamentais da linguagem C++:
 
-- ser uma linguagem de programação de propósito geral  
-- mapeamento direto de operações de baixo nível e tipos de dados utilizados pelo hardware  
-- mecanismos de abstração como **tipos definidos pelo usuário** (_user-defined types_) 
+- ser uma linguagem de programação de propósito geral (suporte para uma grande variedade de usos)
+- mapeamento direto de operações de baixo nível e tipos de dados utilizados pelo hardware (uso eficiente da memória e instruções de baixo nível)  
+- possuir mecanismos de abstração como **tipos definidos pelo usuário** (_user-defined types_) 
 - suporte a diversas técnicas de programação mas com objetivo de serem utilizadas de forma combinada e não isoladamente  
 
 O conceito chave de C++ para alcançar estes objetivos é a **classe**. A classe é um tipo definido pelo usuário (_user-defined type_) que permite a aplicação de diversas técnicas de programação como:
@@ -27,8 +27,7 @@ Just about anything that increases the flexibility or efficiency of classes impr
 
 # Tipos definidos pelo usuário
 
-Tipos definidos pelo usuário permite que os objetos destes tipos possam ser utilizados da mesma maneira que os tipos fundamentais (_built-in types_) de forma eficiente e segura como, por exemplo, aproveitando o benefício de verificação de tipos em tempo de compilação.
-
+Tipos definidos pelo usuário (_user-defined types_) permite que os objetos destes tipos possam ser utilizados da mesma maneira que os tipos fundamentais (_built-in types_) de forma eficiente e segura como, por exemplo, aproveitando o benefício de verificação de tipos em tempo de compilação.
 
 # C++ is statically typed language
 
