@@ -12,9 +12,9 @@ Estes são os conceitos fundamentais da linguagem C++:
 - ser uma linguagem de programação de propósito geral (suporte para uma grande variedade de usos)
 - mapeamento direto de operações de baixo nível e tipos de dados utilizados pelo hardware (uso eficiente da memória e instruções de baixo nível)  
 - possuir mecanismos de abstração como **tipos definidos pelo usuário** (_user-defined types_) 
-- suporte a diversas técnicas de programação mas com objetivo de serem utilizadas de forma combinada e não isoladamente  
+- suporte a diversas técnicas de programação mas com objetivo de serem utilizados de forma combinada e não isoladamente  
 
-O conceito chave de C++ para alcançar estes objetivos é a **classe**. A classe é um tipo definido pelo usuário (_user-defined type_) que permite a aplicação de diversas técnicas de programação como:
+**Classe** é o conceito chave em C++ que permite a aplicação de diversas técnicas de programação:
 
 - programação procedural  
 - abstração de dados  
