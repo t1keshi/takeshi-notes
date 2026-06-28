@@ -14,3 +14,8 @@ Table of Contents
 - [Instancing Rendering](instancing.md)  
 - [Transform Feedback](transform_feedback.md)  
 - [OpenGL History](history.md)  
+
+Advanced
+
+- [OpenGL textures for Pixel Art](pixel_art.md)  
+  

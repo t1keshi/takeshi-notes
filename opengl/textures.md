@@ -1,12 +1,10 @@
 Previous: [OpenGL](_opengl.md)
 
-
 # Textures
 
 **Mapeamento de texturas** é uma técnica que permite aplicar uma imagem de textura em uma superfície de um modelo rasterizado. Ele é muito importante para adicionar realismo em cenas renderizadas.
 
 **Textura** é uma image 
-
 
 This technique allows you to look up values, like colors, from a shader in a special type of table. While access to texture maps is a ailable in all of OpenGL’s shading stages, we’ll first discuss it in the context of processing fragments, because that’s where it’s used most often.
 
@@ -111,13 +109,10 @@ Para extrair o texel em fragment shader, basta passar as coordenadas de texturas
 
 # Mipmapping
 
-O mapeamento de texturas pode provocar artefatos indesejáveis quando a resolução da textura ou aspecto de razão não coincide com a superfície do modelo a ser renderizada. Isto pode ocorrer por dois motivos:
+O mapeamento de texturas pode provocar artefatos indesejáveis quando a resolução da textura ou aspecto de razão não coincide com a superfície do modelo a ser texturizado. Isto pode ocorrer por dois motivos:
 
-1. A resolução da textura é menor que a superfície do modelo provocando blurry e distorção da imagem
-
-Neste caso, utilizar uma textura com uma resolução maior resolve o problema.
-
-2. a resolução da textura é muito maior do que a superfície do modelo provocando aliasing ou efeitos "shimmering" em objetos que se movem
+1. A resolução da textura é menor que a superfície do modelo provocando blurry e distorção da imagem (utilizar uma resolução maior resolve o problema)  
+2. A resolução da textura é muito maior do que a superfície do modelo provocando aliasing ou efeitos "shimmering" em objetos que se movem
 
 Aliasing é causa por erros de _sampling_. Este tipo de erro é frequentemente associado a processamento de sinais onde a amostra (_sample_) tem menos sinais que o original.
 
