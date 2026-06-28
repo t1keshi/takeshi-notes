@@ -3,15 +3,30 @@ Previous: [OpenGL](_opengl.md)
 # Pixel Art
 
 Se a imagem a ser renderizada for pixel art, o ideal é que a textura contenha a mesma resolução e razão de aspecto da superfície a ser texturizada.
-Entretanto, na maioria das vezes, a textura é menor para economizar memória.
+Entretanto, na maioria das vezes, uma textura pode ser menor para economizar memória.
 
-- Não gerar minimaps  
-- Utilizar a opção de filtro GL_NEAREST para GL_TEXTURE_MIN_FILTER e GL_TEXTURE_MAG_FILTER  
+A ideia é o seguinte:
+
+Se a janela de visualização (matriz de projeção ortográfica 2D) for 320x180 e a janela de aplicação (viewport) for 1280x720, teremos:
+
+```
+    1 unidade = 4 pixels (1280 / 320 e 720 / 180)
+```
+
+Isso significa que o tamanho do sprite original se tornará 4 vezes maior:
+
+```
+    Antes: 64x64
+    Depois: 256x256
+```
+
+Além disso, é necessário configurar o filtro da textura em OpenGL da seguinte forma:
 
 ```
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 ```
+
 
 # References  
 
