@@ -42,6 +42,14 @@ Um dos pilares fundamental da linguagem C++ é ser uma linguagem estaticamente t
 - aumenta a confiabilidade e segurança (_type-safe interface_) do programa C++  
 - tipos estáticos é base para o uso de templates em C++  
 
+# Conceito de move semantics
+
+The fundamental object in C++ has identity; that is, it is located in a specific location in memory and can be distinguished from other objects with (potentially) the same value by comparing addresses. Expressions denoting such objects are called lvalues (§6.4). However, even from the earliest days of C++’s ancestors [Barron,1963] there have also been objects without identity (objects for which an address cannot be safely stored for later use). In C++11, this notion of rvalue has been developed into a notion of a value that can be moved around cheaply. Such objects are the basis of techniques that resemble what is found in functional programming (where the notion of objects with identity is viewed with horror). This nicely complements the techniques and language features (e.g., lambda expressions) developed primarily for generic programming. It also solves classical problems related to "simple abstract data types," such as how to elegantly and efficiently return a large matrix from an operation (e.g., a matrix +).
+
+# Resouce Management
+
+- Conceito de RAII  
+- simple, general, efficiente (zero-overhead principle), perfect (no leaks are acceptable), statically tyoe safe  
 
 # Referências
 
