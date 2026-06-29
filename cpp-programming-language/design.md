@@ -48,7 +48,7 @@ The fundamental object in C++ has identity; that is, it is located in a specific
 
 # Resouce Management
 
-- Conceito de RAII  
+- Conceito de RAII (constructor, destructor, copy and move constructors)  
 - simple, general, efficiente (zero-overhead principle), perfect (no leaks are acceptable), statically tyoe safe  
 
 # Referências
