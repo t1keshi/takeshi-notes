@@ -9,9 +9,9 @@ Ao mesmo tempo, _Stroustrup_ buscava incorporar conceitos de alto nível como me
 
 Estes são os conceitos fundamentais da linguagem C++:
 
-- ser uma linguagem de programação de propósito geral (suporte para uma grande variedade de usos)
-- mapeamento direto de operações de baixo nível e tipos de dados utilizados pelo hardware (uso eficiente da memória e instruções de baixo nível)  
-- possuir mecanismos de abstração como **tipos definidos pelo usuário** (_user-defined types_) 
+- ser uma linguagem de programação de propósito geral  
+- mapeamento direto de tipos de dados e operações de baixo nível utilizados pelo hardware (uso eficiente da memória e instruções de baixo nível)  
+- possuir mecanismos de abstração (_lightweight abstractions_) como **tipos definidos pelo usuário** (_user-defined types_) 
 - suporte a diversas técnicas de programação mas com objetivo de serem utilizados de forma combinada e não isoladamente  
 
 **Classe** é o conceito chave em C++ que permite a aplicação de diversas técnicas de programação:
@@ -25,9 +25,11 @@ However, the emphasis is on the support of effective combinations of those. The 
 
 Just about anything that increases the flexibility or efficiency of classes improves the support of all of those styles. Thus, C++ could be (and has been) called class oriented.
 
+
 # Tipos definidos pelo usuário
 
 Tipos definidos pelo usuário (_user-defined types_) permite que os objetos destes tipos possam ser utilizados da mesma maneira que os tipos fundamentais (_built-in types_) de forma eficiente e segura como, por exemplo, aproveitando o benefício de verificação de tipos em tempo de compilação.
+
 
 # C++ is statically typed language
 
