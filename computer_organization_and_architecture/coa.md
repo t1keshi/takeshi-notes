@@ -32,7 +32,9 @@ There is a fundamental relationship between the computer hardware and the many a
 
 # Computer System
 
-> **Principle of equivalence of hardware and software**: Any task done by software can also be done using hardware, and any operation performed directly by hardware can be done using software. What this principle does not address is the speed with which the equivalent tasks are carried out. Hardware implementations are almost always faster.
+**Computer System** é um termo que se refere a combinação de hardware e software.  
+
+> **Principle of equivalence of hardware and software**: Any task done by software can also be done using hardware, and any operation performed directly by hardware can be done using software. What this principle does not address is the speed with which the equivalent tasks are carried out. Hardware implementations are almost always faster. Entretant0, software implementation é mais fácil de ser atualizado.
 
 Um computador consiste em:
 
@@ -70,6 +72,13 @@ System Bus é responsável por conectar a unidade ALU, registradores e a memóri
 Os componentes de entrada como teclado, mouse, camera, etc são responsáveis por obter dados externos para o computador.
 
 Os componentes de saida como monitores, impressoras, caixa de som, etc são responsáveis por enviar os dados do computador para estes dispositivos externos.  
+
+
+# System Software
+
+The most important software is system software, which includes the operating system.  
+
+System software is the collection of programs that allow you to use your computer. This type of software integrates closely with the hardware of your system, thus becoming the interface between you and the computer hardware. Without system software, your computer would be useless. Other software includes application software (such as programs for email or word processing) and utility software (such as programs designed to clean up your hard drive or software designed to protect your computer while on the Internet). Both application software and utility software use the system software to communicate with the hardware, reiterating how important system software really is.
 
 
 # Hierarchy of Virtual Machines
