@@ -5,7 +5,7 @@
 
 A linguagem de programação C++ teve a sua origem em programação de sistemas onde era essencial lidar com noções fundamentais como memória, mutabilidade, abstração, gerenciamento de recursos, expressão de algoritmos, tratamento de erros e modularidade. Estes fatores são importantes para programadores que trabalham em ambientes com recursos limitados e alta demanda de desempenho.
 
-Ao mesmo tempo, _Stroustrup_ buscava incorporar conceitos de alto nível como mecanismos de abstração (_lightweight abstractions_). A linguagem **Simula** serviu de grande inspiração para cumprir este objetivo.
+Ao mesmo tempo, _Stroustrup_ buscava incorporar conceitos de alto nível incluindo mecanismos de abstração (_lightweight abstractions_). A linguagem **Simula** serviu de grande inspiração para cumprir este objetivo.
 
 Estes são os conceitos fundamentais da linguagem C++:
 
@@ -14,7 +14,7 @@ Estes são os conceitos fundamentais da linguagem C++:
 - possuir mecanismos de abstração (_lightweight abstractions_) como **tipos definidos pelo usuário** (_user-defined types_) 
 - suporte a diversas técnicas de programação mas com objetivo de serem utilizados de forma combinada e não isoladamente  
 
-**Classe** é o conceito chave em C++ que permite a aplicação de diversas técnicas de programação:
+**Classe** é o conceito chave em C++ que permite mecanismos de abstração (criação de tipos definidos pelo usuário) e, consequentemente, a aplicação de diversas técnicas de programação de forma combinada:
 
 - programação procedural  
 - abstração de dados  
@@ -33,14 +33,27 @@ Tipos definidos pelo usuário (_user-defined types_) permite que os objetos dest
 
 # C++ is statically typed language
 
-Um dos pilares fundamental da linguagem C++ é ser uma linguagem estaticamente tipada.
+The notion of static types and compile-time type checking is central to effective use of C++. The use of static types is key to expressiveness, maintainability, and performance.
+
+The language features and the type system are provided for the programmer to precisely and concisely represent a design in code.
+
+Following Simula, the design of user-defined types with interfaces that are checked at compile time is key to the expressiveness of C++. The C++ type system is extensible in nontrivial ways, aiming for equal support for built-in types and user-defined types.
+
+C++ type-checking and data-hiding features rely on compile-time analysis of programs to prevent accidental corruption of data. They do not provide secrecy or protection against someone who is deliberately breaking the rules: C++ protects against accident, not against fraud. They can, however, be used freely without incurring run-time or space overheads. The idea is that to be useful, a language feature must not only be elegant, it must also be affordable in the context of a real-world program.
+
+C++'s static type system is flexible, and the use of simple user-defined types implies little, if any overhead. The aim is to support a style of programming that represents distinct ideas as distinct types, rather than just using generalizations, such as integer, floating-point number, string, "raw memory," and "object," everywhere. A type-rich style of programming makes code more readable, maintainable, and analyzable. A trivial type system allows only trivial analysis, whereas a type-rich style of programming opens opportunities for nontrivial error detection and optimization. C++ compilers and development tools support such type-based analysis.
+
+Maintaining most of C as a subset and preserving the direct mapping to hardware needed for the most demanding low-level systems programming tasks implies the ability to break the static type system.
 
 - _compile-time checking_ - permite a checagem de tipos em tempo de compilação, detectando erros antes da execução do programa C++  
+- verificação de tipos em tempo de compilação é a chave de expressividade em C++  
 - evita comportamentos indefinidos que podem ocorrer como, por exemplo, em conversões indevidas de tipos durante a execução do programa C++  
 - melhora o desempenho do programa C++ pois evita checagem de tipos em tempo de execução  
 - permite otimizações do compiladores em tipos estáticos  
 - aumenta a confiabilidade e segurança (_type-safe interface_) do programa C++  
 - tipos estáticos é base para o uso de templates em C++  
+- tipos definidos pelo usuário também possuem a segurança de verificação de tipos em tempo de compilação.  
+- o sistema de tipos de C++ permite que tipos definidos pelo usuário sejam extensíveis e utilizados da mesma forma que tipos fundamentais  
 
 # Conceito de move semantics
 
