@@ -14,7 +14,7 @@ Ao mesmo tempo, _Stroustrup_ buscava incorporar conceitos de alto nível na ling
 - programação orientada a objetos  
 - programação genérica  
 
-> **Nota:** _Stroustrup_ deixa claro que o conceito de classes em C++ não é exclusivo para a programação orientada a objetos. C++ é uma síntese de diversos paradigmas de programação. Classe em C++ é o ponto central que suporta diversas técnicas de programação de forma combinada. A ideia é utilizar todo o potencial que a classe em C++ oferece do que apenas utilizar "features" exclusivos de cada paradigma de programação de forma isolada.
+> **Nota:** _Stroustrup_ deixa claro que o conceito de classes em C++ não foi criada exclusivamente para a programação orientada a objetos. C++ é uma síntese de diversos paradigmas de programação. Classe em C++ é o ponto central que suporta diversas técnicas de programação de forma combinada. A ideia é utilizar todo o potencial que a classe oferece em vez de utilizar "features" exclusivos de forma isolada.
 
 Estes são os pontos fundamentais da linguagem C++:
 
