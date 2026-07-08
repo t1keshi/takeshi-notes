@@ -26,7 +26,9 @@ However, the emphasis is on the support of effective combinations of those. The 
 Just about anything that increases the flexibility or efficiency of classes improves the support of all of those styles. Thus, C++ could be (and has been) called class oriented.
 
 
-# Tipos definidos pelo usuário
+# Abstraction Mechanisms
+
+Abstraction Mechanisms presents the language features supporting data abstraction, object-oriented programming, and generic programming.
 
 Tipos definidos pelo usuário (_user-defined types_) permite que os objetos destes tipos possam ser utilizados da mesma maneira que os tipos fundamentais (_built-in types_) de forma eficiente e segura como, por exemplo, aproveitando o benefício de verificação de tipos em tempo de compilação.
 
@@ -55,14 +57,17 @@ Maintaining most of C as a subset and preserving the direct mapping to hardware 
 - tipos definidos pelo usuário também possuem a segurança de verificação de tipos em tempo de compilação.  
 - o sistema de tipos de C++ permite que tipos definidos pelo usuário sejam extensíveis e utilizados da mesma forma que tipos fundamentais  
 
+
 # Conceito de move semantics
 
 The fundamental object in C++ has identity; that is, it is located in a specific location in memory and can be distinguished from other objects with (potentially) the same value by comparing addresses. Expressions denoting such objects are called lvalues (§6.4). However, even from the earliest days of C++’s ancestors [Barron,1963] there have also been objects without identity (objects for which an address cannot be safely stored for later use). In C++11, this notion of rvalue has been developed into a notion of a value that can be moved around cheaply. Such objects are the basis of techniques that resemble what is found in functional programming (where the notion of objects with identity is viewed with horror). This nicely complements the techniques and language features (e.g., lambda expressions) developed primarily for generic programming. It also solves classical problems related to "simple abstract data types," such as how to elegantly and efficiently return a large matrix from an operation (e.g., a matrix +).
 
+
 # Resouce Management
 
-- Conceito de RAII (constructor, destructor, copy and move constructors)  
+- Conceito de RAII (Resource Acquisition Is Initialization) (constructor, destructor, copy and move constructors)  
 - simple, general, efficiente (zero-overhead principle), perfect (no leaks are acceptable), statically tyoe safe  
+
 
 # Referências
 
