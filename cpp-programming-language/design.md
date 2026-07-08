@@ -5,25 +5,23 @@
 
 A linguagem de programação C++ teve a sua origem em programação de sistemas onde era essencial lidar com noções fundamentais como memória, mutabilidade, abstração, gerenciamento de recursos, expressão de algoritmos, tratamento de erros e modularidade. Estes fatores são importantes para programadores que trabalham em ambientes com recursos limitados e alta demanda de desempenho.
 
-Ao mesmo tempo, _Stroustrup_ buscava incorporar conceitos de alto nível incluindo mecanismos de abstração (_lightweight abstractions_). A linguagem **Simula** serviu de grande inspiração para cumprir este objetivo.
+Ao mesmo tempo, _Stroustrup_ buscava incorporar conceitos de alto nível na linguagem através de implementação de mecanismos de abstração (_lightweight abstractions_). A linguagem **Simula** serviu de grande inspiração para cumprir este objetivo.
 
-Estes são os conceitos fundamentais da linguagem C++:
-
-- ser uma linguagem de programação de propósito geral  
-- mapeamento direto de tipos de dados e operações de baixo nível utilizados pelo hardware (uso eficiente da memória e instruções de baixo nível)  
-- possuir mecanismos de abstração (_lightweight abstractions_) como **tipos definidos pelo usuário** (_user-defined types_) 
-- suporte a diversas técnicas de programação mas com objetivo de serem utilizados de forma combinada e não isoladamente  
-
-**Classe** é o conceito chave em C++ que permite mecanismos de abstração (criação de tipos definidos pelo usuário) e, consequentemente, a aplicação de diversas técnicas de programação de forma combinada:
+**Classe** é o conceito chave do mecanismo de abstração da linguagem C++. Ela permite a criação de **tipos definidos pelo usuário** e possui suporte para diversas técnicas de programação de forma combinada:
 
 - programação procedural  
 - abstração de dados  
 - programação orientada a objetos  
 - programação genérica  
 
-However, the emphasis is on the support of effective combinations of those. The best (most maintainable, most readable, smallest, fastest, etc.) solution to most nontrivial problems tends to be one that combines aspects of these styles. Each of these styles of design and programming has contributed to the synthesis that is C++.
+> **Nota:** _Stroustrup_ deixa claro que o conceito de classes em C++ não é exclusivo para a programação orientada a objetos. C++ é uma síntese de diversos paradigmas de programação. Classe em C++ é o ponto central que suporta diversas técnicas de programação de forma combinada. A ideia é utilizar todo o potencial que a classe em C++ oferece do que apenas utilizar "features" exclusivos de cada paradigma de programação de forma isolada.
 
-Just about anything that increases the flexibility or efficiency of classes improves the support of all of those styles. Thus, C++ could be (and has been) called class oriented.
+Estes são os pontos fundamentais da linguagem C++:
+
+- ser uma linguagem de programação de propósito geral  
+- mapeamento direto de tipos de dados e operações de baixo nível utilizados pelo hardware (uso eficiente da memória e instruções de baixo nível)  
+- possuir mecanismos de abstração (_lightweight abstractions_) como **tipos definidos pelo usuário** (_user-defined types_) 
+- suporte a diversas técnicas de programação mas com objetivo de serem utilizados de forma combinada e não isoladamente  
 
 
 # Abstraction Mechanisms
