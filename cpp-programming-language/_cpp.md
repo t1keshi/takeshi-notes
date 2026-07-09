@@ -6,7 +6,7 @@ Table of Contents
 
 - [Introduction](intro.md)  
 - [Design of C++](design.md)  
-- [Basic Facilities](basic.md)  
+- [Basic Facilities](basics.md)  
 - [Classes](classes.md)  
 - [Templates](templates.md)  
 - [Function Objects](functor.md)  

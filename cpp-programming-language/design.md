@@ -5,16 +5,11 @@
 
 A linguagem de programação C++ teve a sua origem em programação de sistemas onde era essencial lidar com ambientes com recursos limitados e alta demanda de desempenho.
 
-Ao mesmo tempo, _Stroustrup_ buscava incorporar conceitos de alto nível na linguagem através de implementação de mecanismos de abstração (_lightweight abstractions_). A linguagem **Simula** serviu de grande inspiração para cumprir este objetivo.
+Ao mesmo tempo, _Stroustrup_ buscava incorporar conceitos de alto nível na linguagem através de implementação de mecanismos de abstração (_lightweight abstractions_). A linguagem **Simula** serviu de grande inspiração para cumprir este objetivo. O objetivo era poder representar conceitos e ideias diretamente através de código sem comprometer a eficiência e o desempenho necessário para trabalhar com programação de sistemas.  
 
-**Classe** é o conceito chave dos mecanismos de abstração da linguagem C++. Ela permite a criação de **tipos definidos pelo usuário** e possui suporte para diversas técnicas de programação de forma combinada:
+**Classe** é o conceito chave para o mecanismo de abstração da linguagem C++. Todas as técnicas de programação como **abstração de dados**, **programação orientada a objetos** e **programação genérica** é possibilitada através do uso de classes.  
 
-- programação procedural  
-- abstração de dados  
-- programação orientada a objetos  
-- programação genérica  
-
-> **Nota:** _Stroustrup_ deixa claro que o conceito de classes em C++ não foi criada exclusivamente para a programação orientada a objetos. A linguagem C++ é uma síntese de diversos paradigmas de programação. Classe em C++ é o ponto central que suporta diversas técnicas de programação de forma combinada. A ideia é utilizar todo o potencial que a classe oferece em vez de utilizar recursos da linguagemcde forma isolada.
+> **Nota:** _Stroustrup_ enfatiza que o conceito de classes em C++ não foi criada exclusivamente para a programação orientada a objetos. A linguagem C++ é uma síntese de diversos paradigmas de programação. Classe em C++ é o ponto central que suporta diversas técnicas de programação de forma combinada. A ideia é utilizar todo o potencial que a classe oferece em vez de utilizar apenas recursos específificos da linguagem de forma isolada.
 
 Estes são os pontos fundamentais da linguagem C++:
 
@@ -63,7 +58,8 @@ The fundamental object in C++ has identity; that is, it is located in a specific
 
 # Resouce Management
 
-- Conceito de RAII (Resource Acquisition Is Initialization) (constructor, destructor, copy and move constructors)  
+- Resource Acquisition is Initialization (RAII) technique  
+- Construction, Cleanup, Copy, and Move
 - simple, general, efficiente (zero-overhead principle), perfect (no leaks are acceptable), statically tyoe safe  
 
 

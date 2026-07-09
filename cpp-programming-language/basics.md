@@ -2,6 +2,10 @@ Previous: [C++ Programming Language](_cpp.md)
 
 # Basic Facilities
 
+- model of memory  
+- computation  
+- error handling  
+
 - notions of type; types and declarations; fundamental types; naming; scopes; initialization; simple type deduction; object lifetimes, type aliases  
 - pointers; arrays and references  
 - structures, unions and enumerations  
