@@ -5,7 +5,7 @@
 
 A linguagem de programação C++ teve a sua origem em programação de sistemas onde era essencial lidar com ambientes com recursos limitados e alta demanda de desempenho.
 
-Ao mesmo tempo, _Stroustrup_ buscava incorporar conceitos de alto nível na linguagem através de implementação de mecanismos de abstração (_lightweight abstractions_). A linguagem **Simula** serviu de grande inspiração para cumprir este objetivo. O objetivo era poder representar conceitos e ideias diretamente através de código sem comprometer a eficiência e o desempenho necessário para trabalhar com programação de sistemas.  
+Ao mesmo tempo, _Stroustrup_ buscava incorporar conceitos de alto nível na linguagem através de mecanismos de abstração (_lightweight abstractions_). A linguagem **Simula** serviu de grande inspiração para cumprir este objetivo. O objetivo era poder representar conceitos e ideias diretamente através de código sem comprometer a eficiência e o desempenho necessário para trabalhar com programação de sistemas.  
 
 **Classe** é o conceito chave para o mecanismo de abstração da linguagem C++. Todas as técnicas de programação como **abstração de dados**, **programação orientada a objetos** e **programação genérica** é possibilitada através do uso de classes.  
 
