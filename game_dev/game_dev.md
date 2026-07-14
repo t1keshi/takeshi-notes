@@ -9,6 +9,7 @@
 - [Entity Component System](ecs.md)  
 - [Ciclo de Desenvolvimento](lifecycle.md)  
 - [Game Development Team](teams.md)  
+- [Game Development Timeline](timeline.md)  
 
 
 # Mercado de Videogames
