@@ -32,7 +32,7 @@ David Rosen serviu as forças áereas dos Estados Unidos e após o fim de servi�
 
 ### 1957
 
-David Rosen começou a importar máquinas operadas por moedas dos Estados Unidos dando início ao negócio de máquinas de fliperama no país. Era necessário licença do Ministério da Economia, Comércio e Indústria do Japão e pagar altas taxas de cusos de importação, mas mesmo assim conseguiu o monópolio no mercado por dois anos.  
+David Rosen começou a importar máquinas operadas por moedas dos Estados Unidos dando início ao negócio de máquinas de fliperama no país. Era necessário licença do Ministério da Economia, Comércio e Indústria do Japão e pagar altas taxas de cusos de importação, mas mesmo assim conseguiu o monópolio no mercado por dois anos. Nos anos seguintes, os principais concorrentes de David Rosen eram a **Taito Corporation** e **Nihon Goraku Bussan** (novo nome da Service Games of Japan).
 
 ### 1960
 
