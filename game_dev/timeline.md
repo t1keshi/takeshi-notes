@@ -32,7 +32,7 @@ David Rosen serviu as forças áereas dos Estados Unidos e após o fim de servi�
 
 ### 1957
 
-David Rosen começou a importar máquinas operadas por moedas dos Estados Unidos dando início ao negócio de máquinas de fliperama no país. Era necessário licença do Ministério da Economia, Comércio e Indústria do Japão e pagar altas taxas de cusos de importação, mas mesmo assim conseguiu o monópolio no mercado por dois anos. Nos anos seguintes, os principais concorrentes de David Rosen eram a **Taito Corporation** e **Nihon Goraku Bussan** (novo nome da Service Games of Japan).
+David Rosen começou a importar máquinas operadas por moedas dos Estados Unidos dando início ao negócio de máquinas de fliperama no país. Era necessário licença do Ministério da Economia, Comércio e Indústria do Japão e pagar altas taxas de cusos de importação, mas mesmo assim conseguiu o monópolio no mercado por dois anos. Nos anos seguintes, as principais concorrentes de Rosen Enterprises eram a **Taito Corporation** e **Nihon Goraku Bussan** (novo nome da Service Games of Japan).
 
 ### 1960
 
@@ -49,6 +49,16 @@ Steve Russell, Martin Graetz e Wayne Wiitanen criaram o jogo **Spacewar!** para 
 ### 1964
 
 As empresas **Nihon Goraku Bussan** e **Nihon Kikai Seizo** se fundiram e mantiveram o nome **Nihon Goraku Bussan**.
+
+### 1965
+
+As empresas **Nihon Goraku Bussan** e **Rosen Enterprises** se fundiram formando a **Sega Enterprises**. Pouco tempo depois, eles pararam de focar em máquinas de slots (caça-níqueis) e negócios com as bases militares. Eles se tornaram uma empresa de capital aberta e começar a focar em jogos como pinball da **Williams** e jogos de tiros da **Midway Manufacturing**. Além disso, eles passaram a fabricar seus próprios componentes como pistolas, gabinetes e até mesmo desenvolver seus próprios jogos.
+
+O primeiro jogo eletromecânico desenvolvido pela SEGA foi **Periscope** e também foi o primeiro jogo exportado para fora do Japão. Nos Estados Unidos, os estabelecimentos passaram a cobrar 25 centavos de dolár para jogar **Periscope**.
+
+### 1969
+
+A SEGA Enterprises foi adquirida pela Gulf & Western mas David Rosen e seu sócio Isao Okawa a compraram de volta em 1984 por 38 milhões de dólares. 
 
 ### 1970
 
