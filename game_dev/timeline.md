@@ -96,3 +96,4 @@ A adaptação dos games de computadores de grande porte só tomou impulso com a 
 - RePlay Magazine.  Marty Bromley Honored with Legacy Hall Induction. Available in: https://www.replaymag.com/marty-bromley-honored-with-legacy-hall-induction/.
 - Campbell-Kelly, Martin. From Airline Reservations to Sonic the Hedgehog: A History of the Software Industry. MIT Press, 2003.  
 - Wikipedia. History of SEGA. Available in: https://en.wikipedia.org/wiki/History_of_Sega.  
+- HSU, H. Oral History of Nolan Bushnell. Computer History Museum. Available in https://archive.computerhistory.org/resources/access/text/2024/11/102809021-05-01-acc.pdf.
