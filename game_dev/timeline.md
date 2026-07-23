@@ -4,7 +4,7 @@ Previous: [Game Development](game_dev.md)
 
 ### 1940
 
-Em 1940, Martin Bromley (aos 19 anos) se mudou para Hawaii junto com seu pai Irving Bromberg e seu amigo Jim Humpert e criaram uma empresa chamada **Standard Games**. A empresa oferecia máquinas de jogos operadas por moedas (_jukebox_) para membros das Forças Armadas (_service members_) que serviam nas bases militares americanas durante o período da segunda Guerra Mundial.
+Em 1940, Martin Bromley (aos 19 anos) se mudou para Hawaii junto com seu pai Irving Bromberg e seu amigo Jim Humpert e criaram uma empresa chamada **Standard Games**. A empresa oferecia máquinas de jogos operadas por moedas (_jukebox_) para membros das Forças Armadas (_service members_) que serviam nas bases militares americanas durante o período da Segunda Guerra Mundial.
 
 ### 1946
 
