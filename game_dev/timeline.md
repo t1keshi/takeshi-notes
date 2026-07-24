@@ -78,6 +78,12 @@ As máquinas de jogos equipadas com video e operadas por moedas receberam o nome
 
 ### 1972
 
+Nolan Bushnell e Ted Dabney deixaram a Nutting Associates para fundar a Atari.
+
+Magnavox entrou com uma dispusta judicial contra a Atari relativa aos direitos sobre o primeiro videogame bem sucedido **Pong**.
+
+Atari lançou outro sucesso chamado **Asteroids** que se tornou o primeiro videogame a ter enorme sucesso no mercado e associou definitivamente o nome Atari a indústria de videogames.  
+
 ### 1978
 
 **Cinematronics** lançou o jogo **Space Wars** - outra adaptação do jogo de Steve Russell.
