@@ -84,16 +84,69 @@ Magnavox entrou com uma dispusta judicial contra a Atari relativa aos direitos s
 
 Atari lançou outro sucesso chamado **Asteroids** que se tornou o primeiro videogame a ter enorme sucesso no mercado e associou definitivamente o nome Atari a indústria de videogames.  
 
+### 1976
+
+Com o sucesso de vendas de jogos arcade, a **Atari** iniciou um grande projeto de levar a experiência de jogos de arcade para dentro das casas. Este projeto chamado **Stella** - que mais tarde se tornaria o **Atari Video Computer System (VCS)** - consistia no desenvolvimento de um console baseado em cartuchos diferentes de máquinas de arcade que consista em jogos fixo. O grande problema era o alto custo para desenvolvimento e pesquisa, fabricação do console e cartuchos em larga escala e a distribuição para grandes redes varejistas.  
+
+A **Atari** foi comprada pela **Warner Communications** por 28 milhões de doláres. A **Warner Communications** injetou capital para que o projeto de consoles se tornou realidade.  
+
 ### 1978
 
 **Cinematronics** lançou o jogo **Space Wars** - outra adaptação do jogo de Steve Russell.
+
+**Nolan Bushnell** tinha uma visão mais criativa para administrar a **Atari** o que acabou entrando em conflito com a administração da **Warner Communications** que buscava maior controle financeiro e operacional. **Nolan Bushnell** deixou a **Atari** e ele foi substituído por **Ray Kassar** da indústria de têxtil onde o foco era processos empresariais tradicionais e maior foco em rentabilidade.  
 
 ### 1983
 
 **Bally Midway** lança **Disc of Tron**.  
 
+A indústria norte-americana de videogames entrou em colapso.  
+
+### 1984 
+
+Devido a crise da indústria de videogames nos Estados Unidos, a **Atari** registrou perdas superioes a US$ 500 milhões. A **Warner Communications** vendeu a **Atari** para **Jack Tramiel** - o fundador da **Commodore** - que tinha acabado de criar uma nova empresa **Tramel Technology Ltda**. Entretanto, **Jack Tramiel** comprou apenas a divisão de computadores pessoais e consoles que passou a operar como **Atari Corporation**. A divisão de jogos arcade continuou com a **Warner Communications** e passou a operar como **Atari Games**.    
+
+### 1985
+
+A **Warner Communications** formou uma joint venture com a **Namco** que tinha uma forte presença em jogos arcade no Japão. A divisão passou a operar oficialmente como **Atari Games Corporation**.  
+
+Para evitar conflitos jurídicos com a **Atari Corporation** de **Jack Tramiel** foi criada a **Tengen** para o desenvolvimento de jogos.
+
+### 1994
+
+A **Warner Communications** criou a divisão de videogames **Time Warner Interactive** e adquriu a participação restante da **Namco** controlando 100% a **Atari Games Corporation**.  
+
+### 1996
+
+A família Tramiel vendeu a **Atari Corporation** para a **JT Storage (JTS)** - fabricante de discos rígidos. Entretanto, a **JTS** não tinha interesse em entrar no mercado de videogames e a **Atari** praticamente deixou de ser utilizada pela **JTS**.
+
+A **Time Warner** abandonou o mercado de videogames e vendeu a divisão **Time Warner Interactive** (incluindo a **Atari Games**) para a **WMS Industries** que era a dona das marcas **Williams** e **Midway**. A **WMS Industries** controlava alguns dos maiores fabricantes de arcades dos Estados Unidos.
+
+### 1998
+
+A **Hasbro Interactive** adquiriu os direitos da **Atari** por US$ 5 milhões. A **Hasbro Interactive** começou a relançar o catálogo clássico da **Atari** para as plataformas atuais. 
+
+A **WMS Industries** desmembrou seus ativos de videogames em uma empresa independente chamada **Midway Games**. Os direitos da **Atari Games Corporation** passou a ser parte da **Midway Games**.
+
+### 1999
+
+Para evitar conflios de nomes com a **Hasbro Interactives**, a **Midway Games** renomeou a **Atari Games** para **Midway Games West** decretando o fim do nome **Atari games**.
+
+### 2001
+
+A empresa francesa **Infogrames Entertainment** estava em um momento de expansão adquirindo diversas empresas incluindo a **Hasbro Interactive** em 2001 por US$ 100 milhões.
+
+### 2003
+
+O estúdio **Midway Games West** foi oficionalmente fechado.  
+
+### 2009
+
+A empresa francesa **Infogrames Entertainment** mudou de nome para **Atari SA**.  
+
+A **Warner Bros. Interactive Entertainment** adquiriu grande parte dos ativos da **Midway** que entrou em falência. Muitas propriedades intelectuais da **Atari Games** voltou para as mãos da **Warner Bros. Interactive Entertainment**.
+
 ??
-Versões eletrônicas de jogos de fliperama originou a indústria de consoles de videogame. 
 A adaptação dos games de computadores de grande porte só tomou impulso com a revolução do computador pessoal. Foi então que a indústria de jogos para computador nasceu.  
 
 # References  
