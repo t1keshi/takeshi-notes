@@ -4,25 +4,25 @@ Previous: [Game Development](game_dev.md)
 
 ### 1940
 
-Em 1940, Martin Bromley (aos 19 anos) se mudou para Hawaii junto com seu pai Irving Bromberg e seu amigo Jim Humpert e criaram uma empresa chamada **Standard Games**. A empresa oferecia máquinas de jogos operadas por moedas (_jukebox_) para membros das Forças Armadas (_service members_) que serviam nas bases militares americanas durante o período da Segunda Guerra Mundial.
+Em 1940, **Martin Bromley** (aos 19 anos) se mudou para Hawaii junto com seu pai **Irving Bromberg** e seu amigo **Jim Humpert** e criaram uma empresa chamada **Standard Games**. A empresa oferecia máquinas de jogos operadas por moedas (conhecidas como _jukebox_) para membros das Forças Armadas (_service members_) que serviam nas bases militares americanas durante o período da Segunda Guerra Mundial.
 
 ### 1946
 
-A empresa de Martin Bromley cresceu e se tornou um grande negócio. Eles mudaram o nome da empresa para **Service Games**.
+A empresa de **Martin Bromley** cresceu se tornando um grande negócio. Eles mudaram o nome da empresa para **Service Games**.
 
 ### 1951
 
-Os Estados Unidos limitou o uso de máquinas operadas por moedas e baniu totalmente o seu uso em base militares americanas. Como resposta, Martin Bromley da Service Games decidiu mover a empresa para o Japão. No ano seguinte, Bromley enviou Richard Stewart e Ray LeMaire para o Japão para criar uma nova distribuidora de máquinas operadas por moedas chamada "_LeMaire and Stewart_" para as bases militares americanas que estavam no Japão.    
+Os Estados Unidos limitou o uso de máquinas operadas por moedas e baniu totalmente o seu uso em base militares americanas. Como resposta, **Martin Bromley** da **Service Games** decidiu mover a empresa para o Japão. No ano seguinte, **Martin Bromley** enviou **Richard Stewart** e **Ray LeMaire** para o Japão para criar uma nova distribuidora de máquinas operadas por moedas chamada "**LeMaire and Stewart**" para as bases militares americanas que estavam no Japão.    
 
 ### 1952
 
-Em 1952, surgiram os primeiros jogos para computadores de grande porte como **OXO** (jogo da velha) para EDSAC e **Draughts** (jogo de damas) para Ferranti Mark I. Estes jogos foram desenvolvidos por pesquisadores e alunos dentro das universidades.  
+Em 1952, surgiram os primeiros jogos para computadores de grande porte como **OXO** (_jogo da velha_) para **EDSAC** e **Draughts** (_jogo de damas_) para **Ferranti Mark I**. Estes jogos foram desenvolvidos por pesquisadores e alunos dentro das universidades.  
 
-A empresa que Martin Bromley criou no Japão passou a ser chamada de **Service Games of Japan**.  
+A empresa que **Martin Bromley** criou no Japão passou a ser chamada de **Service Games of Japan**.  
 
 ### 1953
 
-Em 1953, os fundadores de Service Games criou um grupo chamado **Service Games Panama**. O grupo expandiu seus negócios para Coréia do Sul, Filipinas e sul de Vietnã. Eles passaram a comprar máquinas operadas por moedas de **Gottlieb** e **Bally Manufacturing** para distribuição.  
+Em 1953, os fundadores de **Service Games** criou um grupo chamado **Service Games Panama**. O grupo expandiu seus negócios para Coréia do Sul, Filipinas e sul de Vietnã. Eles passaram a comprar máquinas operadas por moedas de **Gottlieb** e **Bally Manufacturing** para distribuição.  
 
 ### 1954
 
