@@ -10,6 +10,7 @@
 - [Ciclo de Desenvolvimento](lifecycle.md)  
 - [Game Development Team](teams.md)  
 - [Game Development Timeline](timeline.md)  
+- [Personalities](personalities.md)  
 
 
 # Mercado de Videogames
