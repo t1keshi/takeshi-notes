@@ -32,7 +32,12 @@ Em 1953, os fundadores de **Service Games** criou um grupo chamado **Service Gam
 
 ### 1957
 
-David Rosen começou a importar máquinas operadas por moedas dos Estados Unidos dando início ao negócio de máquinas operadas por moedas no país para estabelecimentos comerciais. Era necessário licença do Ministério da Economia, Comércio e Indústria do Japão e pagar altas taxas de cusos de importação, mas mesmo assim conseguiu o monópolio no mercado por dois anos. Nos anos seguintes, as principais concorrentes de Rosen Enterprises eram a **Taito Corporation** e **Nihon Goraku Bussan** (novo nome da Service Games of Japan).
+David Rosen começou a importar máquinas operadas por moedas dos Estados Unidos dando início ao negócio de máquinas operadas por moedas para estabelecimentos comerciais. Era necessário licença do Ministério da Economia, Comércio e Indústria do Japão e pagar altas taxas de cusos de importação, mas mesmo assim conseguiu o monópolio no mercado por dois anos. Nos anos seguintes, as principais concorrentes de Rosen Enterprises eram a **Taito Corporation** e **Nihon Goraku Bussan** (novo nome da Service Games of Japan).
+
+### 1958
+
+**Willy Higinbotham** dos laboratórios Nacional Brookhaven em Nova Iorque mostrou seu jogo simulando uma partida de tênis de mesa **Tennis for Two** em um computador analógico.
+
 
 ### 1960
 
@@ -56,6 +61,14 @@ As empresas **Nihon Goraku Bussan** e **Rosen Enterprises** se fundiram formando
 
 O primeiro jogo eletromecânico desenvolvido pela SEGA foi **Periscope** e também foi o primeiro jogo exportado para fora do Japão. Nos Estados Unidos, os estabelecimentos passaram a cobrar 25 centavos de dolár para jogar **Periscope**.
 
+### 1966
+
+**Ralph Baer**, que travalhava na **Sander Associates**, começou a pesquisar ideias para um sistema de televisão interativo equipado com um game de tênis de mesa.
+
+### 1968
+
+**Ralph Baer** patenteou a sua ideia de um sistema de televisão interativo para jogar jogos.
+
 ### 1969
 
 A **SEGA Enterprises** foi adquirida pela **Gulf & Western** mas David Rosen e seu sócio Isao Okawa a compraram de volta em 1984 por 38 milhões de dólares. 
@@ -66,7 +79,9 @@ A **SEGA Enterprises** foi adquirida pela **Gulf & Western** mas David Rosen e s
 
 Crescimento do mercado de máquinas de jogos operadas por moedas.  
 
-**Nolan Bushnell** conheceu **Ted Dabney** na empresa onde trabalhavam chamada Ampex. Eles formaram uma parceria onde Dabney ficou responsável por projetar o hardware analógico responsável por gerar imagens sem uso de computadores prográmaveis (na época não existia microprocessador comercial) e o Bushnell ficou responsável por adaptar o jogo **Spacewar!**. Nesta época, Bushnell já entendia que as regras do jogo deveriam ser entendidas em poucos segundos para atrair o jogador.
+**Nolan Bushnell** conheceu **Ted Dabney** na empresa onde trabalhavam chamada **Ampex**. Eles formaram uma parceria onde Dabney ficou responsável por projetar o hardware analógico responsável por gerar imagens sem uso de computadores prográmaveis (na época não existia microprocessador comercial) e o Bushnell ficou responsável por adaptar o jogo **Spacewar!**. Nesta época, Bushnell já entendia que as regras do jogo deveriam ser entendidas em poucos segundos para atrair o jogador.
+
+A empresa **Magnavox** adquiriu a licença de **Ralph Baer** para desenvolver **Magnavox Odyssey** - um sistema de televisão interativo com o jogo tênis de mesa e o primeiro console da história dos videogames.
 
 ### 1971 (marco histórico)
 
@@ -79,6 +94,8 @@ As máquinas de jogos equipadas com video e operadas por moedas receberam o nome
 ### 1972
 
 Nolan Bushnell e Ted Dabney deixaram a Nutting Associates para fundar a Atari.
+
+**Magnavox** introduziu para o mercado o primeiro console da história dos videogames - **Magnavox Odyssey** com o jogo **ping-pong**.
 
 Magnavox entrou com uma dispusta judicial contra a Atari relativa aos direitos sobre o primeiro videogame bem sucedido **Pong**.
 
