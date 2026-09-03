@@ -2,14 +2,17 @@
 
 # Payment Technology    
 
+- [Smart Cards](smart_cards.md)  
 - [POS Development](pospos.md)    
 - EMV
+- Card Payment
 - ISO 7816
 - APDU
 - Criptografia
 - Kernel de pagamento
 - Contactless
-- PCI
+- PCI DSS / PCI PTS  
+- HSM / Cryptography  
 
 # References
 
