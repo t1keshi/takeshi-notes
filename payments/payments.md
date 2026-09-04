@@ -16,5 +16,4 @@
 
 # References
 
-- RANKL, W., EFFING, W. Smart Card Handbook. 4th edition. John Wiley & Sons Ltd, 2020.  
 - https://github.com/GrimzEcho/intro-to-smartcard-development  
