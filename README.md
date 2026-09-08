@@ -3,6 +3,7 @@
 This repository brings together all my notes made throughout my studies in Computer Science and Game Development.
 
 - [Programming Languages](prog_langs/programming_langs.md)  
+- [C Programming Language](c-programming-language/_c.md)  
 - [C++ programming language](cpp-programming-language/_cpp.md)  
 - [Computer Organization and Architecture](computer_organization_and_architecture/coa.md)  
 - [Computer Network](computer_network/computer_network.md)  
