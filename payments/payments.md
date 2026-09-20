@@ -1,8 +1,10 @@
-[Home](../README.md)  
+Previous: [Home](../README.md)  
 
 # Payment Technology    
 
 - [Smart Cards](smart_cards.md)  
+
+??
 - [POS Development](pospos.md)    
 - EMV
 - Card Payment
@@ -16,4 +18,5 @@
 
 # References
 
+- RANKL, W., EFFING, W. Smart Card Handbook, 3rd ed. Wiley, 2002.  
 - https://github.com/GrimzEcho/intro-to-smartcard-development  

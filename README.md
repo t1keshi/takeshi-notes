@@ -2,6 +2,8 @@
 
 This repository brings together all my notes made throughout my studies in Computer Science and Game Development.
 
+> **Note:** The notes were originally written in Brazilian Portuguese (PT-BR) and will be translated into English over time.
+
 - [Programming Languages](prog_langs/programming_langs.md)  
 - [C Programming Language](c-programming-language/_c.md)  
 - [C++ programming language](cpp-programming-language/_cpp.md)  
@@ -14,10 +16,11 @@ This repository brings together all my notes made throughout my studies in Compu
 - [Game Development](game_dev/game_dev.md)  
 - [GLTF](gltf/gltf.md)  
 - [Linux](linux/linux.md)  
-- [Payments Technology](payments/payments.md)  
 
-### Compilation & Building
+# Compilation & Building
 
 - [Apache Ant](bulding/ant.md)  
 
-> **Note:** The notes were originally written in Brazilian Portuguese (PT-BR) and will be translated into English over time.
+# Payment Technology
+
+- [Payment Technology](payments/payments.md)  
