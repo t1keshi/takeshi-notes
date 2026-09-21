@@ -3,9 +3,9 @@ Previous: [Payments Technology](payments.md)
 # Smart Cards  
 
 - Modern smart card operating systems currently comprise 120000 lines of source code.  
+- These small, colorful plastic cards with their semiconductor chips continue to spread from their original countries, Germany and France, throughout the world.  
 
-- Modern smart card has operating system  
-- The smart cards have origin in Germany and France  
+
 - The smart card properties are strongly based on international standards. This is fundamentally important with regard to the usually compulsory need
 for interoperability.  
 
