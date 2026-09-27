@@ -8,6 +8,7 @@
 - Instantiation focuses on the rules for name binding.  
 - Templates and Hierarchies explains how templates and class hierarchies can be used in combination.  
 - Metaprogramming explores how templates can be used to generate programs. Templates provide a Turing-complete mechanism for generating code.  
+- variadic templates
 
 
 # Referências

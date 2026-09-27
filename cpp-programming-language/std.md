@@ -2,8 +2,9 @@ Previous: [C++ Programming Language](_cpp.md)
 
 # C++ Standard Library (std)
 
-The standard library itself is also a fertile source of programming examples and design techniques.
+"The standard library itself is also a fertile source of programming examples and design techniques."
 
+Improved containers (including, hash tables)
 
 # References
 

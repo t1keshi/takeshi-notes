@@ -3,6 +3,45 @@
 
 # C++ Design
 
+- It is particularly suited for resource-constrained applications, such as those found in software infrastructures.
+- Buscando desempenho (run faster)
+- looking for something "closer to the machine"
+- Please remember that those libraries and language features exist to support programming techniques for developing quality software. They are meant to be used in combination – as bricks in a building set – rather than to be used individually in relative isolation to solve a specific problem.
+- A "high-quality library," is a library that provides a concept to a user in the form of one or more classes that are convenient, safe, and efficient to use. In this context, safe means that a class provides a specific type-safe interface between the users of the library and its providers; efficient means that use of the class does not impose significant overheads in run-time or space on the user compared with handwritten C code.
+- C++ is a general-purpose programming language; its core application domain is systems programming in the broadest sense.
+
+A programmer can partition an application into manageable pieces by defining new types that closely match the concepts of the application. This technique for program construction is often called data abstraction. Objects of some user-defined types contain type information. Such objects can be used conveniently and safely in contexts in which their type cannot be determined at compile time. Programs using objects of such types are often called object based.
+
+The key concept in C++ is class. A class is a user-defined type. Classes provide data hiding, guaranteed initialization of data, implicit type conversion for user-defined types, dynamic typing, user-controlled memory management, and mechanisms for overloading operators. C++ provides much better facilities for type checking and for expressing modularity than C does. It also contains improvements that are not directly related to classes, including symbolic constants, inline substitution of functions, default function arguments, overloaded function names, free store management operators, and a reference type. C++ retains C’s ability to deal efficiently with the fundamental objects of the hardware (bits, bytes, words, addresses, etc.). This allows the user-defined types to be implemented with a pleasing degree of efficiency.
+
+C++ and its standard libraries are designed for portability. The current implementation will run on most systems that support C. C libraries can be used from a C++ program, and most tools that support programming in C can be used with C++.
+
+# Compile-time Checking
+
+A verificação em tempo de compilação (**compile-time checking**) é fundamental em C++. Ela permite detectar vários erros obscuros antes da execução do programa como:
+
+- Erros de conversão implícita de tipos (_type casting_)
+- Erros de chamadas de função com tipos de argumentos incompatíveis
+- Erros de verificação de tipos em templates   
+- Erros de interface de classes  
+- Tentativas de modificação de objetos com qualificador ```const```  
+- Permite chamadas de ```static_assert``` em tempo de compilação
+- concepts (C++20)  
+
+O uso de tipos definidos pelo usuário por si só já previne diversos erros em tempo de execução ao atribuir objetos de um tipo para ponteiros de outro tipo. Por exemplo:
+
+```
+    void foo(void* obj);
+
+    // passar acidentalmente um objeto errado
+    foo(&wrongOjb);
+```
+
+Encontrar erros em tempo de compilação reduz o tempo de depuração do programa, torna o código mais robusto e mais fácil de manter.
+
+
+# C++ Design
+
 A linguagem de programação C++ teve a sua origem em programação de sistemas onde era essencial lidar com ambientes com recursos limitados e alta demanda de desempenho.
 
 Ao mesmo tempo, _Stroustrup_ buscava incorporar conceitos de alto nível na linguagem através de mecanismos de abstração (_lightweight abstractions_). A linguagem **Simula** serviu de grande inspiração para cumprir este objetivo. O objetivo era poder representar conceitos e ideias diretamente através de código sem comprometer a eficiência e o desempenho necessário para trabalhar com programação de sistemas.  

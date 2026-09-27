@@ -14,6 +14,9 @@ separation between an interface (an abstract class) and its implementations (der
 
 ??
 "A class is a user-defined type provided to represent a concept in the code of a program."
+- abstract classes
+- multiple inheritance
+- const and static member functions
 
 # Classes concretas
 
