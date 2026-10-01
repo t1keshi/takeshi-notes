@@ -152,4 +152,4 @@ CEN
 
 # References  
 
-- RANKL, W., EFFING, W. Smart Card Handbook. 4th edition. John Wiley & Sons Ltd, 2010.  
+- RANKL, W., EFFING, W. Smart Card Handbook. 3th edition. John Wiley & Sons Ltd, 2002.  
