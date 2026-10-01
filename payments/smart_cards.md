@@ -88,6 +88,24 @@ In summary, the essential advantages of microprocessor cards are large storage c
 
 ## Contactless Cards
 
+Contactless cards, in which energy and data are transferred without any electrical contact between the card and the terminal, have achieved the status of commercial products in the last few years. Presently, both memory cards and microprocessor cards are available as contactless cards. Although contactless microprocessor cards can usually work at a distance of only a few centimeters from the terminal, contactless memory cards can be used up to a meter away from the terminal. This means that such cards do not necessarily have to be held in the user’s hand during use, but can remain in the user's purse or wallet.
+
+Contactless cards are thus particularly suitable for applications in which persons or objects should be quickly identified. Sample applications are:
+
+- access control,
+- local public transportation,
+- ski passes,
+- airline tickets,
+- baggage identification.
+
+However, there are also applications where operation over a long distance could cause problems and should thus be prevented. A typical example is an electronic purse. A declaration of intent on the part of the cardholder is normally required to complete a financial transaction. This confirms the amount of the payment and the cardholder’s agreement to pay. With a contactless card, this declaration takes the form of inserting the card in the terminal and confirming the indicated amount using the keypad. If contactless payments over relatively long distances were possible, a ‘con artist’ could remove money from the electronic purse without the knowledge of the cardholder. Dual-interface cards (sometimes called ‘combicards’) offer a possible solution to this problem. These cards combine contact and contactless interfaces in a single card. Such a card can communicate with the terminal via either its contact interface or its contactless interface, according to what is desired.
+
+There is great interest in contactless cards in the field of local public transportation. If the smart cards presently used in payment systems, which are generally contact-type cards, can have their functionality extended to include acting as electronic tickets with contactless interfaces, transportation operators could use the existing infrastructure and cards of the credit card industry.
+
+# Standardization
+
+
+
 # Payment types
 
 - Eletronic purse systems  
