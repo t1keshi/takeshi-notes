@@ -104,7 +104,45 @@ There is great interest in contactless cards in the field of local public transp
 
 # Standardization
 
+The prerequisite for the worldwide penetration of smart cards into everyday life, such as their current use in Germany in the form of telephone cards, health insurance cards and bank cards, has been the creation of national and international standards.  
 
+A smart card is normally one component of a complex system. This means that the interfaces between the card and the rest of the system must be precisely specified and matched to teach other. Of course, this could be done for each system on a case-by-case basis, without regard to other systems. However, this would mean that a different type of smart card would be needed for each system. Users would thus have to carry a separate card for each application. In order to avoid this, an attempt has been made to generate application-independent standards that allow multifunctional cards to be developed.
+
+Since the smart card is usually the only component of the system that the user holds in his or her hand, it is enormously important with regard to the recognition and acceptance of the entire system. Nonetheless, from a technical and organizational perspective, the smart card is usually only the tip of the iceberg, since complex systems (which are usually networked) are quite often hidden behind the card terminal, and it is these systems that make the services possible in the first place.
+
+Let us take telephone cards as an example. In technical terms, they are fairly simple objects. By themselves, they are almost worthless, except perhaps as collector’s items. Their true function, which is to allow public telephones to be used without coins, can be realized only after umpteen thousand card phones have been installed throughout a region and connected to a network. The large investments required for this can only be justified if the long-term viability of the system is ensured by appropriate standards and specifications. Standards are also an indispensable prerequisite for multifunctional smart cards used for several applications, such as telephony, electronic purses, electronic tickets and so on.
+
+As can be seen, there are two technical committees that are concerned with the standardization of smart cards. The first is ISO TC68/SC6, which is responsible for the standardization of cards used in the financial transaction area, while the second is ISO/IEC JTC1/SC17, which is responsible for general applications. This division has historical roots, since the first international applications were for identification cards used for financial transactions. The number of applications has naturally increased enormously since then, so the general standards, which are looked after by the SC17 committee, have taken on greater significance. The standards specifically related to financial transactions can thus be regarded as a subset of the general standards.
+
+Within CEN, the general subject of smart cards is dealt with by the TC224 committee (‘Machine-readable Cards, Related Device Interfaces and Procedures’). The activities of CEN complement those of ISO. ISO standards are adopted as CEN standards where possible, which means they must be translated into the three official CEN languages (English, French and German). They may also be enlarged or reduced as necessary to comply with specific European conditions. The CEN working groups also produce application-specific standards, which would not be possible as such within ISO.
+
+An additional European standardization body, the European Telecommunications Standards Institute (ETSI), has made a significant contribution to the widespread international use of smart cards. ETSI is the standardization body of the European telecommunications companies and telecommunication industry. The GSM 11.11 family of standards specifies the interface between the smart card (referred to as the ‘subscriber identity module’ (SIM) in the GSM system) and the mobile telephone. This family of standards is based on the ISO/IEC standards. With the international proliferation of GSM systems beyond the boundaries of Europe, the ETSI standards have become highly important for the smart card industry.
+
+After more than 20 years of standardization effort, the most important basic ISO standards for smart cards are now complete. They form the basis for further, application-specific standards, which are currently being prepared by ISO and CEN. These standards are based on prior ISO standards in the 7810, 7811, 7812 and 7813 families, which define the properties of identification cards in the ID-1 format. These standards include embossed cards and cards with magnetic stripes, which we all know in the form of credit cards.
+
+Compatibility with these existing standards was a criterion from the very beginning in the development of standards for smart cards (which are called ‘integrated circuit(s) cards’, or ‘ICC’, in the ISO standards), in order to provide a smooth transition from embossed cards and magnetic-stripe cards to smart cards. Such a transition is possible because all functional components, such as embossing, magnetic stripes, contacts and interface components for contactless interfaces, can be integrated into a single card. Of course, a consequence of this is that the integrated circuits, which are sensitive electronic components, are exposed to high stresses
+during the embossing process and recurrent impact stresses when the embossed characters are printed onto paper. This makes heavy demands on the packaging of the integrated circuits and the manner in which they are embedded in the card.
+
+ISO
+
+- TC68 (Banks)  
+- SC6 (Transaction cards)  
+    - WG5 (messages & data contents)
+    - WG7 (security architecture - ISO 10 202, ISO 11 568)  
+
+IEC
+
+- JTC1 (Information Technology)  
+- SC17 (IC Cards & related devices)  
+    - WG1 (physical properties & test methods - ISO/IEC 7810, ISO/IEC 7811, ISO/IEC 7813, ISO/IEC 10 373)
+    - WG4 (ICC with contacts - ISO/IEC 7816)  
+    - WG5 (registration - ISO/IEC 7812)  
+    - WG8 (contactless ICC - ISO/IEC 10 536, ISO/IEC 14 443, ISO/IEC 15 693)  
+    - WG9 (optical cards and equipment - ISO/IEC 11 694)    
+
+CEN
+
+- TC224 (Machina readable Cards, Related Device Interfaces and Procedures)
 
 # Payment types
 
