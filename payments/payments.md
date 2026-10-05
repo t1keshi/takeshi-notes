@@ -3,10 +3,10 @@ Previous: [Home](../README.md)
 # Payment Technology    
 
 - [Smart Cards](smart_cards.md)  
+- [EMV](emv.md)  
 
 ??
 - [POS Development](pospos.md)    
-- EMV
 - Card Payment
 - ISO 7816
 - APDU
@@ -15,6 +15,7 @@ Previous: [Home](../README.md)
 - Contactless
 - PCI DSS / PCI PTS  
 - HSM / Cryptography  
+
 
 # References
 

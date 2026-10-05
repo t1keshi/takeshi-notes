@@ -28,3 +28,7 @@ This repository brings together all my notes made throughout my studies in Compu
 # AI
 
 - [Anthropic Claude Code](ai/claude.md)   
+
+# 3D Modeling
+
+- [Blender 3D](blender/blender.md)  
