@@ -2,6 +2,8 @@
 
 # Templates
 
+Many of the most flexible, efficient, and useful abstractions involve the parameterization of types (classes) and algorithms (functions) with other types and algorithms:
+
 - Templates presents the basic principles behind templates and their use. Class templates, function templates, and template aliases are presented.  
 - Generic Programming introduces the basic techniques for designing generic programs. The technique of lifting an abstract algorithm from a number of concrete code examples is central, as is the notion of concepts specifying a generic algorithm’s requirements on its arguments  
 - Specialization describes how templates are used to generate classes and functions, specializations, given a set of template arguments.  

@@ -32,9 +32,9 @@ Segue a lista de versões da especificação de C++:
 - ISO/IEC 14882:2020 (C++20 ou C++2a)
 - ISO/IEC 14882:2024(E)
 
-> **Nota:**  A linguagem **C++03** é essencialmente a mesma que **C++98**. Ela contém apenas "bug fixes".
+> **Nota:**  A linguagem **C++03** é essencialmente a mesma que **C++98**. Ela contém apenas "bug fixes".  
 
-Outro recurso online muito útil para referência pode ser encontrado em [https://en.cppreference.com/w/cpp](https://en.cppreference.com/w/cpp).
+Outro recurso online muito útil para referência pode ser encontrado em [https://en.cppreference.com/w/cpp](https://en.cppreference.com/w/cpp).  
 
 A melhor forma de aprender a linguagem é realizar os seus próprios experimentos. Consulte com frequência a documentação, faça alterações nos exemplos e veja os efeitos destas alterações. Além disso, configure as opções do compilador para exibir todos os avisos. Estude cada mensagem gerada pelo compilador e elimine os avisos. Testar o seu código em múltiplas plataformas e compiladores também é uma boa prática para melhorar a portabilidade do seu código e aprender as diferenças entre diversas plataformas.
 
